@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 using Photon.Pun;
 using Photon.Realtime;
+using System.Diagnostics;
 
 
 public class MenuManager : MonoBehaviourPunCallbacks, ILobbyCallbacks
@@ -38,7 +39,6 @@ public class MenuManager : MonoBehaviourPunCallbacks, ILobbyCallbacks
         createRoomButton.interactable = false;
         findRoomButton.interactable = false;
 
-
         Cursor.lockState = CursorLockMode.None;
 
         if(PhotonNetwork.InRoom)
@@ -51,6 +51,7 @@ public class MenuManager : MonoBehaviourPunCallbacks, ILobbyCallbacks
     {
         createRoomButton.interactable = true;
         findRoomButton.interactable = true;
+        
     }
 
     public void SetScreen(GameObject screen)
