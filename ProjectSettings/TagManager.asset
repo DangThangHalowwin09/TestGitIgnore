@@ -4,6 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Ground
+  - Block
   - Enemy
   layers:
   - Default
@@ -41,4 +43,19 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 1463195867
+    locked: 0
+  - name: Pickups
+    uniqueID: 2785593917
+    locked: 0
+  - name: Enemy
+    uniqueID: 2769998703
+    locked: 0
+  - name: Player
+    uniqueID: 4265925743
+    locked: 0
+  - name: UI
+    uniqueID: 3888072827
     locked: 0
