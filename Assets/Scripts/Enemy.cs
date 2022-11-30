@@ -100,6 +100,12 @@ public class Enemy : MonoBehaviourPun
                         anim.SetBool("Walk", false);
                         rb.velocity = Vector2.zero;
                     }
+                }else if(dist < chaseRange)
+                {
+                    if(targetPlayer == null)
+                    {
+                        targetPlayer = player;
+                    }
                 }
             }
         }
