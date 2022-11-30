@@ -96,6 +96,7 @@ public class PlayerController : MonoBehaviourPun
         if (hit.collider != null && hit.collider.gameObject.CompareTag("Enemy"))
         {
             Enemy enemy = hit.collider.GetComponent<Enemy>();
+            enemy.photonView.RPC("TakeDamage", RpcTarget.MasterClient, damage);
         }
                 
     }
