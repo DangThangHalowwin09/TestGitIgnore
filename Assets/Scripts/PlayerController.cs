@@ -37,7 +37,12 @@ public class PlayerController : MonoBehaviourPun
         GameManager.instance.players[id - 1] = this;
         headerInfo.Initialized(player.NickName, maxHP);
         GameUI.instance.UpdateHPText(currentHP, maxHP);
-        
+
+        if (PlayerPrefs.HasKey("Gold"))
+        {
+            gold = PlayerPrefs.GetInt("Gold");
+        }
+
         if (player.IsLocal)
             me = this;
         else
@@ -119,6 +124,7 @@ public class PlayerController : MonoBehaviourPun
         {
             photonView.RPC("FlashDamage", RpcTarget.All);
         }
+        GameUI.instance.UpdateHPText(currentHP, maxHP);
     }
     [PunRPC]
     void FlashDamage()
@@ -149,5 +155,19 @@ public class PlayerController : MonoBehaviourPun
         transform.position = SpawnPos;
         currentHP = maxHP;
         rig.isKinematic = false;
+    }
+    [PunRPC]
+    void Heal(int amountToHeal)
+    {
+        currentHP = Mathf.Clamp(currentHP + amountToHeal, 0, maxHP);
+        headerInfo.photonView.RPC("UpdateHealthBar", RpcTarget.All, currentHP);
+        GameUI.instance.UpdateHPText(currentHP, maxHP);
+    }
+    [PunRPC]
+    void GetGold(int goldToGive)
+    {
+        gold += goldToGive;
+        PlayerPrefs.SetInt("Gold", gold);
+        GameUI.instance.UpdateGoldText(gold);
     }
 }
