@@ -36,6 +36,8 @@ public class PlayerController : MonoBehaviourPun
         photonPlayer = player;
         GameManager.instance.players[id - 1] = this;
         headerInfo.Initialized(player.NickName, maxHP);
+        GameUI.instance.UpdateHPText(currentHP, maxHP);
+        
         if (player.IsLocal)
             me = this;
         else
