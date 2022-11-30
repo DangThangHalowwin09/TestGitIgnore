@@ -26,8 +26,8 @@ public class PlayerController : MonoBehaviourPun
     public int currentHP;
     public int maxHP;
     public bool dead;
-
     public static PlayerController me;
+    public HeaderInformation headerInfo;
 
     [PunRPC]
     public void Initialized(Player player)
@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviourPun
         id = player.ActorNumber;
         photonPlayer = player;
         GameManager.instance.players[id - 1] = this;
+        headerInfo.Initialized(player.NickName, maxHP);
         if (player.IsLocal)
             me = this;
         else
@@ -107,8 +108,8 @@ public class PlayerController : MonoBehaviourPun
     public void TakeDamage(int damageamount)
     {
         currentHP -= damageamount;
-
-        if(currentHP <= 0)
+        headerInfo.photonView.RPC("UpdateHealthBar", RpcTarget.All, currentHP);
+        if (currentHP <= 0)
         {
             Die();
         }
@@ -134,7 +135,7 @@ public class PlayerController : MonoBehaviourPun
         dead = true;
         rig.isKinematic = true;
         transform.position = new Vector3(0, 90, 0);
-
+        
         Vector3 spawnPos = GameManager.instance.spawnPoint[Random.Range(0, GameManager.instance.spawnPoint.Length)].position;
         StartCoroutine(Spawn(spawnPos, GameManager.instance.respawnTime));
     }

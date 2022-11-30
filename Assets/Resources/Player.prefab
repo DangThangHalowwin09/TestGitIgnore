@@ -166,6 +166,7 @@ MonoBehaviour:
   currentHP: 5
   maxHP: 5
   dead: 0
+  headerInfo: {fileID: 1021172991682601483}
 --- !u!95 &8288020763683522264
 Animator:
   serializedVersion: 4
@@ -288,6 +289,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8288020763683522265}
     m_Modifications:
+    - target: {fileID: 4367840670375923122, guid: a559fa306644df7499f9c41c10f09741, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5275376207614774983, guid: a559fa306644df7499f9c41c10f09741, type: 3}
       propertyPath: m_Name
       value: UI Health Info
@@ -376,47 +381,23 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7782631249609315173, guid: a559fa306644df7499f9c41c10f09741, type: 3}
+      propertyPath: sceneViewId
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a559fa306644df7499f9c41c10f09741, type: 3}
---- !u!1 &7766205976587785512 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5275376207614774983, guid: a559fa306644df7499f9c41c10f09741, type: 3}
+--- !u!114 &1021172991682601483 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3231635000744753636, guid: a559fa306644df7499f9c41c10f09741, type: 3}
   m_PrefabInstance: {fileID: 2518353892151581679}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3231635000744753636
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7766205976587785512}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be8e6f2a5100c674a94eed22c5916cbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7782631249609315173
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7766205976587785512}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObservedComponentsFoldoutOpen: 1
-  Group: 0
-  prefixField: -1
-  Synchronization: 3
-  OwnershipTransfer: 0
-  observableSearch: 2
-  ObservedComponents: []
-  sceneViewId: 0
-  InstantiationId: 0
-  isRuntimeInstantiated: 0
 --- !u!224 &7856483046514430995 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5761555490202308604, guid: a559fa306644df7499f9c41c10f09741, type: 3}

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2171621810410158941}
   - component: {fileID: 3702145059055291890}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Player Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -299,6 +299,8 @@ GameObject:
   - component: {fileID: 6760895218298368042}
   - component: {fileID: 4367840670375923122}
   - component: {fileID: 7558085216758826403}
+  - component: {fileID: 3231635000744753636}
+  - component: {fileID: 7782631249609315173}
   m_Layer: 5
   m_Name: UI Health Info
   m_TagString: Untagged
@@ -326,7 +328,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -6.9843, y: 4.42}
+  m_AnchoredPosition: {x: -6.984314, y: 4.419983}
   m_SizeDelta: {x: 1903.8252, y: 686.2051}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &6760895218298368042
@@ -372,7 +374,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &7558085216758826403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -390,3 +392,39 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &3231635000744753636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5275376207614774983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be8e6f2a5100c674a94eed22c5916cbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerName: {fileID: 3702145059055291890}
+  healthBar: {fileID: 7045706153764209143}
+--- !u!114 &7782631249609315173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5275376207614774983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
