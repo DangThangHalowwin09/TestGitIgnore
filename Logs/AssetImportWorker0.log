@@ -15,7 +15,7 @@ E:/Unity/Project/Project Clone/TestGitIgnore
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-62020
+61580
 Successfully changed project path to: E:/Unity/Project/Project Clone/TestGitIgnore
 E:/Unity/Project/Project Clone/TestGitIgnore
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -47,7 +47,7 @@ E:/Unity/Project/Project Clone/TestGitIgnore
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Refreshing native plugins compatible for Editor in 92.90 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 223.65 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.3.11f1 (0a5ca18544bf)
 [Subsystems] Discovering subsystems at path E:/Unity/Unity Hub/2021.3.11f1/Editor/Data/Resources/UnitySubsystems
@@ -63,37 +63,37 @@ Initialize mono
 Mono path[0] = 'E:/Unity/Unity Hub/2021.3.11f1/Editor/Data/Managed'
 Mono path[1] = 'E:/Unity/Unity Hub/2021.3.11f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'E:/Unity/Unity Hub/2021.3.11f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56396
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56296
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: E:/Unity/Unity Hub/2021.3.11f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.003294 seconds.
+Registered in 0.003023 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 108.67 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 91.13 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.672 seconds
+- Completed reload, in  0.700 seconds
 Domain Reload Profiling:
-	ReloadAssembly (672ms)
-		BeginReloadAssembly (104ms)
+	ReloadAssembly (701ms)
+		BeginReloadAssembly (137ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (474ms)
-			LoadAssemblies (104ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (106ms)
+		EndReloadAssembly (459ms)
+			LoadAssemblies (135ms)
+			RebuildTransferFunctionScriptingTraits (1ms)
+			SetupTypeCache (109ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (28ms)
-			SetupLoadedEditorAssemblies (293ms)
+			RebuildScriptCaches (26ms)
+			SetupLoadedEditorAssemblies (275ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (6ms)
+				InitializePlatformSupportModulesInManaged (5ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (109ms)
+				RefreshPlugins (91ms)
 				BeforeProcessingInitializeOnLoad (2ms)
-				ProcessInitializeOnLoadAttributes (133ms)
+				ProcessInitializeOnLoadAttributes (132ms)
 				ProcessInitializeOnLoadMethodAttributes (44ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
@@ -101,51 +101,51 @@ Domain Reload Profiling:
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.017344 seconds.
+Registered in 0.005468 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image E:\Unity\Project\Project Clone\TestGitIgnore\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image E:\Unity\Project\Project Clone\TestGitIgnore\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 90.45 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 90.56 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.258 seconds
+- Completed reload, in  1.251 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1259ms)
-		BeginReloadAssembly (147ms)
+	ReloadAssembly (1252ms)
+		BeginReloadAssembly (115ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (6ms)
+			DisableScriptedObjects (5ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (19ms)
-		EndReloadAssembly (995ms)
-			LoadAssemblies (189ms)
+		EndReloadAssembly (1015ms)
+			LoadAssemblies (143ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (253ms)
-			ReleaseScriptCaches (2ms)
-			RebuildScriptCaches (64ms)
-			SetupLoadedEditorAssemblies (491ms)
+			SetupTypeCache (278ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (78ms)
+			SetupLoadedEditorAssemblies (475ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (3ms)
 				SetLoadedEditorAssemblies (0ms)
 				RefreshPlugins (91ms)
-				BeforeProcessingInitializeOnLoad (85ms)
-				ProcessInitializeOnLoadAttributes (259ms)
-				ProcessInitializeOnLoadMethodAttributes (51ms)
+				BeforeProcessingInitializeOnLoad (83ms)
+				ProcessInitializeOnLoadAttributes (250ms)
+				ProcessInitializeOnLoadMethodAttributes (47ms)
 				AfterProcessingInitializeOnLoad (2ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (6ms)
+			AwakeInstancesAfterBackupRestoration (5ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
-Refreshing native plugins compatible for Editor in 0.98 ms, found 4 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Refreshing native plugins compatible for Editor in 0.89 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 4310 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 44 unused Assets / (56.6 KB). Loaded Objects now: 4762.
-Memory consumption went from 161.2 MB to 161.2 MB.
-Total: 3.945600 ms (FindLiveObjects: 0.375300 ms CreateObjectMapping: 0.316600 ms MarkObjects: 3.125800 ms  DeleteObjects: 0.126800 ms)
+Unloading 4313 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 44 unused Assets / (56.6 KB). Loaded Objects now: 4766.
+Memory consumption went from 161.4 MB to 161.3 MB.
+Total: 4.468800 ms (FindLiveObjects: 0.383500 ms CreateObjectMapping: 0.341800 ms MarkObjects: 3.414600 ms  DeleteObjects: 0.327600 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -160,79 +160,581 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 331127.776769 seconds.
-  path: Assets/Sprites/Square.png
-  artifactKey: Guid(3f7f05cc9c6eef4468cfd09c1ddfc16e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/Square.png using Guid(3f7f05cc9c6eef4468cfd09c1ddfc16e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd89146094cfc666eea9cdbac2de89001') in 0.140593 seconds 
+  Time since last request: 352559.310834 seconds.
+  path: Assets/Photon
+  artifactKey: Guid(98951132346795f438babe7a3183da43) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Photon using Guid(98951132346795f438babe7a3183da43) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'df9b6b4c61759d2bb6bfd1d8cb1daa9e') in 0.015680 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 512.703978 seconds.
-  path: Assets/Prefabs/UI Health Info.prefab
-  artifactKey: Guid(a559fa306644df7499f9c41c10f09741) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/UI Health Info.prefab using Guid(a559fa306644df7499f9c41c10f09741) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '85a6e6a187dc9c6104faa33aea558745') in 0.086789 seconds 
+  Time since last request: 0.000021 seconds.
+  path: Assets/Resources
+  artifactKey: Guid(1c0748eaffa0f71429f8d62eed94ae6e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources using Guid(1c0748eaffa0f71429f8d62eed94ae6e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a7d3413c86eef94d65198504d2485673') in 0.006296 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 175.711597 seconds.
-  path: Assets/Prefabs/UI Health Info.prefab
-  artifactKey: Guid(a559fa306644df7499f9c41c10f09741) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/UI Health Info.prefab using Guid(a559fa306644df7499f9c41c10f09741) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '365f16156a1a11b003b927613e056175') in 0.029907 seconds 
+  Time since last request: 0.297934 seconds.
+  path: Assets/Assets/Audio
+  artifactKey: Guid(5c31a9c392d6d4747a9e9d91b53859ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Assets/Audio using Guid(5c31a9c392d6d4747a9e9d91b53859ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2c0dd7785bc87a1fc1e7c0351b1d7b94') in 0.006862 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 292.259196 seconds.
-  path: Assets/Scripts
-  artifactKey: Guid(bc9d36ddd99156242a4519da6b871b8c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts using Guid(bc9d36ddd99156242a4519da6b871b8c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0b5fbe066d53c43cb629b630f88b9b35') in 0.007523 seconds 
+  Time since last request: 0.521224 seconds.
+  path: Assets/Assets/Enemy
+  artifactKey: Guid(392606536658e36428fd5f7f603bf9f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Assets/Enemy using Guid(392606536658e36428fd5f7f603bf9f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7c44178079669f8ac92c354d9cea0b02') in 0.006071 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 11.128560 seconds.
-  path: Assets/Scripts/HeaderInformation.cs
-  artifactKey: Guid(be8e6f2a5100c674a94eed22c5916cbc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/HeaderInformation.cs using Guid(be8e6f2a5100c674a94eed22c5916cbc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '76e9a65c183f59979843966fbc6171ba') in 0.020862 seconds 
+  Time since last request: 1.436512 seconds.
+  path: Assets/Assets/Enemy/Big Knight
+  artifactKey: Guid(54f62336b44b2684ba07ccfa425274ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Assets/Enemy/Big Knight using Guid(54f62336b44b2684ba07ccfa425274ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4c4db5691285e136103e6578067ee45d') in 0.012357 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 543.266273 seconds.
+  path: Assets/Photon/PhotonUnityNetworking/Demos/Shared Assets/Animations/HumanoidCrouch.fbx
+  artifactKey: Guid(d89ea37480b6d75458aa38843e9688dc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Photon/PhotonUnityNetworking/Demos/Shared Assets/Animations/HumanoidCrouch.fbx using Guid(d89ea37480b6d75458aa38843e9688dc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c071c11cdd52aeeb90eee6046d04a11c') in 0.110168 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Photon/PhotonUnityNetworking/Demos/Shared Assets/Animations/HumanoidJumpAndFall.fbx
+  artifactKey: Guid(51dd2e4c869794f75a0df7d54b210214) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Photon/PhotonUnityNetworking/Demos/Shared Assets/Animations/HumanoidJumpAndFall.fbx using Guid(51dd2e4c869794f75a0df7d54b210214) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5e1ce903ba4f6e51d636f49164d57520') in 0.023427 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Photon/PhotonUnityNetworking/Demos/Shared Assets/Animations/HumanoidStandTurn.fbx
+  artifactKey: Guid(6fb3851da6a6f5948ab6892bee8ba920) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Photon/PhotonUnityNetworking/Demos/Shared Assets/Animations/HumanoidStandTurn.fbx using Guid(6fb3851da6a6f5948ab6892bee8ba920) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '615562648032d602b74ac0c0a536d6f0') in 0.032395 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000049 seconds.
+  path: Assets/Photon/PhotonUnityNetworking/Demos/Shared Assets/Animations/HumanoidIdle.fbx
+  artifactKey: Guid(dffa50cfe77e0434bbfa71245b3dd529) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Photon/PhotonUnityNetworking/Demos/Shared Assets/Animations/HumanoidIdle.fbx using Guid(dffa50cfe77e0434bbfa71245b3dd529) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5ff4bf0b133d4f0164a28f3c12449ac9') in 0.023300 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Photon/PhotonUnityNetworking/Demos/Shared Assets/Animations/HumanoidRunTurnSharp.fbx
+  artifactKey: Guid(f2bed5dc5afacff44a00de8daae9703b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Photon/PhotonUnityNetworking/Demos/Shared Assets/Animations/HumanoidRunTurnSharp.fbx using Guid(f2bed5dc5afacff44a00de8daae9703b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7a47caa0bdd094b1e8b8fcba98fe8877') in 0.023898 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Photon/PhotonUnityNetworking/Demos/Shared Assets/Animations/HumanoidRun.fbx
+  artifactKey: Guid(1cb8ed3cbba15f0479fbae54e0a963df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Photon/PhotonUnityNetworking/Demos/Shared Assets/Animations/HumanoidRun.fbx using Guid(1cb8ed3cbba15f0479fbae54e0a963df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7d0cd38e871470553cbf2d71f7262aa2') in 0.027994 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Photon/PhotonUnityNetworking/Demos/DemoSlotRacer/Kenney Assets/Stylized city/Models/car_1.FBX
+  artifactKey: Guid(1ec55baed88ac07429a52bee4c519015) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Photon/PhotonUnityNetworking/Demos/DemoSlotRacer/Kenney Assets/Stylized city/Models/car_1.FBX using Guid(1ec55baed88ac07429a52bee4c519015) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd8637e933f1bfed42a8b407e12172982') in 0.490220 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.898206 seconds.
+  path: Assets/Assets/Grid.prefab
+  artifactKey: Guid(29c3d1288760b3844a37beeabd68fb42) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Assets/Grid.prefab using Guid(29c3d1288760b3844a37beeabd68fb42) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '78f30458569ba2d308fc151fb67591a2') in 0.218332 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Teiledmap/Overworld_169.asset
+  artifactKey: Guid(a2e78a6e427ef7247987ada3898a09e7) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld_169.asset using Guid(a2e78a6e427ef7247987ada3898a09e7) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '02bba7a2582e70fbb6bf16f9c4dc1e77') in 0.021455 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Teiledmap/Overworld_167.asset
+  artifactKey: Guid(9e61be11087eb8b44acfb2deafa4de69) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld_167.asset using Guid(9e61be11087eb8b44acfb2deafa4de69) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '8d6b260340642ac76a3de5adf02cfbe3') in 0.011887 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000157 seconds.
+  path: Assets/Teiledmap/Overworld_101.asset
+  artifactKey: Guid(f273af3a29650d04d88f015f7ad88657) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld_101.asset using Guid(f273af3a29650d04d88f015f7ad88657) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'e53441df003c502c95653ee5c5aaacab') in 0.011543 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Teiledmap/Overworld_246.asset
+  artifactKey: Guid(83e317d0856f36e41a171ef0cf2fc2d1) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld_246.asset using Guid(83e317d0856f36e41a171ef0cf2fc2d1) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'f9233ca9f0e4c0d23d7c7c5a0395b911') in 0.009051 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Teiledmap/Overworld_286.asset
+  artifactKey: Guid(2cc8528428463d64c8c54681518d7d7c) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld_286.asset using Guid(2cc8528428463d64c8c54681518d7d7c) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '991bd95372d232ad90e2621b25e42aa4') in 0.008563 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Prefabs/Room Button.prefab
+  artifactKey: Guid(743aba7f7e2a68447a5705e93220e68e) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Prefabs/Room Button.prefab using Guid(743aba7f7e2a68447a5705e93220e68e) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '0adab329cab3764aa2afa365a018e75f') in 0.077040 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Resources/Potion.prefab
+  artifactKey: Guid(441f30f701b4bf8488efd0055aebb33a) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Resources/Potion.prefab using Guid(441f30f701b4bf8488efd0055aebb33a) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'ef4175295cb76b78553674636a78d65d') in 0.025044 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Teiledmap/Overworld_351.asset
+  artifactKey: Guid(ee809c66c510e084eb283e8b3de2dc17) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld_351.asset using Guid(ee809c66c510e084eb283e8b3de2dc17) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'c8b6ad4cd00248740df20e13b9d3818b') in 0.010741 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Teiledmap/Overworld_155.asset
+  artifactKey: Guid(1cd9b3941cb7f324983702b2d14ff0db) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld_155.asset using Guid(1cd9b3941cb7f324983702b2d14ff0db) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'be93b3b0aa473bb983c27def5f43048d') in 0.015034 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Teiledmap/Overworld_10.asset
+  artifactKey: Guid(0ab6408e95400a94faf055144a6cfc41) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld_10.asset using Guid(0ab6408e95400a94faf055144a6cfc41) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'ecc2af38065a818fb19147cbecd20939') in 0.011481 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/Teiledmap/Overworld_157.asset
+  artifactKey: Guid(5b7e6ed1a335a5140a66e59e9d97c26a) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld_157.asset using Guid(5b7e6ed1a335a5140a66e59e9d97c26a) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '24a4e5f179b1eb0d90788ea56b13e5b4') in 0.010110 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000067 seconds.
+  path: Assets/Teiledmap/Overworld_217.asset
+  artifactKey: Guid(b1371b60bacad844fb9c15784c06c8a4) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld_217.asset using Guid(b1371b60bacad844fb9c15784c06c8a4) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '017a59495bb06773f2cc4cb4d2e34c34') in 0.016694 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000040 seconds.
+  path: Assets/Teiledmap/Overworld_161.asset
+  artifactKey: Guid(282f0e263c4b4cd4b8c81b0839ad0083) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld_161.asset using Guid(282f0e263c4b4cd4b8c81b0839ad0083) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'aab234a2a2bc37b42d54849b7f57f2ab') in 0.014633 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Teiledmap/Overworld_147.asset
+  artifactKey: Guid(e7c462b69e9ff4b4dade358800626dad) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld_147.asset using Guid(e7c462b69e9ff4b4dade358800626dad) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '8dc9aabde0c7f56e43e3bd5c77b273cf') in 0.021697 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000091 seconds.
+  path: Assets/Teiledmap/Overworld_208.asset
+  artifactKey: Guid(0c56dfb7a61b4034d92806b8962b7679) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld_208.asset using Guid(0c56dfb7a61b4034d92806b8962b7679) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'f92658821bc2784abe5acf4713121489') in 0.017083 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000045 seconds.
+  path: Assets/Teiledmap/Overworld_131.asset
+  artifactKey: Guid(693cc7a9d6d12844f8edd7a865f411c4) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld_131.asset using Guid(693cc7a9d6d12844f8edd7a865f411c4) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'c8b7ae20f7584a14490204133c289a11') in 0.013253 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/Teiledmap/Overworld_353.asset
+  artifactKey: Guid(b610829d049350544bc13f35d4820cc5) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld_353.asset using Guid(b610829d049350544bc13f35d4820cc5) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '2b2c01c7c80e68146c0b5f3e9fe96301') in 0.025106 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Teiledmap/Overworld_140.asset
+  artifactKey: Guid(d76d1969f1ed5624ba68600092f93d7c) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld_140.asset using Guid(d76d1969f1ed5624ba68600092f93d7c) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '01abc4f93796d7aafdd471d676c4f23e') in 0.013251 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000061 seconds.
+  path: Assets/Teiledmap/Overworld_197.asset
+  artifactKey: Guid(36e5bed8a938afd49babcf144370a9a1) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld_197.asset using Guid(36e5bed8a938afd49babcf144370a9a1) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'a9cee82449fecb5aef555d8cd1ccca7c') in 0.011912 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/Scripts/MenuManager.cs
+  artifactKey: Guid(94f8a9edb2c5b214588485c7eb4e79e5) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Scripts/MenuManager.cs using Guid(94f8a9edb2c5b214588485c7eb4e79e5) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'dd3298165b6c7c129a8ed70530a51485') in 0.015750 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Resources/Diamond.prefab
+  artifactKey: Guid(ebc7c4937ee92114dab933ce43244502) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Resources/Diamond.prefab using Guid(ebc7c4937ee92114dab933ce43244502) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '88b1053433ade0a059b3782f0a320ad9') in 0.013708 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Teiledmap/Overworld_148.asset
+  artifactKey: Guid(57a9a2ab0b834144ca3cb6ba11741f65) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld_148.asset using Guid(57a9a2ab0b834144ca3cb6ba11741f65) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '421edf147da30bd501c9ca86eebf5d27') in 0.009870 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Teiledmap/Overworld_126.asset
+  artifactKey: Guid(c8e31f918d7d8754f8f271dc733d35b0) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld_126.asset using Guid(c8e31f918d7d8754f8f271dc733d35b0) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '4d10d029e4555311fb6bcf303f4de5e6') in 0.013860 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Teiledmap/Overworld_100.asset
+  artifactKey: Guid(801cb25c9b55b5e49bbcd1d94fd635fa) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld_100.asset using Guid(801cb25c9b55b5e49bbcd1d94fd635fa) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '9bf0852637a685270229a0c263e29949') in 0.010179 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Scripts/PlayerController.cs
+  artifactKey: Guid(3092ffc826711674dac37e7d09d045b2) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Scripts/PlayerController.cs using Guid(3092ffc826711674dac37e7d09d045b2) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '03d2ca74a82a1902e3b56541fad43f1b') in 0.008654 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Teiledmap/Overworld_118.asset
+  artifactKey: Guid(9227b873fc75d144dac1c640c136cfc0) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld_118.asset using Guid(9227b873fc75d144dac1c640c136cfc0) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'd8621fa82b1ab07dd9ff3dd248cc288e') in 0.009430 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Teiledmap/Overworld_12.asset
+  artifactKey: Guid(1dd54a5e17fcb4b46b81fb71309630b7) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld_12.asset using Guid(1dd54a5e17fcb4b46b81fb71309630b7) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '4eea06e81d935ae45610e01daa561f0e') in 0.014263 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Teiledmap/Overworld_166.asset
+  artifactKey: Guid(7c1af25c32a9fcc46b30b42b6224d291) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld_166.asset using Guid(7c1af25c32a9fcc46b30b42b6224d291) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '3a4f995860d427ef42e8450dee798557') in 0.009166 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Teiledmap/Overworld_168.asset
+  artifactKey: Guid(0c673f8cce5efed448f4173bf70def46) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld_168.asset using Guid(0c673f8cce5efed448f4173bf70def46) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '0ac66e3d67e802969e486c28f7dc4061') in 0.010131 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Teiledmap/Overworld_207.asset
+  artifactKey: Guid(78e08912a1945744daa57e3a6560e8b1) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld_207.asset using Guid(78e08912a1945744daa57e3a6560e8b1) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'fa64139f0dcfbdef0c5b9ed6ba53056a') in 0.017552 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000154 seconds.
+  path: Assets/Teiledmap/Overworld_247.asset
+  artifactKey: Guid(22a7ee9a1be33be46ac58de601a53015) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld_247.asset using Guid(22a7ee9a1be33be46ac58de601a53015) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'f31148d4eb7a0906a9d42ab9c0ef01c0') in 0.009610 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Teiledmap/Overworld_162.asset
+  artifactKey: Guid(68186cf447d452349aeaea408119d251) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld_162.asset using Guid(68186cf447d452349aeaea408119d251) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'df3fdcedeb5454d1845217d6c4351dbd') in 0.009810 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Teiledmap/Overworld_266.asset
+  artifactKey: Guid(1d1077f7f90e400498294cab7141d083) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld_266.asset using Guid(1d1077f7f90e400498294cab7141d083) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '40890e7f59f7f7a8186509a06b58a556') in 0.010604 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Teiledmap/Overworld_50.asset
+  artifactKey: Guid(83e9b0335af93934fad449217e68a697) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld_50.asset using Guid(83e9b0335af93934fad449217e68a697) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '57d1865da0ac8b73a757abd3b7830a30') in 0.008943 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Teiledmap/Overworld_49.asset
+  artifactKey: Guid(d8ca497bb85c9ba478afd405df97feb3) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld_49.asset using Guid(d8ca497bb85c9ba478afd405df97feb3) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '553150d0a6be39c365433da0971b1933') in 0.010305 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Teiledmap/Overworld_758.asset
+  artifactKey: Guid(13b76a7e5f2397443b78fabcbc0745dc) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld_758.asset using Guid(13b76a7e5f2397443b78fabcbc0745dc) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'cfe470e85477e38a39e37fa965cd722a') in 0.008552 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Teiledmap/Overworld_45.asset
+  artifactKey: Guid(ac6979d8269d0cc409a4ccf85ae03380) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld_45.asset using Guid(ac6979d8269d0cc409a4ccf85ae03380) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '1baf77713358a1bda47c76f451643524') in 0.016337 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Teiledmap/Overworld_731.asset
+  artifactKey: Guid(dc279f67994f400469d8a4afb831a22e) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld_731.asset using Guid(dc279f67994f400469d8a4afb831a22e) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '9cf719ca2a870171c6bb5f4204405cc0') in 0.009365 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Teiledmap/Overworld_6.asset
+  artifactKey: Guid(b81b73d86457a1b4b85a83a02ea619a5) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld_6.asset using Guid(b81b73d86457a1b4b85a83a02ea619a5) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '7a9a8ab62918c59d68e8396f66193a1c') in 0.009952 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Teiledmap/Overworld_732.asset
+  artifactKey: Guid(a572db8c8c397a04092a1aa08eab9094) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld_732.asset using Guid(a572db8c8c397a04092a1aa08eab9094) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '79447d780b08a9a9e562e8d6d153c98a') in 0.009173 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/Teiledmap/Overworld_62.asset
+  artifactKey: Guid(6c8ae0855d42d7f44abe49e3efe27afc) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld_62.asset using Guid(6c8ae0855d42d7f44abe49e3efe27afc) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '70d87c7be854c7d31d4392d2702711a1') in 0.015978 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Teiledmap/Overworld_755.asset
+  artifactKey: Guid(c7575a2f9bccf5f42b8a33d31f2cec32) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld_755.asset using Guid(c7575a2f9bccf5f42b8a33d31f2cec32) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'cc4a75f840c9d2adb0060186aad60fbe') in 0.009101 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Teiledmap/Overworld_46.asset
+  artifactKey: Guid(065e0ae96981d724a9dbc43af0e309a5) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld_46.asset using Guid(065e0ae96981d724a9dbc43af0e309a5) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '92f2e5cb31e462e6193a85af3ab94532') in 0.008659 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Teiledmap/Overworld_760.asset
+  artifactKey: Guid(de693a1921a44a54f9da0eb5d1e02c81) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld_760.asset using Guid(de693a1921a44a54f9da0eb5d1e02c81) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '5636c7f4f408aba3f41865c2ff75c228') in 0.009475 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000069 seconds.
+  path: Assets/Teiledmap/Overworld_44.asset
+  artifactKey: Guid(055efa262e33446488dded798ca6a872) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld_44.asset using Guid(055efa262e33446488dded798ca6a872) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '31df2acdbaa31ff85c5bb7efe36dd824') in 0.012344 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/Teiledmap/Overworld_514.asset
+  artifactKey: Guid(19dc48f95a5f0cc40a1cbc6e4a3ba9ff) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld_514.asset using Guid(19dc48f95a5f0cc40a1cbc6e4a3ba9ff) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'd10cf50de22733c7e7d2fc98256108b8') in 0.010380 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/Teiledmap/Overworld_423.asset
+  artifactKey: Guid(46cdb8fefbb105c49a96d30b34156f5b) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld_423.asset using Guid(46cdb8fefbb105c49a96d30b34156f5b) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '7cbae565117a2949a5381799a2037776') in 0.008319 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Teiledmap/Overworld_457.asset
+  artifactKey: Guid(068a44b3f734b9e4cbdaa334c3bb74cd) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld_457.asset using Guid(068a44b3f734b9e4cbdaa334c3bb74cd) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '301a94b3b2f37e4096e7e7817df27325') in 0.012654 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Teiledmap/Overworld_400.asset
+  artifactKey: Guid(3980541f7e879ef43b7f743f51fa21ee) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld_400.asset using Guid(3980541f7e879ef43b7f743f51fa21ee) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '511467889e957376c50c35162a6edacd') in 0.011052 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Teiledmap/Overworld_577.asset
+  artifactKey: Guid(f761b01ff0d0e244091afa5f1d40b2ea) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld_577.asset using Guid(f761b01ff0d0e244091afa5f1d40b2ea) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '146af2945abe92c3b295b4a8540ba17d') in 0.008501 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Teiledmap/Overworld_482.asset
+  artifactKey: Guid(1198b8fbc81f59a4082ce6a1226d477e) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld_482.asset using Guid(1198b8fbc81f59a4082ce6a1226d477e) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'e61a53f001eda226f1d367f81e3e840a') in 0.008957 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Teiledmap/Overworld_52.asset
+  artifactKey: Guid(1f6884252fefd8e43b2a8ecec748fd97) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld_52.asset using Guid(1f6884252fefd8e43b2a8ecec748fd97) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '9cc2e9b6b25306fcf14575e0de5faef4') in 0.016151 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Teiledmap/Overworld_752.asset
+  artifactKey: Guid(d0200da8565ccde48973dc1278f96a70) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld_752.asset using Guid(d0200da8565ccde48973dc1278f96a70) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'e68dc14e0316b79ef14432c49f258777') in 0.009515 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/Teiledmap/Overworld_437.asset
+  artifactKey: Guid(49fed990643342741988b7c5ae9aad81) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld_437.asset using Guid(49fed990643342741988b7c5ae9aad81) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '166eac68a50168da440e201f56b2534b') in 0.009128 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Teiledmap/Overworld_376.asset
+  artifactKey: Guid(bef45fbf8ef141e43a14ed08f7ab8cc7) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld_376.asset using Guid(bef45fbf8ef141e43a14ed08f7ab8cc7) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'b0c8c80eff92f9fc79b3683b3d9ade91') in 0.009712 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Teiledmap/Overworld_435.asset
+  artifactKey: Guid(13d27398db7ac134e91fe656435488fa) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld_435.asset using Guid(13d27398db7ac134e91fe656435488fa) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'c38fe36713a904df7a8d87423ca8dc7f') in 0.015620 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Teiledmap/Overworld_51.asset
+  artifactKey: Guid(7751f63d0d40a84418589eb232f77721) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld_51.asset using Guid(7751f63d0d40a84418589eb232f77721) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '7c22cf4507e00802ba7377d30c188842') in 0.009365 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Teiledmap/Overworld_596.asset
+  artifactKey: Guid(c8bfdec487ae7de41867c6d654ecf05b) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld_596.asset using Guid(c8bfdec487ae7de41867c6d654ecf05b) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '5fb5731665b22471a0665a0b7907ab09') in 0.009214 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/Teiledmap/Overworld_164.asset
+  artifactKey: Guid(6e1b192cb56ed294b9f5679b2cb92db6) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld_164.asset using Guid(6e1b192cb56ed294b9f5679b2cb92db6) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '96205601be3d43d0f63e74032d52ad65') in 0.016862 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Scripts/Enemy.cs
+  artifactKey: Guid(2bb54391bc6b3e340ac434a6c17e3f59) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Scripts/Enemy.cs using Guid(2bb54391bc6b3e340ac434a6c17e3f59) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '9e744da3ccedea8edeff9003e5219821') in 0.008724 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Teiledmap/Overworld_485.asset
+  artifactKey: Guid(39fd3b3b39bd04a47bcd1bced3154552) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld_485.asset using Guid(39fd3b3b39bd04a47bcd1bced3154552) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '9bb223cd402e5576e27fd58a05882990') in 0.008827 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Teiledmap/Overworld_14.asset
+  artifactKey: Guid(5cc5ae8abe7416b40b3da5e1280a2a7a) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld_14.asset using Guid(5cc5ae8abe7416b40b3da5e1280a2a7a) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '65e61f2c209afe8adc088f9cae0c80aa') in 0.013283 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000045 seconds.
+  path: Assets/Teiledmap/Overworld_227.asset
+  artifactKey: Guid(25e90a22c15e5704c9184a65cb0758e9) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld_227.asset using Guid(25e90a22c15e5704c9184a65cb0758e9) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '6b9798640b3204c1fe9cfca7f4a586e2') in 0.008819 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Teiledmap/Overworld_341.asset
+  artifactKey: Guid(f1ae605cba2464341a43d1e6456e3392) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld_341.asset using Guid(f1ae605cba2464341a43d1e6456e3392) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '2013e27e85aae311469201a31ab27111') in 0.009848 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Teiledmap/Overworld_578.asset
+  artifactKey: Guid(3a4ec87421f92d640b7b5beaeda2e404) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld_578.asset using Guid(3a4ec87421f92d640b7b5beaeda2e404) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '35716ab739c27f002da9277623c3677c') in 0.008338 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Teiledmap/Overworld_117.asset
+  artifactKey: Guid(499c420e6527c9c4aafb05816cc35838) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld_117.asset using Guid(499c420e6527c9c4aafb05816cc35838) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '4ce2dfbae0c9a67ac6a2963221b18b48') in 0.017373 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Teiledmap/Overworld_267.asset
+  artifactKey: Guid(4e0efdd5683ecf448adb34f9d38b76a0) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld_267.asset using Guid(4e0efdd5683ecf448adb34f9d38b76a0) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '514fbd165a7991cdc19ced128181e526') in 0.011461 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Teiledmap/Overworld_215.asset
+  artifactKey: Guid(15954f1d396cbce4fb690467eb6db916) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld_215.asset using Guid(15954f1d396cbce4fb690467eb6db916) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '517b398cd88753322b232c1eb48f589b') in 0.010565 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/Teiledmap/Overworld_723.asset
+  artifactKey: Guid(03098e3c245d9c6488ec3b932eb80e12) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld_723.asset using Guid(03098e3c245d9c6488ec3b932eb80e12) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'ca00d6acd0026bb33d0ba127d56de7b4') in 0.014310 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Teiledmap/Overworld.png
+  artifactKey: Guid(852763944a98fdc4191323395eaeb54c) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Teiledmap/Overworld.png using Guid(852763944a98fdc4191323395eaeb54c) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'b6b6039f824bd4fd8977b3c72f3fcf28') in 40.223596 seconds 
 ========================================================================
 Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.007107 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image E:\Unity\Project\Project Clone\TestGitIgnore\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image E:\Unity\Project\Project Clone\TestGitIgnore\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 1.71 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 10.41 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.830 seconds
-Domain Reload Profiling:
-	ReloadAssembly (1833ms)
-		BeginReloadAssembly (634ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (76ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (366ms)
-		EndReloadAssembly (974ms)
-			LoadAssemblies (159ms)
-			RebuildTransferFunctionScriptingTraits (1ms)
-			SetupTypeCache (390ms)
-			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (62ms)
-			SetupLoadedEditorAssemblies (339ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (19ms)
-				SetLoadedEditorAssemblies (1ms)
-				RefreshPlugins (2ms)
-				BeforeProcessingInitializeOnLoad (65ms)
-				ProcessInitializeOnLoadAttributes (206ms)
-				ProcessInitializeOnLoadMethodAttributes (44ms)
-				AfterProcessingInitializeOnLoad (2ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (8ms)
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 4.20 ms, found 4 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 4286 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 30 unused Assets / (25.7 KB). Loaded Objects now: 4774.
-Memory consumption went from 163.5 MB to 163.5 MB.
-Total: 6.532500 ms (FindLiveObjects: 0.347500 ms CreateObjectMapping: 0.267400 ms MarkObjects: 5.484200 ms  DeleteObjects: 0.432200 ms)
+Unloading 30 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 30 unused Assets / (23.0 KB). Loaded Objects now: 4778.
+Memory consumption went from 79.8 MB to 79.8 MB.
+Total: 5.900600 ms (FindLiveObjects: 0.418500 ms CreateObjectMapping: 0.327900 ms MarkObjects: 5.102900 ms  DeleteObjects: 0.050400 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -242,6 +744,114 @@ AssetImportParameters requested are different than current active one (requested
   custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 91.166651 seconds.
+  path: Assets/Assets/Enemy/Big Knight/Knight_attack1.png
+  artifactKey: Guid(18e120edbe448794a9c8571b0243e423) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Assets/Enemy/Big Knight/Knight_attack1.png using Guid(18e120edbe448794a9c8571b0243e423) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd29f3c7197576f89ef252a5b32c7c5ad') in 0.049629 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Assets/Enemy/Big Knight/Knight_death3.png
+  artifactKey: Guid(5601313e621787244b1134b9bbd44bfa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Assets/Enemy/Big Knight/Knight_death3.png using Guid(5601313e621787244b1134b9bbd44bfa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a5a2b884a0a1bbd7cc31c992c0614a99') in 0.023113 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000058 seconds.
+  path: Assets/Assets/Enemy/Big Knight/Knight_death1.png
+  artifactKey: Guid(0363a1133624bc940ba89caf52cd0ff8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Assets/Enemy/Big Knight/Knight_death1.png using Guid(0363a1133624bc940ba89caf52cd0ff8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bcb052751365f0185548a481a268652e') in 0.025453 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000040 seconds.
+  path: Assets/Assets/Enemy/Big Knight/Knight_idle1.png
+  artifactKey: Guid(dda410dc2e731aa49918f09e6ffb9717) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Assets/Enemy/Big Knight/Knight_idle1.png using Guid(dda410dc2e731aa49918f09e6ffb9717) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '59234839def5e5c7364c26df4712330c') in 0.026331 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000104 seconds.
+  path: Assets/Assets/Enemy/Big Knight/Knight_attack6.png
+  artifactKey: Guid(a0d3497a9fb20eb40a41d38cbaf1c4d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Assets/Enemy/Big Knight/Knight_attack6.png using Guid(a0d3497a9fb20eb40a41d38cbaf1c4d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'afbabdfab0854d4d846661e87eb9e1ac') in 0.024782 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000066 seconds.
+  path: Assets/Assets/Enemy/Big Knight/Knight_attack3.png
+  artifactKey: Guid(651b4edec1bb3a2409384439d1d6bf86) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Assets/Enemy/Big Knight/Knight_attack3.png using Guid(651b4edec1bb3a2409384439d1d6bf86) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cb1c40f167d23967c61cbfc30d34c08b') in 0.025984 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000050 seconds.
+  path: Assets/Assets/Enemy/Big Knight/Knight_attack5.png
+  artifactKey: Guid(9531b1ca4b3cdcb4893afbb8e5520e5e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Assets/Enemy/Big Knight/Knight_attack5.png using Guid(9531b1ca4b3cdcb4893afbb8e5520e5e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6a2e445a3f8043229c24bfa2ed8ee545') in 0.028465 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Assets/Enemy/Big Knight/Knight_death4.png
+  artifactKey: Guid(3c6d5c4fd6c2c8247bd1fcf28c4eb479) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Assets/Enemy/Big Knight/Knight_death4.png using Guid(3c6d5c4fd6c2c8247bd1fcf28c4eb479) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '70a87f7511ae27bc4eb727175813377c') in 0.027317 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Assets/Enemy/Big Knight/Knight_walk4.png
+  artifactKey: Guid(9820badcca43ed64bba39887b32b1b39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Assets/Enemy/Big Knight/Knight_walk4.png using Guid(9820badcca43ed64bba39887b32b1b39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '944eb185a0e69f97dcae18328336949e') in 0.024371 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/Assets/Enemy/Big Knight/Knight_idle2.png
+  artifactKey: Guid(24a9d5ae213b2c04c8e6c27f51245487) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Assets/Enemy/Big Knight/Knight_idle2.png using Guid(24a9d5ae213b2c04c8e6c27f51245487) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6978fd04489c3dce974337eabbcc6ae1') in 0.022775 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 219.571645 seconds.
+  path: Assets/animations/Enemies
+  artifactKey: Guid(ad7954bfa1f1d544bbaebb7181f67336) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/animations/Enemies using Guid(ad7954bfa1f1d544bbaebb7181f67336) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '6178531a432c7657485dbdbd1147b140') in 0.010206 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/animations/Enemies/Fire Knight.controller
+  artifactKey: Guid(7e2a2a49af9b31347af69d97383de886) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/animations/Enemies/Fire Knight.controller using Guid(7e2a2a49af9b31347af69d97383de886) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'cf5d6a8f1a0220fbebbaf0c6158b3310') in 0.012696 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 182.210267 seconds.
+  path: Assets/animations/Enemies/Enemy 1/Idle.anim
+  artifactKey: Guid(72a51a96027fc82439242e366a30ed13) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/animations/Enemies/Enemy 1/Idle.anim using Guid(72a51a96027fc82439242e366a30ed13) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '7a8b8718e1ff7f6f08eefb2c2a9e3f5a') in 0.015584 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 300.306816 seconds.
+  path: Assets/animations/Enemies/Enemy 1/Walk.anim
+  artifactKey: Guid(b85be11a85191fb4895da3bbf0d99abc) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/animations/Enemies/Enemy 1/Walk.anim using Guid(b85be11a85191fb4895da3bbf0d99abc) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'fe8459905b82f376379c683fb56ca438') in 0.036481 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 137.121117 seconds.
+  path: Assets/animations/Enemies/Enemy 1/Attack.anim
+  artifactKey: Guid(fba5f8c6a03c79447a6fb629fad31912) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/animations/Enemies/Enemy 1/Attack.anim using Guid(fba5f8c6a03c79447a6fb629fad31912) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '7f35a644eb38dbee630fd72ec5870603') in 0.008977 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 398.913690 seconds.
+  path: Assets/animations/Enemies/Enemy 1/Fire Knight.controller
+  artifactKey: Guid(11c8cdb05e4faef48bd34bb90f055d82) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/animations/Enemies/Enemy 1/Fire Knight.controller using Guid(11c8cdb05e4faef48bd34bb90f055d82) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6d80705ced80c8dfda3152656a84ee0f') in 0.006523 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 295.966879 seconds.
+  path: Assets/Scripts/Enemy.cs
+  artifactKey: Guid(2bb54391bc6b3e340ac434a6c17e3f59) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Enemy.cs using Guid(2bb54391bc6b3e340ac434a6c17e3f59) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6cc154adfafd3688fa83db3ef9e8d095') in 0.001597 seconds 
