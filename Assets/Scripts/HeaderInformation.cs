@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Photon.Pun;
-
 public class HeaderInformation : MonoBehaviourPun
 {
     public TextMeshProUGUI playerName;

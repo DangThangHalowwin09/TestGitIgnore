@@ -114,12 +114,11 @@ public class MenuManager : MonoBehaviourPunCallbacks, ILobbyCallbacks
 
         roomInfoText.text = "<b> RoomName </b> \n" + PhotonNetwork.CurrentRoom.Name;
     }
-
     public void OnstartGameButton()
     {
         PhotonNetwork.CurrentRoom.IsOpen = false;
         PhotonNetwork.CurrentRoom.IsVisible = false;
-        NetworkManager.instance.photonView.RPC("ChangeScene", RpcTarget.All, "MainGame");
+        NetworkManager.instance.photonView.RPC("ChangeScene", RpcTarget.All, "Game");
     }
     public void OnLeaveLobbyButton()
     {
