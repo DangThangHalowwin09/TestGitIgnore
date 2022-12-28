@@ -39,13 +39,10 @@ public class GameManager : MonoBehaviourPun
 
         if (playersInGame == PhotonNetwork.PlayerList.Length)
             SpawnPlayer();
-
-
     }
     void SpawnPlayer()
     {
         GameObject playerObject = PhotonNetwork.Instantiate(playerPrefabPath, spawnPoint[Random.Range(0, spawnPoint.Length)].position, Quaternion.identity);
-
         playerObject.GetComponent<PhotonView>().RPC("Initialized", RpcTarget.All, PhotonNetwork.LocalPlayer);
 
     }    
