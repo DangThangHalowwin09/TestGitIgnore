@@ -286,7 +286,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 768859035136964584, guid: 8ff7bbca7e984cb4fa32337f6a2504a0, type: 3}
       propertyPath: players.Array.size
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 768859035136964584, guid: 8ff7bbca7e984cb4fa32337f6a2504a0, type: 3}
       propertyPath: spawnPoint.Array.size

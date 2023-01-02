@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviourPun
     void ImInGame()
     {
         playersInGame++;
-
+        Debug.Log(playersInGame + "222");
         if (playersInGame == PhotonNetwork.PlayerList.Length)
             SpawnPlayer();
     }

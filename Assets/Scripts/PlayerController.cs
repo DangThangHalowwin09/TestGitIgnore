@@ -57,8 +57,12 @@ public class PlayerController : MonoBehaviourPun
             return;
         }
         Move();
-        if (Input.GetMouseButtonDown(0) && Time.time - lastAttackTime > attackDelay)
+        if (Input.GetMouseButtonDown(0) && Time.time - lastAttackTime > attackDelay) 
+        {
             Attack();
+            Debug.Log("111");
+        }
+            
     }
 
     private void Move()
