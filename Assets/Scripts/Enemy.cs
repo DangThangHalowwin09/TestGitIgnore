@@ -73,7 +73,7 @@ public class Enemy : MonoBehaviourPun
     [PunRPC]
     void FlipLeft()
     {
-        sr.flipY = true;
+        sr.flipX = true;
     }
 
     void Attack()
@@ -92,7 +92,7 @@ public class Enemy : MonoBehaviourPun
             foreach(PlayerController player in GameManager.instance.players)
             {
                 float dist = Vector2.Distance(transform.position, player.transform.position);
-                if(player == targetPlayer)
+                if (player == targetPlayer)
                 {
                     if(dist > chaseRange)
                     {

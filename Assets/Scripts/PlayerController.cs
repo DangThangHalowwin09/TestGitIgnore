@@ -106,7 +106,7 @@ public class PlayerController : MonoBehaviourPun
         sr.flipX = false;
     }
     [PunRPC]
-    void FliplLeft()
+    void FlipLeft()
     {
         sr.flipX = true;
     }
