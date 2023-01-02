@@ -57,7 +57,6 @@ public class PlayerController : MonoBehaviourPun
             return;
         }
         Move();
-
         if (Input.GetMouseButtonDown(0) && Time.time - lastAttackTime > attackDelay)
             Attack();
     }
@@ -67,7 +66,7 @@ public class PlayerController : MonoBehaviourPun
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
         rig.velocity = new Vector2(x, y) * moveSpeed;
-
+       
         if (x != 0 || y != 0)
         {
             playerAnim.SetBool("Move", true);
