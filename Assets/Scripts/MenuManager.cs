@@ -69,20 +69,40 @@ public class MenuManager : MonoBehaviourPunCallbacks, ILobbyCallbacks
 
     public void OnBackToMainScreen()
     {
-        SetScreen(mainScreen);
+        if(PhotonNetwork.NickName.Length < 2)
+        {
+            return;
+        }
+        else
+            SetScreen(mainScreen);
     }
     public void OnScreenRoomButton()
     {
-        SetScreen(createRoomScreen);
+        if (PhotonNetwork.NickName.Length < 2)
+        {
+            return;
+        }
+        else
+            SetScreen(createRoomScreen);
     }
     public void OnFindRoomButton()
     {
-        SetScreen(lobbyBrowserScreen);
+        if (PhotonNetwork.NickName.Length < 2)
+        {
+            return;
+        }
+        else
+            SetScreen(lobbyBrowserScreen);
     }
 
     public void OnCreateRoom(TMP_InputField roomNameInput)
     {
-        NetworkManager.instance.CreateRoom(roomNameInput.text);
+        if (PhotonNetwork.NickName.Length < 2)
+        {
+            return;
+        }
+        else
+            NetworkManager.instance.CreateRoom(roomNameInput.text);
     }
 
     public void OnPlayerNameChanged(TMP_InputField playerNameInput)
