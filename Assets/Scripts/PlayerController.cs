@@ -116,9 +116,10 @@ public class PlayerController : MonoBehaviourPun
     }
 
     [PunRPC]
-    public void TakeDamage(int damageamount)
+    public void TakeDamage(int damageAmount)
     {
-        currentHP -= damageamount;
+        Debug.Log(damageAmount);
+        currentHP -= damageAmount;
         headerInfo.photonView.RPC("UpdateHealthBar", RpcTarget.All, currentHP);
         if (currentHP <= 0)
         {
@@ -159,6 +160,7 @@ public class PlayerController : MonoBehaviourPun
         transform.position = SpawnPos;
         currentHP = maxHP;
         rig.isKinematic = false;
+        headerInfo.photonView.RPC("UpdateHeathBar", RpcTarget.All, currentHP);
     }
     [PunRPC]
     void Heal(int amountToHeal)

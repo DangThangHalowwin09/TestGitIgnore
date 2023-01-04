@@ -81,6 +81,7 @@ public class Enemy : MonoBehaviourPun
         anim.SetTrigger("Attack");
         lastattackTime = Time.time;
         targetPlayer.photonView.RPC("TakeDamage", targetPlayer.photonPlayer, damage);
+        Debug.Log(damage);
     }
 
     void DetectPlayer()

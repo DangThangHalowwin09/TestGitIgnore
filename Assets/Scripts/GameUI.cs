@@ -22,6 +22,6 @@ public class GameUI : MonoBehaviour
     }
     public void UpdateHPText(int curHP, int maxHP)
     {
-        goldText.text = "" + curHP + "" + maxHP;
+        hpText.text = "" + curHP + "/" + maxHP;
     }
 }
