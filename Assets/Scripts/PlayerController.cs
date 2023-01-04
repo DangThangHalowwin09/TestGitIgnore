@@ -42,7 +42,8 @@ public class PlayerController : MonoBehaviourPun
         {
             gold = PlayerPrefs.GetInt("Gold");
         }
-
+        GameUI.instance.UpdateGoldText(gold);
+        currentHP = maxHP;
         if (player.IsLocal)
             me = this;
         else
@@ -160,7 +161,7 @@ public class PlayerController : MonoBehaviourPun
         transform.position = SpawnPos;
         currentHP = maxHP;
         rig.isKinematic = false;
-        headerInfo.photonView.RPC("UpdateHeathBar", RpcTarget.All, currentHP);
+        headerInfo.photonView.RPC("UpdateHealthBar", RpcTarget.All, currentHP);
     }
     [PunRPC]
     void Heal(int amountToHeal)
