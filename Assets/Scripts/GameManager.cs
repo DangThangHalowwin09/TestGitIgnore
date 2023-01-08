@@ -41,7 +41,6 @@ public class GameManager : MonoBehaviourPun
     }
     void SpawnPlayer()
     {
-        Debug.Log(PlayerSelector.instance.playerPrefabName + "1");
         GameObject playerObject = PhotonNetwork.Instantiate(PlayerSelector.instance.playerPrefabName, spawnPoint[Random.Range(0, spawnPoint.Length)].position, Quaternion.identity);
         playerObject.GetComponent<PhotonView>().RPC("Initialized", RpcTarget.All, PhotonNetwork.LocalPlayer);
     }    
