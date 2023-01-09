@@ -2524,7 +2524,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 4925506279628143940}
   - {fileID: 3465686406318066035}
-  sceneViewId: 8
+  sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!114 &4925506279628143940
@@ -2699,7 +2699,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7782631249609315173, guid: a559fa306644df7499f9c41c10f09741, type: 3}
       propertyPath: sceneViewId
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a559fa306644df7499f9c41c10f09741, type: 3}
