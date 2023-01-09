@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviourPun
     public Transform attackPointRight;
     public Transform attackPointLeft;
     public int damage;
+    public int def;
     public float attackRange;
     public float attackDelay;
     public float lastAttackTime;
@@ -37,14 +38,32 @@ public class PlayerController : MonoBehaviourPun
         photonPlayer = player;
         GameManager.instance.players[id - 1] = this;
         headerInfo.Initialized(player.NickName, maxHP);
-        GameUI.instance.UpdateHPText(currentHP, maxHP);
+
+        if (PlayerPrefs.HasKey("Attack"))
+        {
+            damage = PlayerPrefs.GetInt("Attack");
+        }
+        GameUI.instance.UpdateGoldText(damage);
+
+        if (PlayerPrefs.HasKey("Def"))
+        {
+            def = PlayerPrefs.GetInt("Def");
+        }
+        GameUI.instance.UpdateGoldText(def);
 
         if (PlayerPrefs.HasKey("Gold"))
         {
             gold = PlayerPrefs.GetInt("Gold");
         }
         GameUI.instance.UpdateGoldText(gold);
+
+        if (PlayerPrefs.HasKey("MaxHP"))
+        {
+            maxHP = PlayerPrefs.GetInt("MaxHP");
+        }
         currentHP = maxHP;
+        GameUI.instance.UpdateHPText(currentHP, maxHP);
+
         if (player.IsLocal)
             me = this;
         else
@@ -136,7 +155,12 @@ public class PlayerController : MonoBehaviourPun
     [PunRPC]
     public void TakeDamage(int damageAmount)
     {
-        currentHP -= damageAmount;
+        int damageValue = damageAmount - def;
+        if(damageValue < 1)
+        {
+            damageValue = 1;
+        } 
+        currentHP -= damageAmount - def;
         headerInfo.photonView.RPC("UpdateHealthBar", RpcTarget.All, currentHP);
         if (currentHP <= 0)
         {
@@ -187,6 +211,53 @@ public class PlayerController : MonoBehaviourPun
         headerInfo.photonView.RPC("UpdateHealthBar", RpcTarget.All, currentHP);
         GameUI.instance.UpdateHPText(currentHP, maxHP);
     }
+    [PunRPC]
+    public void AddHealth(int amoutToAdd)
+    {
+        maxHP += amoutToAdd;
+        PlayerPrefs.SetInt("MaxHP", maxHP);
+
+        headerInfo.photonView.RPC("UpdateHealthBar", RpcTarget.All, currentHP);
+        GameUI.instance.UpdateHPText(currentHP, maxHP);
+    }
+    [PunRPC]
+    public void BuyHealth(int itemPrice)
+    {
+        if(gold >= itemPrice)
+        {
+            AddHealth(10);
+            gold -= itemPrice;
+            PlayerPrefs.SetInt("Gold", gold);
+            GameUI.instance.UpdateGoldText(gold);
+        }
+    }
+
+    public void BuyAttack(int itemPrice)
+    {
+        if (gold >= itemPrice)
+        {
+            damage++;
+            PlayerPrefs.SetInt("Attack", damage);
+            gold -= itemPrice;
+            PlayerPrefs.SetInt("Gold", gold);
+            GameUI.instance.UpdateGoldText(gold);
+            GameUI.instance.UpdateAdText(damage);
+        }
+    }
+
+    public void BuyDef(int itemPrice)
+    {
+        if (gold >= itemPrice)
+        {
+            def++;
+            PlayerPrefs.SetInt("Def", def);
+            gold -= itemPrice;
+            PlayerPrefs.SetInt("Gold", gold);
+            GameUI.instance.UpdateGoldText(gold);
+            GameUI.instance.UpdateAdText(def);
+        }
+    }
+
     [PunRPC]
     void GetGold(int goldToGive)
     {

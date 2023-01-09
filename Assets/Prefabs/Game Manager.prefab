@@ -68,10 +68,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 457b9fb6db366a446b1745dbfa5ab6c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefabPath: 
+  playerPrefabPath: Player
   players: []
-  spawnPoint: []
-  respawnTime: 0
+  spawnPoint:
+  - {fileID: 0}
+  - {fileID: 0}
+  respawnTime: 4
 --- !u!114 &4088531675484419953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84,3 +86,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8222db75e22b8b4dbd513a57accd7eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  goldText: {fileID: 0}
+  hpText: {fileID: 0}
+  adText: {fileID: 0}
+  dfText: {fileID: 0}

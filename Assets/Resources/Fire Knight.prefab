@@ -253,7 +253,7 @@ MonoBehaviour:
   attackRange: 2
   playerdetectRate: 0.5
   objectTospawnOnDeath: Coin
-  damage: 1
+  damage: 7
   attackrate: 1
   healthBar: {fileID: 7162903927754168277}
   sr: {fileID: 3036619449771756872}
