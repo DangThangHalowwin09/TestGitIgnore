@@ -62,7 +62,6 @@ public class PlayerController : MonoBehaviourPun
         if (Input.GetMouseButtonDown(0) && Time.time - lastAttackTime > attackDelay) 
         {
             Attack();
-            Debug.Log("111");
         }
             
     }
@@ -137,7 +136,6 @@ public class PlayerController : MonoBehaviourPun
     [PunRPC]
     public void TakeDamage(int damageAmount)
     {
-        Debug.Log(damageAmount);
         currentHP -= damageAmount;
         headerInfo.photonView.RPC("UpdateHealthBar", RpcTarget.All, currentHP);
         if (currentHP <= 0)
