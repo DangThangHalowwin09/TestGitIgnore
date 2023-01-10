@@ -2694,6 +2694,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3092ffc826711674dac37e7d09d045b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 1
+  magicRight: MagicRight
+  magicLeft: MagicLeft
   faceRight: 0
   attackPointRight: {fileID: 8288020764254552997}
   attackPointLeft: {fileID: 5853080964897783853}

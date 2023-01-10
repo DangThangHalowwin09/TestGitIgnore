@@ -30,7 +30,6 @@ public class DetectShop : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D other)
     {
-        Debug.Log("1");
         if(other.tag == "Shop")
         {
             DetectedShop = true;

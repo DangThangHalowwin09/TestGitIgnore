@@ -19,7 +19,6 @@ public class PlayerSelector : MonoBehaviour
         if (PlayerPrefs.HasKey("SelectedCharacter")){
             selectedCharacter = PlayerPrefs.GetInt("SelectedCharacter");
             playerPrefabName = playerModel[selectedCharacter].GetComponent<PlayerName>().playerName;
-            Debug.Log(playerPrefabName);
             nextButton.SetActive(false);
             backButton.SetActive(false);
         }
