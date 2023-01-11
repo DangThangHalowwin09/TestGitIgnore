@@ -86,6 +86,7 @@ public class MenuManager : MonoBehaviourPunCallbacks, ILobbyCallbacks
     }
     public void OnScreenRoomButton()
     {
+        AudioManager.instance.PlaySFX(1);
         if (playerName.Length < 2)
         {
             return;
@@ -95,6 +96,7 @@ public class MenuManager : MonoBehaviourPunCallbacks, ILobbyCallbacks
     }
     public void OnFindRoomButton()
     {
+        AudioManager.instance.PlaySFX(1);
         if (playerName.Length < 2)
         {
             return;
@@ -111,6 +113,7 @@ public class MenuManager : MonoBehaviourPunCallbacks, ILobbyCallbacks
         }
         else
             NetworkManager.instance.CreateRoom(roomNameInput.text);
+        AudioManager.instance.PlaySFX(1);
     }
 
     public void OnPlayerNameChanged(TMP_InputField playerNameInput)
@@ -118,11 +121,13 @@ public class MenuManager : MonoBehaviourPunCallbacks, ILobbyCallbacks
         playerName = playerNameInput.text;
         if (playerName.Length >= 2)
             PlayerPrefs.SetString("Name", playerName);
+        AudioManager.instance.PlaySFX(1);
     }
 
     public void OnRefreshButton()
     {
         UpdateLobbyBrowserUI();
+        AudioManager.instance.PlaySFX(1);
     }
 
     public override void OnJoinedRoom()
@@ -146,14 +151,17 @@ public class MenuManager : MonoBehaviourPunCallbacks, ILobbyCallbacks
     }
     public void OnstartGameButton()
     {
+        AudioManager.instance.PlaySFX(1);
         PhotonNetwork.CurrentRoom.IsOpen = false;
         PhotonNetwork.CurrentRoom.IsVisible = false;
         NetworkManager.instance.photonView.RPC("ChangeScene", RpcTarget.All, "Game");
     }
     public void OnLeaveLobbyButton()
     {
+        AudioManager.instance.PlaySFX(1);
         PhotonNetwork.LeaveRoom();
         SetScreen(mainScreen);
+        AudioManager.instance.PlaySFX(1);
     }
 
     GameObject CreateRoomButton()

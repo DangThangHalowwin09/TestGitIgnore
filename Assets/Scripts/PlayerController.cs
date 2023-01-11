@@ -159,7 +159,9 @@ public class PlayerController : MonoBehaviourPun
                 enemy.photonView.RPC("TakeDamage", RpcTarget.MasterClient, damage);
             }
         }
-        
+
+        playerAnim.SetTrigger("Attack");
+        AudioManager.instance.PlaySFX(10);
                 
     }
 
@@ -210,6 +212,7 @@ public class PlayerController : MonoBehaviourPun
 
     void Die()
     {
+        AudioManager.instance.PlaySFX(6);
         dead = true;
         rig.isKinematic = true;
         transform.position = new Vector3(0, 90, 0);
@@ -231,9 +234,11 @@ public class PlayerController : MonoBehaviourPun
     [PunRPC]
     void Heal(int amountToHeal)
     {
+        AudioManager.instance.PlaySFX(3);
         currentHP = Mathf.Clamp(currentHP + amountToHeal, 0, maxHP);
         headerInfo.photonView.RPC("UpdateHealthBar", RpcTarget.All, currentHP);
         GameUI.instance.UpdateHPText(currentHP, maxHP);
+
     }
     [PunRPC]
     public void AddHealth(int amoutToAdd)
@@ -249,6 +254,7 @@ public class PlayerController : MonoBehaviourPun
     {
         if(gold >= itemPrice)
         {
+            AudioManager.instance.PlaySFX(9);
             AddHealth(10);
             gold -= itemPrice;
             PlayerPrefs.SetInt("Gold", gold);
@@ -260,6 +266,7 @@ public class PlayerController : MonoBehaviourPun
     {
         if (gold >= itemPrice)
         {
+            AudioManager.instance.PlaySFX(9);
             damage++;
             PlayerPrefs.SetInt("Attack", damage);
             gold -= itemPrice;
@@ -285,6 +292,7 @@ public class PlayerController : MonoBehaviourPun
     [PunRPC]
     void GetGold(int goldToGive)
     {
+        AudioManager.instance.PlaySFX(7);
         gold += goldToGive;
         PlayerPrefs.SetInt("Gold", gold);
         GameUI.instance.UpdateGoldText(gold);
