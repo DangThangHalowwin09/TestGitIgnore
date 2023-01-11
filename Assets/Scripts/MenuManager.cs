@@ -10,6 +10,8 @@ using System.Diagnostics;
 
 public class MenuManager : MonoBehaviourPunCallbacks, ILobbyCallbacks
 {
+    public string playerName;
+    public GameObject nameInput;
     [Header("Screens")]
     public GameObject mainScreen;
     public GameObject createRoomScreen;
@@ -46,6 +48,17 @@ public class MenuManager : MonoBehaviourPunCallbacks, ILobbyCallbacks
             PhotonNetwork.CurrentRoom.IsVisible = true;
             PhotonNetwork.CurrentRoom.IsOpen = true;
         }
+        if (PlayerPrefs.HasKey("Name"))
+        {
+            playerName = PlayerPrefs.GetString("Name");
+            PhotonNetwork.NickName = playerName;
+            nameInput.SetActive(false);
+        }
+        else
+        {
+            nameInput.SetActive(true);
+        }
+
     }
     public override void OnConnectedToMaster()
     {
@@ -69,16 +82,11 @@ public class MenuManager : MonoBehaviourPunCallbacks, ILobbyCallbacks
 
     public void OnBackToMainScreen()
     {
-        if(PhotonNetwork.NickName.Length < 2)
-        {
-            return;
-        }
-        else
-            SetScreen(mainScreen);
+         SetScreen(mainScreen);
     }
     public void OnScreenRoomButton()
     {
-        if (PhotonNetwork.NickName.Length < 2)
+        if (playerName.Length < 2)
         {
             return;
         }
@@ -87,7 +95,7 @@ public class MenuManager : MonoBehaviourPunCallbacks, ILobbyCallbacks
     }
     public void OnFindRoomButton()
     {
-        if (PhotonNetwork.NickName.Length < 2)
+        if (playerName.Length < 2)
         {
             return;
         }
@@ -107,7 +115,9 @@ public class MenuManager : MonoBehaviourPunCallbacks, ILobbyCallbacks
 
     public void OnPlayerNameChanged(TMP_InputField playerNameInput)
     {
-        PhotonNetwork.NickName = playerNameInput.text;
+        playerName = playerNameInput.text;
+        if (playerName.Length >= 2)
+            PlayerPrefs.SetString("Name", playerName);
     }
 
     public void OnRefreshButton()

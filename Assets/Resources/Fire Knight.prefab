@@ -245,6 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bb54391bc6b3e340ac434a6c17e3f59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  death: Death
   enemyName: Fire Knight
   moveSpeed: 4
   currentHP: 10

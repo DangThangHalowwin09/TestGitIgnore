@@ -123,11 +123,16 @@ public class PlayerController : MonoBehaviourPun
     void CastSpell()
     {
         lastAttackTime = Time.time;
+        
+        playerAnim.SetTrigger("Attack");
+    }
+
+    public void CastBall()
+    {
         if (faceRight)
             PhotonNetwork.Instantiate(magicRight, attackPointRight.transform.position, Quaternion.identity);
         else
             PhotonNetwork.Instantiate(magicLeft, attackPointLeft.transform.position, Quaternion.identity);
-        playerAnim.SetTrigger("Attack");
     }
     void Attack()
     {

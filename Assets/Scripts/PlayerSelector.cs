@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class PlayerSelector : MonoBehaviour
 {
+    private int gold;
     public GameObject nextButton;
     public GameObject backButton;
+    public GameObject selectButton;
+    public GameObject mainScreen;
+    public GameObject changeButton;
     public static PlayerSelector instance;
     public string playerPrefabName;
     public GameObject[] playerModel;
@@ -16,16 +20,32 @@ public class PlayerSelector : MonoBehaviour
     }
     private void Start()
     {
+        if (PlayerPrefs.HasKey("Gold"))
+        {
+            gold = PlayerPrefs.GetInt("Gold");
+        }
+        else
+        {
+            gold = 0;
+        }
         if (PlayerPrefs.HasKey("SelectedCharacter")){
             selectedCharacter = PlayerPrefs.GetInt("SelectedCharacter");
             playerPrefabName = playerModel[selectedCharacter].GetComponent<PlayerName>().playerName;
             nextButton.SetActive(false);
             backButton.SetActive(false);
+            selectButton.SetActive(false);
+            mainScreen.SetActive(true);
+            changeButton.SetActive(true);
         }
         else
         {
+            selectedCharacter = 0;
+            playerPrefabName = playerModel[selectedCharacter].GetComponent<PlayerName>().playerName;
             nextButton.SetActive(true);
             backButton.SetActive(true);
+            selectButton.SetActive(true);
+            mainScreen.SetActive(false);
+            changeButton.SetActive(false);
         }
 
 
@@ -42,7 +62,7 @@ public class PlayerSelector : MonoBehaviour
         if (selectedCharacter == playerModel.Length)
             selectedCharacter = 0;
         playerModel[selectedCharacter].SetActive(true);
-        PlayerPrefs.SetInt("SelectedCharacter", selectedCharacter);
+        
         playerPrefabName = playerModel[selectedCharacter].GetComponent<PlayerName>().playerName;
     }
     public void ChangeBack()
@@ -52,12 +72,29 @@ public class PlayerSelector : MonoBehaviour
         if (selectedCharacter == - 1)
             selectedCharacter = playerModel.Length -1;
         playerModel[selectedCharacter].SetActive(true);
-        PlayerPrefs.SetInt("SelectedCharacter", selectedCharacter);
         playerPrefabName = playerModel[selectedCharacter].GetComponent<PlayerName>().playerName;
     }
-
-    public void DeleteSave()
+    public void SelectHero()
     {
-        PlayerPrefs.DeleteKey("SelectedCharacter");
+        PlayerPrefs.SetInt("SelectedCharacter", selectedCharacter);
+        nextButton.SetActive(false);
+        backButton.SetActive(false);
+        selectButton.SetActive(false);
+        mainScreen.SetActive(true);
+        changeButton.SetActive(true);
+    }
+    public void ChangeHero(int amount)
+    {
+        if(gold >= amount)
+        {
+            gold -= amount;
+            PlayerPrefs.SetInt("Hold", gold);
+            PlayerPrefs.DeleteKey("SelectedCharacter");
+            nextButton.SetActive(true);
+            backButton.SetActive(true);
+            selectButton.SetActive(true);
+            mainScreen.SetActive(false);
+            changeButton.SetActive(false);
+        }
     }
 }

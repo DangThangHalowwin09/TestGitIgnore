@@ -2697,7 +2697,7 @@ MonoBehaviour:
   type: 1
   magicRight: MagicRight
   magicLeft: MagicLeft
-  faceRight: 0
+  faceRight: 1
   attackPointRight: {fileID: 8288020764254552997}
   attackPointLeft: {fileID: 5853080964897783853}
   damage: 3
