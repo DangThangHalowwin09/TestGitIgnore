@@ -2557,7 +2557,7 @@ GameObject:
   - component: {fileID: 4925506279628143940}
   - component: {fileID: 3465686406318066035}
   m_Layer: 7
-  m_Name: Player4
+  m_Name: Player5
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2624,7 +2624,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: d3a68f5a5bd32b24eaea9b80e8ac69b3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 25845d5b61829c14eb02884bd0c8f9db, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2672,7 +2672,7 @@ BoxCollider2D:
   m_Offset: {x: 0.0022406578, y: 0.24967813}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.34, y: 0.16}
+    pivot: {x: 0.35, y: 0.15}
     oldSize: {x: 1.28, y: 1.28}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
@@ -2694,9 +2694,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3092ffc826711674dac37e7d09d045b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
-  magicRight: 
-  magicLeft: 
+  type: 1
+  magicRight: MagicRight
+  magicLeft: MagicLeft
   faceRight: 0
   attackPointRight: {fileID: 8288020764254552997}
   attackPointLeft: {fileID: 5853080964897783853}
@@ -2725,7 +2725,7 @@ Animator:
   m_GameObject: {fileID: 8288020763683522270}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 41b6b04d4a23e374ab11026de4abdfa3, type: 2}
+  m_Controller: {fileID: 9100000, guid: b472ae82421fbe0478b0ea6fd1ac1b3c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
