@@ -5,9 +5,10 @@ using Photon.Pun;
 public class DeathAnim : MonoBehaviour
 {
     // Start is called before the first frame update
+    public int DestroyTime;
     void Start()
     {
-        Invoke("DestroyObject", 1);
+        Invoke("DestroyObject", DestroyTime);
     }
 
     [PunRPC]

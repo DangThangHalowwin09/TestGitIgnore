@@ -10,7 +10,7 @@ public class GameUI : MonoBehaviour
     public TextMeshProUGUI hpText;
     public TextMeshProUGUI adText;
     public TextMeshProUGUI dfText;
-
+    public TextMeshProUGUI levelText;
     public static GameUI instance;
 
     private void Awake()
@@ -33,5 +33,9 @@ public class GameUI : MonoBehaviour
     public void UpdateDFText(int dfAmount)
     {
         dfText.text = "" + dfAmount;
+    }
+    public void UpdateLevelText(int curXp, int maxXp)
+    {
+        levelText.text = "" + curXp + "/" + maxXp;
     }
 }

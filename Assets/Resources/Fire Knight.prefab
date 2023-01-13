@@ -260,6 +260,7 @@ MonoBehaviour:
   sr: {fileID: 3036619449771756872}
   anim: {fileID: 3036619449771756885}
   rb: {fileID: 3036619449771756886}
+  xpToGive: 3000
 --- !u!61 &3036619449771756874
 BoxCollider2D:
   m_ObjectHideFlags: 0
