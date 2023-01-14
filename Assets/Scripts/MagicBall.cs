@@ -6,6 +6,8 @@ using Photon.Pun;
 public class MagicBall : MonoBehaviourPun
 {
     public float speed;
+    private int attackerId;
+    private bool isMine;
     public Vector2 moveDir;
     private Rigidbody2D rb;
     public int damage;
@@ -18,7 +20,7 @@ public class MagicBall : MonoBehaviourPun
         }
 
         rb = GetComponent<Rigidbody2D>();
-        Invoke("DestroyObject", 1);
+        Destroy(gameObject, 2);
     }
 
     // Update is called once per frame
@@ -29,18 +31,21 @@ public class MagicBall : MonoBehaviourPun
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "Enemy")
+        if(other.tag == "Enemy" && isMine)
         {
             Enemy enemy = other.GetComponent<Enemy>();
-            enemy.photonView.RPC("TakeDamage", RpcTarget.MasterClient, damage);
-            photonView.RPC("DestroyObject", RpcTarget.MasterClient);
+            enemy.photonView.RPC("TakeDamage", RpcTarget.MasterClient, this.attackerId, damage);
+            Destroy(gameObject);
         }
     }
-
-
     [PunRPC]
     void DestroyObject()
     {
         Destroy(gameObject);
+    }
+    public void Initialized(int attackID, bool isMine)
+    {
+        this.attackerId = attackID;
+        this.isMine = isMine;
     }
 }

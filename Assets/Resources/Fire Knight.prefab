@@ -118,6 +118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerName: {fileID: 8997634132102144963}
+  playerLevel: {fileID: 0}
   healthBar: {fileID: 3348933921243131846}
 --- !u!114 &2576015150335458644
 MonoBehaviour:
@@ -261,6 +262,7 @@ MonoBehaviour:
   anim: {fileID: 3036619449771756885}
   rb: {fileID: 3036619449771756886}
   xpToGive: 3000
+  curAttackerID: 0
 --- !u!61 &3036619449771756874
 BoxCollider2D:
   m_ObjectHideFlags: 0

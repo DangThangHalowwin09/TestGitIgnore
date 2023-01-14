@@ -22,7 +22,7 @@ public class HeaderInformation : MonoBehaviourPun
         playerName.text = text;
         maxHealthValue = maxVal;
         healthBar.fillAmount = 1.0f;
-        playerLevel.text = "" + level;
+        playerLevel.text = "LV" + level;
     }
 
     [PunRPC]
@@ -30,8 +30,9 @@ public class HeaderInformation : MonoBehaviourPun
     {
         healthBar.fillAmount = (float)value / maxHealthValue;
     }
+    [PunRPC]
     void UpdatePlayerLevel(int value)
     {
-        playerLevel.text = "" + value;
+        playerLevel.text = "LV " + value;
     }
 }

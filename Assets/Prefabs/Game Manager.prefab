@@ -90,3 +90,4 @@ MonoBehaviour:
   hpText: {fileID: 0}
   adText: {fileID: 0}
   dfText: {fileID: 0}
+  levelText: {fileID: 0}

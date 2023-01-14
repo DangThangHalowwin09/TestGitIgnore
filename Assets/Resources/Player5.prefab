@@ -1608,7 +1608,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 50
+          m_IntArgument: 10
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2695,8 +2695,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
-  magicRight: MagicRight
-  magicLeft: MagicLeft
+  magicRight: {fileID: 8973193240159305265, guid: 432564b862e18e24ea98edb246784bbb, type: 3}
+  magicLeft: {fileID: 7267443878281309960, guid: 84508dcebd5095b41890373f6df60f5e, type: 3}
+  warriorID: 0
   faceRight: 0
   attackPointRight: {fileID: 8288020764254552997}
   attackPointLeft: {fileID: 5853080964897783853}
@@ -2715,6 +2716,10 @@ MonoBehaviour:
   maxHP: 10
   dead: 0
   headerInfo: {fileID: 1021172991682601483}
+  playerLevel: 1
+  currentExp: 0
+  maxExp: 500
+  levelUpEffect: levelEffect
 --- !u!95 &8288020763683522264
 Animator:
   serializedVersion: 4
@@ -2837,6 +2842,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8288020763683522265}
     m_Modifications:
+    - target: {fileID: 2356608675440917721, guid: a559fa306644df7499f9c41c10f09741, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4367840670375923122, guid: a559fa306644df7499f9c41c10f09741, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 1
