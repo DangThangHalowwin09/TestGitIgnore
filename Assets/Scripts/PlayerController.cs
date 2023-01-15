@@ -57,14 +57,15 @@ public class PlayerController : MonoBehaviourPun
         {
             playerLevel = PlayerPrefs.GetInt("PlayerLevel");
         }
-        if (PlayerPrefs.HasKey("MaxEXP"))
-        {
-            maxExp = PlayerPrefs.GetInt("MaxEXP");
-        }
         if (PlayerPrefs.HasKey("CurrentEXP"))
         {
             currentExp = PlayerPrefs.GetInt("currentEXP");
         }
+        if (PlayerPrefs.HasKey("MaxEXP"))
+        {
+            maxExp = PlayerPrefs.GetInt("MaxEXP");
+        }
+        
         headerInfo.InitializedPlayer(playerLevel, player.NickName, maxHP);
   
         if (PlayerPrefs.HasKey("Attack"))
