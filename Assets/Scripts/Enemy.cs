@@ -144,7 +144,6 @@ public class Enemy : MonoBehaviourPun
         PlayerController player = GameManager.instance.GetPlayer(curAttackerID);
         GameManager.instance.GetPlayer(curAttackerID).photonView.RPC("EarnExp", player.photonPlayer, xpToGive);
         AudioManager.instance.PlaySFX(12);
-        //targetPlayer.photonView.RPC("EarnExp", targetPlayer.photonPlayer, xpToGive);
         PhotonNetwork.Instantiate(death, transform.position, Quaternion.identity);
         if (objectTospawnOnDeath != string.Empty)
             PhotonNetwork.Instantiate(objectTospawnOnDeath, transform.position, Quaternion.identity);

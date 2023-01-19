@@ -25,7 +25,6 @@ public class PlayerController : MonoBehaviourPun
     public float attackRange;
     public float attackDelay;
     public float lastAttackTime;
-    //public float attackRate = 1;
     [HideInInspector]
     public int id;
     public Animator playerAnim;
@@ -342,6 +341,7 @@ public class PlayerController : MonoBehaviourPun
         PlayerPrefs.SetInt("CurrentEXP", currentExp);
         LevelUp();
         GameUI.instance.UpdateLevelText(currentExp, maxExp);
+        Debug.Log("EarnEXP");
     }
     public void LevelUp()
     {

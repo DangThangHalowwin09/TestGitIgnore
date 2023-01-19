@@ -2695,8 +2695,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  magicRight: 
-  magicLeft: 
+  magicRight: {fileID: 0}
+  magicLeft: {fileID: 0}
+  warriorID: 0
   faceRight: 0
   attackPointRight: {fileID: 8288020764254552997}
   attackPointLeft: {fileID: 5853080964897783853}
@@ -2718,6 +2719,7 @@ MonoBehaviour:
   playerLevel: 1
   currentExp: 0
   maxExp: 500
+  levelUpEffect: levelEffect
 --- !u!95 &8288020763683522264
 Animator:
   serializedVersion: 4
@@ -2840,6 +2842,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8288020763683522265}
     m_Modifications:
+    - target: {fileID: 2356608675440917721, guid: a559fa306644df7499f9c41c10f09741, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3231635000744753636, guid: a559fa306644df7499f9c41c10f09741, type: 3}
       propertyPath: playerLevel
       value: 
