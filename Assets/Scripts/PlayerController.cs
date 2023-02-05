@@ -162,7 +162,7 @@ public class PlayerController : MonoBehaviourPun
         }
         else
         {
-            GameObject bulletObj = Instantiate(magicLeft, attackPointRight.transform.position, Quaternion.identity);
+            GameObject bulletObj = Instantiate(magicLeft, attackPointLeft.transform.position, Quaternion.identity);
             MagicBall bulletScript = bulletObj.GetComponent<MagicBall>();
             bulletScript.Initialized(id, photonView.IsMine);
         }

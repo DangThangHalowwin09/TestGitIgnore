@@ -2601,7 +2601,7 @@ SpriteRenderer:
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
-  m_RendererPriority: 0
+  m_RendererPriority: 10
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -2623,7 +2623,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 877b753e62f0a7a4a81bce22cc93f2ed, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2695,12 +2695,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  magicRight: 
-  magicLeft: 
+  magicRight: {fileID: 0}
+  magicLeft: {fileID: 0}
+  warriorID: 0
   faceRight: 0
   attackPointRight: {fileID: 8288020764254552997}
   attackPointLeft: {fileID: 5853080964897783853}
-  damage: 3
+  damage: 4
   def: 0
   attackRange: 2
   attackDelay: 1
@@ -2715,6 +2716,10 @@ MonoBehaviour:
   maxHP: 10
   dead: 0
   headerInfo: {fileID: 1021172991682601483}
+  playerLevel: 1
+  currentExp: 0
+  maxExp: 500
+  levelUpEffect: levelEffect
 --- !u!95 &8288020763683522264
 Animator:
   serializedVersion: 4
@@ -2837,6 +2842,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8288020763683522265}
     m_Modifications:
+    - target: {fileID: 2356608675440917721, guid: a559fa306644df7499f9c41c10f09741, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4367840670375923122, guid: a559fa306644df7499f9c41c10f09741, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 1
