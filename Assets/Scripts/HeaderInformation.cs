@@ -26,9 +26,9 @@ public class HeaderInformation : MonoBehaviourPun
     }
 
     [PunRPC]
-    void UpdateHealthBar(int value)
+    void UpdateHealthBar(int value, int maxValue)
     {
-        healthBar.fillAmount = (float)value / maxHealthValue;
+        healthBar.fillAmount = (float)value / maxValue;
     }
     [PunRPC]
     void UpdatePlayerLevel(int value)

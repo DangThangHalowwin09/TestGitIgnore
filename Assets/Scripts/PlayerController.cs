@@ -173,7 +173,6 @@ public class PlayerController : MonoBehaviourPun
         if (faceRight)
         {
             RaycastHit2D hit = Physics2D.Raycast(attackPointRight.position, transform.forward, attackRange);
-            //playerAnim.SetTrigger("Attack");
             initializeAttack(id, photonView.IsMine);
             if (hit.collider != null && hit.collider.gameObject.CompareTag("Enemy") && isMine)
             {
@@ -214,9 +213,9 @@ public class PlayerController : MonoBehaviourPun
     public void TakeDamage(int damageAmount)
     {
         int damageValue = damageAmount - def;
-        if (damageAmount < 1) damageAmount = 1;
+        if (damageValue < 1) damageValue = 1;
         currentHP = currentHP - damageValue;
-        headerInfo.photonView.RPC("UpdateHealthBar", RpcTarget.All, currentHP);
+        headerInfo.photonView.RPC("UpdateHealthBar", RpcTarget.All, currentHP, maxHP);
         if (currentHP <= 0)
         {
             Die();
@@ -257,7 +256,7 @@ public class PlayerController : MonoBehaviourPun
         transform.position = SpawnPos;
         currentHP = maxHP;
         rig.isKinematic = false;
-        headerInfo.photonView.RPC("UpdateHealthBar", RpcTarget.All, currentHP);
+        headerInfo.photonView.RPC("UpdateHealthBar", RpcTarget.All, currentHP, maxHP);
         GameUI.instance.UpdateHPText(currentHP, maxHP);
     }
     [PunRPC]
@@ -265,7 +264,7 @@ public class PlayerController : MonoBehaviourPun
     {
         AudioManager.instance.PlaySFX(3);
         currentHP = Mathf.Clamp(currentHP + amountToHeal, 0, maxHP);
-        headerInfo.photonView.RPC("UpdateHealthBar", RpcTarget.All, currentHP);
+        headerInfo.photonView.RPC("UpdateHealthBar", RpcTarget.All, currentHP, maxHP);
         GameUI.instance.UpdateHPText(currentHP, maxHP);
 
     }
@@ -275,7 +274,7 @@ public class PlayerController : MonoBehaviourPun
         maxHP += amoutToAdd;
         PlayerPrefs.SetInt("MaxHP", maxHP);
 
-        headerInfo.photonView.RPC("UpdateHealthBar", RpcTarget.All, currentHP);
+        headerInfo.photonView.RPC("UpdateHealthBar", RpcTarget.All, currentHP, maxHP);
         GameUI.instance.UpdateHPText(currentHP, maxHP);
     }
     [PunRPC]

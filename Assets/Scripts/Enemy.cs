@@ -117,7 +117,7 @@ public class Enemy : MonoBehaviourPun
     {
         currentHP -= damageamount;
         curAttackerID = attackerID;
-        healthBar.photonView.RPC("UpdateHealthBar", RpcTarget.All, currentHP);
+        healthBar.photonView.RPC("UpdateHealthBar", RpcTarget.All, currentHP, maxHP);
         if (currentHP <= 0)
         {
             Die();
