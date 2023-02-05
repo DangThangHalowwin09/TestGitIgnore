@@ -141,6 +141,7 @@ public class Enemy : MonoBehaviourPun
     }
     void Die()
     {
+        //targetPlayer.photonView.RPC("EarnExp", targetPlayer.photonPlayer, xpToGive);
         PlayerController player = GameManager.instance.GetPlayer(curAttackerID);
         GameManager.instance.GetPlayer(curAttackerID).photonView.RPC("EarnExp", player.photonPlayer, xpToGive);
         AudioManager.instance.PlaySFX(12);

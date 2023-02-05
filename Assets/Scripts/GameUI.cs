@@ -29,16 +29,14 @@ public class GameUI : MonoBehaviour
     public void UpdateAdText(int adAmount)
     {
         adText.text = "" + adAmount;
-        Debug.Log("1");
     }
     public void UpdateDFText(int dfAmount)
     {
         dfText.text = "" + dfAmount;
-        Debug.Log("2");
     }
     public void UpdateLevelText(int curXp, int maxXp)
     {
-        levelText.text = "" + (curXp/maxXp*100).ToString("f1") + "%";
-        Debug.Log(curXp / maxXp);
+        string s = (curXp * 100 / maxXp).ToString("F1");
+        levelText.text = "" + s + "%";
     }
 }

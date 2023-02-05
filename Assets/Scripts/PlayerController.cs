@@ -66,23 +66,18 @@ public class PlayerController : MonoBehaviourPun
         }
         
         headerInfo.InitializedPlayer(playerLevel, player.NickName, maxHP);
-  
-        if (PlayerPrefs.HasKey("Attack"))
-        {
-            damage = PlayerPrefs.GetInt("Attack");
-        }
 
         if (PlayerPrefs.HasKey("Attack"))
         {
             damage = PlayerPrefs.GetInt("Attack");
         }
-        GameUI.instance.UpdateGoldText(damage);
+        GameUI.instance.UpdateAdText(damage);
 
         if (PlayerPrefs.HasKey("Def"))
         {
             def = PlayerPrefs.GetInt("Def");
         }
-        GameUI.instance.UpdateGoldText(def);
+        GameUI.instance.UpdateDFText(def);
 
         if (PlayerPrefs.HasKey("Gold"))
         {
@@ -219,11 +214,8 @@ public class PlayerController : MonoBehaviourPun
     public void TakeDamage(int damageAmount)
     {
         int damageValue = damageAmount - def;
-        if(damageValue < 1)
-        {
-            damageValue = 1;
-        } 
-        currentHP -= damageAmount - def;
+        if (damageAmount < 1) damageAmount = 1;
+        currentHP = currentHP - damageValue;
         headerInfo.photonView.RPC("UpdateHealthBar", RpcTarget.All, currentHP);
         if (currentHP <= 0)
         {
@@ -322,7 +314,7 @@ public class PlayerController : MonoBehaviourPun
             gold -= itemPrice;
             PlayerPrefs.SetInt("Gold", gold);
             GameUI.instance.UpdateGoldText(gold);
-            GameUI.instance.UpdateAdText(def);
+            GameUI.instance.UpdateDFText(def);
         }
     }
 
@@ -341,7 +333,6 @@ public class PlayerController : MonoBehaviourPun
         PlayerPrefs.SetInt("CurrentEXP", currentExp);
         LevelUp();
         GameUI.instance.UpdateLevelText(currentExp, maxExp);
-        Debug.Log("EarnEXP");
     }
     public void LevelUp()
     {
@@ -350,7 +341,7 @@ public class PlayerController : MonoBehaviourPun
             AudioManager.instance.PlaySFX(3);
             PhotonNetwork.Instantiate(levelUpEffect, transform.position, Quaternion.identity);
             currentExp -= maxExp;
-            maxExp = (int)(maxExp * 1.2f);
+            maxExp = (int)(maxExp * 1.5f);
             playerLevel++;
             headerInfo.photonView.RPC("UpdatePlayerLevel", RpcTarget.All, playerLevel);
             GameUI.instance.UpdateLevelText(currentExp, maxExp);

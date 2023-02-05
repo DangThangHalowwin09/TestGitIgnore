@@ -334,7 +334,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8288020763683522269}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: BuyAttack
+        m_MethodName: BuyDef
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

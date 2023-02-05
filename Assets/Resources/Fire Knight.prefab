@@ -249,19 +249,19 @@ MonoBehaviour:
   death: Death
   enemyName: Fire Knight
   moveSpeed: 4
-  currentHP: 10
-  maxHP: 5
+  currentHP: 20
+  maxHP: 20
   chaseRange: 10
   attackRange: 2
   playerdetectRate: 0.5
   objectTospawnOnDeath: Diamond
-  damage: 7
+  damage: 10
   attackrate: 1
   healthBar: {fileID: 7162903927754168277}
   sr: {fileID: 3036619449771756872}
   anim: {fileID: 3036619449771756885}
   rb: {fileID: 3036619449771756886}
-  xpToGive: 3000
+  xpToGive: 250
   curAttackerID: 0
 --- !u!61 &3036619449771756874
 BoxCollider2D:
