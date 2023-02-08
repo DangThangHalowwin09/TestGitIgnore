@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using Photon.Pun;
 using UnityEditor;
 using UnityEngine.XR;
+using System;
 
 public class Enemy : MonoBehaviourPun
 {
@@ -18,7 +19,8 @@ public class Enemy : MonoBehaviourPun
     private PlayerController targetPlayer;
     public float playerdetectRate;
     private float lastPlayerDetectTime;
-    public string objectTospawnOnDeath;
+    public string[] objectTospawnOnDeath;
+
     public int damage;
     public float attackrate;
     private float lastattackTime;
@@ -28,6 +30,7 @@ public class Enemy : MonoBehaviourPun
     public Rigidbody2D rb;
     public int xpToGive;
     public int curAttackerID;
+    public string[] objectTospawn = {"Coin", "Coin", "Coin", "Diamond", "Diamond", "Diamond", "Potion" };
     private void Start()
     {
         healthBar.InitializedEnemy(enemyName, maxHP);
@@ -115,9 +118,11 @@ public class Enemy : MonoBehaviourPun
     [PunRPC]
     public void TakeDamage(int attackerID, int damageamount)
     {
+        Debug.Log(currentHP + " " + damageamount);
         currentHP -= damageamount;
         curAttackerID = attackerID;
         healthBar.photonView.RPC("UpdateHealthBar", RpcTarget.All, currentHP, maxHP);
+        
         if (currentHP <= 0)
         {
             Die();
@@ -141,13 +146,17 @@ public class Enemy : MonoBehaviourPun
     }
     void Die()
     {
-        //targetPlayer.photonView.RPC("EarnExp", targetPlayer.photonPlayer, xpToGive);
         PlayerController player = GameManager.instance.GetPlayer(curAttackerID);
         GameManager.instance.GetPlayer(curAttackerID).photonView.RPC("EarnExp", player.photonPlayer, xpToGive);
-        AudioManager.instance.PlaySFX(12);
+        AudioManager.instance.PlaySFX(19);
         PhotonNetwork.Instantiate(death, transform.position, Quaternion.identity);
-        if (objectTospawnOnDeath != string.Empty)
-            PhotonNetwork.Instantiate(objectTospawnOnDeath, transform.position, Quaternion.identity);
+        //if (objectTospawnOnDeath != string.Empty)
+        System.Random rand = new System.Random();
+        if(objectTospawnOnDeath != null)
+        //objectTospawnOnDeath = objectTospawn[(rand.Next(objectTospawn.Length))];
+        //Debug.Log(objectTospawnOnDeath);
+        PhotonNetwork.Instantiate(objectTospawnOnDeath[(rand.Next(objectTospawnOnDeath.Length))], transform.position, Quaternion.identity);
+        
         PhotonNetwork.Destroy(gameObject);
     }
 

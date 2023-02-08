@@ -248,13 +248,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   death: Death
   enemyName: Fire Knight
-  moveSpeed: 4
+  moveSpeed: 3
   currentHP: 20
   maxHP: 20
   chaseRange: 10
   attackRange: 2
   playerdetectRate: 0.5
-  objectTospawnOnDeath: Diamond
+  objectTospawnOnDeath:
+  - Potion
+  - Potion
+  - Potion
+  - Coin
+  - Coin
+  - Coin
+  - Coin
+  - Coin
+  - Coin
+  - Diamond
   damage: 10
   attackrate: 1
   healthBar: {fileID: 7162903927754168277}
@@ -263,6 +273,10 @@ MonoBehaviour:
   rb: {fileID: 3036619449771756886}
   xpToGive: 250
   curAttackerID: 0
+  objectTospawn:
+  - Coin
+  - Diamond
+  - Potion
 --- !u!61 &3036619449771756874
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -276,7 +290,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.1723752, y: 0.44763458}
+  m_Offset: {x: 0.0054836273, y: 0.383815}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.33, y: 0.3}
@@ -287,7 +301,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.81141186, y: 0.8865042}
+  m_Size: {x: 0.35090637, y: 0.758865}
   m_EdgeRadius: 0
 --- !u!95 &3036619449771756885
 Animator:

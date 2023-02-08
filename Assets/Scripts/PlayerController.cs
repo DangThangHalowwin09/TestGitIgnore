@@ -122,11 +122,10 @@ public class PlayerController : MonoBehaviourPun
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
         rig.velocity = new Vector2(x, y) * moveSpeed;
-       
         if (x != 0 || y != 0)
         {
             playerAnim.SetBool("Move", true);
-
+            
             if (x > 0)
             {
                 photonView.RPC("FlipRight", RpcTarget.All);
@@ -176,15 +175,16 @@ public class PlayerController : MonoBehaviourPun
             initializeAttack(id, photonView.IsMine);
             if (hit.collider != null && hit.collider.gameObject.CompareTag("Enemy") && isMine)
             {
+                Debug.Log("1");
                 Enemy enemy = hit.collider.GetComponent<Enemy>();
                 enemy.photonView.RPC("TakeDamage", RpcTarget.MasterClient, this.warriorID, damage);
-            }
+            }   
         }
         else
         {
             RaycastHit2D hit = Physics2D.Raycast(attackPointLeft.position, transform.forward, attackRange);
-            playerAnim.SetTrigger("Attack");
-            if (hit.collider != null && hit.collider.gameObject.CompareTag("Enemy") && isMine)
+            initializeAttack(id, photonView.IsMine);
+            if (hit.collider != null  && hit.collider.gameObject.CompareTag("Enemy") && isMine)
             {
                 Enemy enemy = hit.collider.GetComponent<Enemy>();
                 enemy.photonView.RPC("TakeDamage", RpcTarget.MasterClient, this.warriorID, damage);

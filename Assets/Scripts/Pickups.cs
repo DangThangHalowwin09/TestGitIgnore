@@ -28,6 +28,5 @@ public class Pickups : MonoBehaviourPun
 
             PhotonNetwork.Destroy(gameObject);
         }
-
     }
 }
