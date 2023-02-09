@@ -35,6 +35,7 @@ public class EnemySpawner : MonoBehaviourPun
         if (currentEnemies.Count >= maxEnemies)
             return;
         Vector3 randomIncircle = Random.insideUnitCircle * spawnRadius;
+        maxEnemies += 2 * Mathf.FloorToInt(GameUI.instance.currentTime / 30); 
         GameObject enemy = PhotonNetwork.Instantiate(enemyprefabPath, transform.position + randomIncircle, Quaternion.identity);
         currentEnemies.Add(enemy);
     }

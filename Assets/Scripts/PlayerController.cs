@@ -114,7 +114,37 @@ public class PlayerController : MonoBehaviourPun
             else if (type == AttackType.Magicer)
                 CastSpell();
         }
-            
+
+        
+    }
+    private void FixedUpdate()
+    {
+        if (GameUI.instance.timeASecond >= 1 && !GameUI.instance.oneSecond)
+        {
+            GameUI.instance.timeASecond = 0;
+            GameUI.instance.oneSecond = true;
+        }
+        else
+        {
+            GameUI.instance.timeASecond += Time.deltaTime;
+            GameUI.instance.oneSecond = false;
+        }
+
+        if (GameUI.instance.TimerOn)
+        {
+            if (GameUI.instance.TimeLeft > 0 && GameUI.instance.oneSecond)
+            {
+                GameUI.instance.TimeLeft -= 1;
+                GameUI.instance.UpdateTime(GameUI.instance.TimeLeft);
+                
+            }
+            else if(GameUI.instance.oneSecond && GameUI.instance.TimeLeft <= 0)
+            {
+                Debug.Log("Time is up");
+                GameUI.instance.TimeLeft = 0;
+                GameUI.instance.TimerOn = false;
+            }
+        }
     }
 
     private void Move()

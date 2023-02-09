@@ -249,8 +249,8 @@ MonoBehaviour:
   death: Death
   enemyName: Fire Knight
   moveSpeed: 3
-  currentHP: 20
-  maxHP: 20
+  currentHP: 100
+  maxHP: 100
   chaseRange: 10
   attackRange: 2
   playerdetectRate: 0.5

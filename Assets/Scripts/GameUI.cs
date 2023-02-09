@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using Photon.Pun.Demo.Cockpit;
 
 public class GameUI : MonoBehaviour
 {
@@ -11,12 +12,31 @@ public class GameUI : MonoBehaviour
     public TextMeshProUGUI adText;
     public TextMeshProUGUI dfText;
     public TextMeshProUGUI levelText;
+   
+    public TextMeshProUGUI time;
     public static GameUI instance;
-
+    public float TimeLeft;
+    public float currentTime;
+    public bool TimerOn;
+    public bool oneSecond;
+    public float timeASecond = 0;
     private void Awake()
     {
         instance = this;
     }
+
+    private void Update()
+    {
+      
+    }
+    public void UpdateTime(float Timeleft)
+    {
+        currentTime += 1;
+        int minutes = Mathf.FloorToInt(currentTime / 60);
+        int seconds = Mathf.FloorToInt(currentTime % 60);
+        time.text = minutes + ":" + seconds;
+    }
+  
 
     public void UpdateGoldText(int goldAmount)
     {

@@ -118,14 +118,15 @@ public class Enemy : MonoBehaviourPun
     [PunRPC]
     public void TakeDamage(int attackerID, int damageamount)
     {
-        Debug.Log(currentHP + " " + damageamount);
         currentHP -= damageamount;
         curAttackerID = attackerID;
         healthBar.photonView.RPC("UpdateHealthBar", RpcTarget.All, currentHP, maxHP);
-        
+        //Debug.Log(currentHP + " " + maxHP);
         if (currentHP <= 0)
         {
             Die();
+            this.currentHP += 10;
+            this.maxHP +=10 ;
         }
         else
         {
@@ -150,13 +151,9 @@ public class Enemy : MonoBehaviourPun
         GameManager.instance.GetPlayer(curAttackerID).photonView.RPC("EarnExp", player.photonPlayer, xpToGive);
         AudioManager.instance.PlaySFX(19);
         PhotonNetwork.Instantiate(death, transform.position, Quaternion.identity);
-        //if (objectTospawnOnDeath != string.Empty)
         System.Random rand = new System.Random();
         if(objectTospawnOnDeath != null)
-        //objectTospawnOnDeath = objectTospawn[(rand.Next(objectTospawn.Length))];
-        //Debug.Log(objectTospawnOnDeath);
         PhotonNetwork.Instantiate(objectTospawnOnDeath[(rand.Next(objectTospawnOnDeath.Length))], transform.position, Quaternion.identity);
-        
         PhotonNetwork.Destroy(gameObject);
     }
 
