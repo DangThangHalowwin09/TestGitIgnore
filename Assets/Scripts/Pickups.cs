@@ -6,7 +6,8 @@ using Photon.Pun;
 public enum PickupTypes
 {
     Gold,
-    Health
+    Health,
+    Food
 }
 public class Pickups : MonoBehaviourPun
 {

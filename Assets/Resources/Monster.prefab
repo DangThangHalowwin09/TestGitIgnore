@@ -15431,7 +15431,7 @@ GameObject:
   - component: {fileID: 7924815990859136486}
   m_Layer: 0
   m_Name: Monster
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15491,8 +15491,8 @@ MonoBehaviour:
   death: Death
   enemyName: Moster
   moveSpeed: 0
-  currentHP: 50
-  maxHP: 50
+  currentHP: 2000
+  maxHP: 2000
   chaseRange: 10
   attackRange: 2
   playerdetectRate: 1
@@ -15507,7 +15507,7 @@ MonoBehaviour:
   - Coin
   - Coin
   - Diamond
-  damage: 10
+  damage: 30
   attackrate: 1
   healthBar: {fileID: 8264982043563486168}
   sr: {fileID: 4768479458172322175}
@@ -15529,7 +15529,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.1746862, y: 3.5212367}

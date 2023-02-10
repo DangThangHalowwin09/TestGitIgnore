@@ -20,7 +20,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &21257904428442061
 RectTransform:
   m_ObjectHideFlags: 0
@@ -41,7 +41,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1.82, y: 4.21}
+  m_AnchoredPosition: {x: -2.05, y: 3.95}
   m_SizeDelta: {x: 1903.8252, y: 686.2051}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &1327765448306597403
@@ -223,12 +223,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: -4426458084399375206, guid: b39b7965fad3e7f42bd74edc69ce1042, type: 3}
+  m_Sprite: {fileID: 2047875306998373203, guid: 88fac0286a83d5d458c078ff15cace7a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.56, y: 2.56}
+  m_Size: {x: 8.47, y: 8.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -252,7 +252,7 @@ MonoBehaviour:
   moveSpeed: 5
   currentHP: 50
   maxHP: 50
-  chaseRange: 10
+  chaseRange: 20
   attackRange: 2
   playerdetectRate: 1
   objectTospawnOnDeath:
@@ -288,21 +288,21 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.9505192, y: 0.65836453}
+  m_Offset: {x: -0.73562294, y: 0.3160832}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 8.46, y: 8.85}
-    newSize: {x: 2.56, y: 2.56}
+    oldSize: {x: 8.47, y: 8.64}
+    newSize: {x: 8.47, y: 8.64}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.5058014, y: 4.5685754}
+  m_Size: {x: 1.584499, y: 3.2791786}
   m_EdgeRadius: 0
 --- !u!95 &3036619449771756885
 Animator:

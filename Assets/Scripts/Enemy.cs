@@ -70,9 +70,11 @@ public class Enemy : MonoBehaviourPun
                 Attack();
             }
             else if(dist > attackRange && type != EnemyType.Boss){
-                Vector3 dir = targetPlayer.transform.position - transform.position;
-                rb.velocity = dir.normalized * moveSpeed;
-                anim.SetBool("Walk", true);
+                
+                    Vector3 dir = targetPlayer.transform.position - transform.position;
+                    rb.velocity = dir.normalized * moveSpeed;
+                    anim.SetBool("Walk", true); 
+                
             }
             else
             {
@@ -98,10 +100,6 @@ public class Enemy : MonoBehaviourPun
         anim.SetTrigger("Attack");
         lastattackTime = Time.time;
         targetPlayer.photonView.RPC("TakeDamage", targetPlayer.photonPlayer, damage);
-        //if (type == EnemyType.Death)
-        //{
-            //Die();
-        //}
     }
 
     void DetectPlayer()
@@ -165,11 +163,12 @@ public class Enemy : MonoBehaviourPun
     {
         PlayerController player = GameManager.instance.GetPlayer(curAttackerID);
         GameManager.instance.GetPlayer(curAttackerID).photonView.RPC("EarnExp", player.photonPlayer, xpToGive);
-        AudioManager.instance.PlaySFX(19);
+        
         PhotonNetwork.Instantiate(death, transform.position, Quaternion.identity);
         System.Random rand = new System.Random();
         if(objectTospawnOnDeath != null)
         PhotonNetwork.Instantiate(objectTospawnOnDeath[(rand.Next(objectTospawnOnDeath.Length))], transform.position, Quaternion.identity);
+        AudioManager.instance.PlaySFX(19);
         PhotonNetwork.Destroy(gameObject);
     }
 
