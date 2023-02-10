@@ -2710,7 +2710,7 @@ MonoBehaviour:
   playerAnim: {fileID: 8288020763683522264}
   rig: {fileID: 8288020763683522267}
   sr: {fileID: 8288020763683522266}
-  moveSpeed: 5
+  moveSpeed: 3
   gold: 0
   currentHP: 10
   maxHP: 10

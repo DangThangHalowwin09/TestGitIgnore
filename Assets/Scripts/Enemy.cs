@@ -9,6 +9,13 @@ using System;
 
 public class Enemy : MonoBehaviourPun
 {
+    public enum EnemyType
+    {
+        Knight,
+        Death,
+        Boss
+    }
+    public EnemyType type;
     public string death = "Death";
     public string enemyName;
     public float moveSpeed;
@@ -31,9 +38,14 @@ public class Enemy : MonoBehaviourPun
     public int xpToGive;
     public int curAttackerID;
     public string[] objectTospawn = {"Coin", "Coin", "Coin", "Diamond", "Diamond", "Diamond", "Potion" };
+    
     private void Start()
     {
         healthBar.InitializedEnemy(enemyName, maxHP);
+        if(type == EnemyType.Boss)
+        {
+            rb.constraints = RigidbodyConstraints2D.FreezePosition;
+        }
     }
     private void Update()
     {
@@ -57,7 +69,7 @@ public class Enemy : MonoBehaviourPun
             {
                 Attack();
             }
-            else if(dist > attackRange){
+            else if(dist > attackRange && type != EnemyType.Boss){
                 Vector3 dir = targetPlayer.transform.position - transform.position;
                 rb.velocity = dir.normalized * moveSpeed;
                 anim.SetBool("Walk", true);
@@ -86,6 +98,10 @@ public class Enemy : MonoBehaviourPun
         anim.SetTrigger("Attack");
         lastattackTime = Time.time;
         targetPlayer.photonView.RPC("TakeDamage", targetPlayer.photonPlayer, damage);
+        //if (type == EnemyType.Death)
+        //{
+            //Die();
+        //}
     }
 
     void DetectPlayer()
