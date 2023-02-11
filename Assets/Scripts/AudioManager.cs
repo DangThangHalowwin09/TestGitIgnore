@@ -35,4 +35,8 @@ public class AudioManager : MonoBehaviour
     {
         
     }
+    public void IncreasSound() { }
+    public void DecreasSound() { }
+    public void IncreasMusic() { }
+    public void DecreasMusic() { }
 }

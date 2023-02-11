@@ -17,6 +17,8 @@ public class MenuManager : MonoBehaviourPunCallbacks, ILobbyCallbacks
     public GameObject createRoomScreen;
     public GameObject lobbyScreen;
     public GameObject lobbyBrowserScreen;
+    public GameObject IntroScreen;
+    public GameObject AudioScreen;
 
     [Header("Main Screen")]
     public Button createRoomButton;
@@ -34,7 +36,16 @@ public class MenuManager : MonoBehaviourPunCallbacks, ILobbyCallbacks
     private List<GameObject> roomButtons = new List<GameObject>();
     private List<RoomInfo> roomList = new List<RoomInfo>();
 
-
+    [Header("Intro & Introduction")]
+    public Button openIntroButton;
+    public Button closeIntroButton;
+    [Header("Audio Screen")]
+    public Button openAudioButton;
+    public Button closeAudioButton;
+    public Button IncreaseMusic;
+    public Button DecreaseMusic;
+    public Button IncreaseSound;
+    public Button DecreaseSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -73,13 +84,30 @@ public class MenuManager : MonoBehaviourPunCallbacks, ILobbyCallbacks
         createRoomScreen.SetActive(false);
         lobbyScreen.SetActive(false);
         lobbyBrowserScreen.SetActive(false);
-
+        IntroScreen.SetActive(false);
+        AudioScreen.SetActive(false);
         screen.SetActive(true);
 
         if (screen == lobbyBrowserScreen)
             UpdateLobbyBrowserUI();
     }
+    public void OnIntroScreen()
+    {
+        IntroScreen.SetActive(true);
+    }
+    public void OnAudioScreen()
+    {
+        AudioScreen.SetActive(true);
+    }
+    public void OutAudioScreen()
+    {
+        AudioScreen.SetActive(false);
+    }
 
+    public void OutIntroScreen()
+    {
+        IntroScreen.SetActive(false);
+    }
     public void OnBackToMainScreen()
     {
          SetScreen(mainScreen);
