@@ -15491,8 +15491,8 @@ MonoBehaviour:
   death: Death
   enemyName: Moster
   moveSpeed: 0
-  currentHP: 2000
-  maxHP: 2000
+  currentHP: 500
+  maxHP: 500
   chaseRange: 10
   attackRange: 2
   playerdetectRate: 1

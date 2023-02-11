@@ -39,6 +39,7 @@ public class Enemy : MonoBehaviourPun
     public int curAttackerID;
     public string[] objectTospawn = {"Coin", "Coin", "Coin", "Diamond", "Diamond", "Diamond", "Potion" };
     
+    
     private void Start()
     {
         healthBar.InitializedEnemy(enemyName, maxHP);
@@ -83,6 +84,10 @@ public class Enemy : MonoBehaviourPun
             }
         }
         DetectPlayer();
+        if(GameUI.instance.TimeLeft == 0 && !GameUI.instance.wasBossDie)
+        {
+            GameUI.instance.LossNotif.SetActive(true);
+        }
     }
     [PunRPC]
     void FlipRight()
@@ -135,12 +140,9 @@ public class Enemy : MonoBehaviourPun
         currentHP -= damageamount;
         curAttackerID = attackerID;
         healthBar.photonView.RPC("UpdateHealthBar", RpcTarget.All, currentHP, maxHP);
-        //Debug.Log(currentHP + " " + maxHP);
         if (currentHP <= 0)
         {
             Die();
-            this.currentHP += 10;
-            this.maxHP +=10 ;
         }
         else
         {
@@ -155,7 +157,7 @@ public class Enemy : MonoBehaviourPun
         IEnumerator DamageFlash()
         {
             sr.color = Color.red;
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.1f);
             sr.color = Color.white;
         }
     }
@@ -169,7 +171,13 @@ public class Enemy : MonoBehaviourPun
         if(objectTospawnOnDeath != null)
         PhotonNetwork.Instantiate(objectTospawnOnDeath[(rand.Next(objectTospawnOnDeath.Length))], transform.position, Quaternion.identity);
         AudioManager.instance.PlaySFX(19);
+        Debug.Log(gameObject.name);
+        if (gameObject.name == "Monster(Clone)")
+        {
+            
+            GameUI.instance.wasBossDie = true;
+            GameUI.instance.WinNotif.SetActive(true);
+        }
         PhotonNetwork.Destroy(gameObject);
     }
-
 }

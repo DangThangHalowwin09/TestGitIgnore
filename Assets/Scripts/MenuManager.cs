@@ -219,9 +219,7 @@ public class MenuManager : MonoBehaviourPunCallbacks, ILobbyCallbacks
             buttoncomp.onClick.RemoveAllListeners();
             buttoncomp.onClick.AddListener(() => { OnJoinRoomButton(roomName); });
             
-        }
-
-        
+        } 
     }
     public void OnJoinRoomButton(string roomName)
     {

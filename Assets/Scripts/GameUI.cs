@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using Photon.Pun.Demo.Cockpit;
+using Photon.Pun;
 
 public class GameUI : MonoBehaviour
 {
@@ -20,6 +21,9 @@ public class GameUI : MonoBehaviour
     public bool TimerOn;
     public bool oneSecond;
     public float timeASecond = 0;
+    public GameObject WinNotif;
+    public GameObject LossNotif;
+    public bool wasBossDie;
     private void Awake()
     {
         instance = this;
@@ -58,5 +62,22 @@ public class GameUI : MonoBehaviour
     {
         string s = (curXp * 100 / maxXp).ToString("F1");
         levelText.text = "" + s + "%";
+    }
+    public void PlayAgain()
+    {
+        StartCoroutine(LeftRoom());
+    }
+    IEnumerator LeftRoom()
+    {
+        PhotonNetwork.LeaveRoom();
+        while(PhotonNetwork.InRoom) yield return null;
+        PhotonNetwork.CurrentRoom.IsOpen = false;
+        PhotonNetwork.CurrentRoom.IsVisible = false;
+        if(PhotonNetwork.IsMasterClient)
+{
+            NetworkManager.instance.photonView.RPC("ChangeScene", RpcTarget.All, "MenuGame");
+        }
+        
+        //Destroy(GameObject.Find("DDOL"));
     }
 }
