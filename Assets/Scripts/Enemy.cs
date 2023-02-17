@@ -75,7 +75,6 @@ public class Enemy : MonoBehaviourPun
                     Vector3 dir = targetPlayer.transform.position - transform.position;
                     rb.velocity = dir.normalized * moveSpeed;
                     anim.SetBool("Walk", true); 
-                
             }
             else
             {

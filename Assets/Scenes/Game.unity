@@ -4730,7 +4730,7 @@ MonoBehaviour:
   enemyprefabPath:
   - Fire Knight
   - Death with Axe
-  - Monster
+  - Fire Knight
   - Fire Knight
   maxEnemies: 3
   spawnRadius: 6

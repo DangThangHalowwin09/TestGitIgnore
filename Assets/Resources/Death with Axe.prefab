@@ -249,10 +249,10 @@ MonoBehaviour:
   type: 1
   death: Death
   enemyName: Death with Axe
-  moveSpeed: 8
+  moveSpeed: 5
   currentHP: 50
   maxHP: 50
-  chaseRange: 20
+  chaseRange: 10
   attackRange: 2
   playerdetectRate: 1
   objectTospawnOnDeath:
@@ -288,7 +288,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.73562294, y: 0.3160832}
