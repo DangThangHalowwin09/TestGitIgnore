@@ -273,7 +273,7 @@ public class PlayerController : MonoBehaviourPun
         AudioManager.instance.PlaySFX(6);
         dead = true;
         rig.isKinematic = true;
-        transform.position = new Vector3(0, 90, 0);
+        transform.position = new Vector3(0, 900, 0);
         
         Vector3 spawnPos = GameManager.instance.spawnPoint[Random.Range(0, GameManager.instance.spawnPoint.Length)].position;
         StartCoroutine(Spawn(spawnPos, GameManager.instance.respawnTime));

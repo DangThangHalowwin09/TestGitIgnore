@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 using Photon.Pun.Demo.Cockpit;
 using Photon.Pun;
+using UnityEngine.SceneManagement;
 
 public class GameUI : MonoBehaviour
 {
@@ -70,13 +71,21 @@ public class GameUI : MonoBehaviour
     IEnumerator LeftRoom()
     {
         PhotonNetwork.LeaveRoom();
+        while (PhotonNetwork.InRoom) yield return null;
+        SceneManager.LoadScene(0);
+        //PhotonNetwork.AutomaticallySyncScene = true;
+        //NetworkManager.instance.photonView.RPC("ChangeScene", RpcTarget.All, "MenuGame");
+       // yield return null;
+
+        /*PhotonNetwork.LeaveRoom();
         while(PhotonNetwork.InRoom) yield return null;
         PhotonNetwork.CurrentRoom.IsOpen = false;
         PhotonNetwork.CurrentRoom.IsVisible = false;
         if(PhotonNetwork.IsMasterClient)
-{
+        {
+            PhotonNetwork.AutomaticallySyncScene = true;
             NetworkManager.instance.photonView.RPC("ChangeScene", RpcTarget.All, "MenuGame");
-        }
+        }*/
         
         //Destroy(GameObject.Find("DDOL"));
     }
