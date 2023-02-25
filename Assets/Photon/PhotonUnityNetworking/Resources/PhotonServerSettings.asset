@@ -16,7 +16,7 @@ MonoBehaviour:
     AppIdRealtime: c3f8465c-5eb7-499e-9242-db5457e2b730
     AppIdFusion: 
     AppIdChat: 
-    AppIdVoice: 
+    AppIdVoice: f3ea6105-2913-4de5-a9d8-3475ccc5aecd
     AppVersion: 
     UseNameServer: 1
     FixedRegion: 
@@ -34,30 +34,31 @@ MonoBehaviour:
   RunInBackground: 1
   StartInOfflineMode: 0
   RpcList:
-  - ClickRpc
-  - DestroyRpc
-  - DestroySpaceship
-  - Fire
-  - RespawnSpaceship
-  - UpdateLobbyUI
-  - ChangeScene
-  - ImInGame
-  - FliplLeft
-  - FlipRight
-  - FlashDamage
-  - TakeDamage
-  - Initialized
-  - UpdateHealthBar
-  - GetGold
-  - Heal
-  - FlipLeft
-  - OnstartGameButton
   - AddHealth
   - BuyHealth
+  - CantHearYou
+  - ChangeColour
+  - ChangeScene
+  - ClickRpc
   - DestroyObject
+  - DestroyRpc
+  - DestroySpaceship
   - EarnExp
-  - UpdatePlayerLevel
+  - Fire
+  - FlashDamage
+  - FlipLeft
+  - FlipRight
+  - GetGold
+  - Heal
+  - HeresWhy
+  - ImInGame
+  - Initialized
+  - RespawnSpaceship
   - RPC_AddNewMessage
+  - TakeDamage
+  - UpdateHealthBar
+  - UpdateLobbyUI
+  - UpdatePlayerLevel
   DisableAutoOpenWizard: 1
-  ShowSettings: 0
+  ShowSettings: 1
   DevRegionSetOnce: 1

@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using DG.Tweening;
+using Photon.Realtime;
 
 public enum PickupTypes
 {
     Gold,
     Health,
-    Food
+    Food,
+    Bomb
 }
 public class Pickups : MonoBehaviourPun
 {
@@ -23,11 +26,29 @@ public class Pickups : MonoBehaviourPun
             PlayerController player = collision.gameObject.GetComponent<PlayerController>();
 
             if (type == PickupTypes.Gold)
+            {
                 player.photonView.RPC("GetGold", player.photonPlayer, value);
+                PhotonNetwork.Destroy(gameObject);
+            }
+                
             else if (type == PickupTypes.Health)
+            {
                 player.photonView.RPC("Heal", player.photonPlayer, value);
-
-            PhotonNetwork.Destroy(gameObject);
+                PhotonNetwork.Destroy(gameObject);
+            }
+                
+            else if (type == PickupTypes.Food)
+            {
+                player.photonView.RPC("Heal", player.photonPlayer, value);
+                PhotonNetwork.Destroy(gameObject);
+            }
+                
+            else if (type == PickupTypes.Bomb)
+            {
+                gameObject.transform.DOScale(0.6f, 1);
+                player.photonView.RPC("Heal", player.photonPlayer, -value);
+                PhotonNetwork.Destroy(gameObject);
+            }      
         }
     }
 }
