@@ -36,7 +36,7 @@ public class EnemySpawner : MonoBehaviourPun
             return;
         Vector3 randomIncircle = Random.insideUnitCircle * spawnRadius;
         Vector3 randomIncircle2 = Random.insideUnitCircle * spawnRadius;
-        maxEnemies += 2 * Mathf.FloorToInt(GameUI.instance.currentTime / 30); 
+        maxEnemies += 1.2f * Mathf.FloorToInt(GameUI.instance.currentTime / 50); 
 
         GameObject enemy1 = PhotonNetwork.Instantiate(enemyprefabPath[0], transform.position + randomIncircle, Quaternion.identity);
         GameObject enemy2 = PhotonNetwork.Instantiate(enemyprefabPath[1], transform.position + randomIncircle2, Quaternion.identity);
@@ -45,6 +45,7 @@ public class EnemySpawner : MonoBehaviourPun
         {
             GameObject enemy3 = PhotonNetwork.Instantiate(enemyprefabPath[2], new Vector3(0, 0, 0), Quaternion.identity);
             currentEnemies.Add(enemy3);
+            Debug.Log(enemy3.name);
             wasSpawnBoss = true;
         }
         currentEnemies.Add(enemy1);

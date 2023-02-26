@@ -242,11 +242,12 @@ public class PlayerController : MonoBehaviourPun
     [PunRPC]
     public void TakeDamage(int damageAmount)
     {
+        AudioManager.instance.PlaySFX(6);
         int damageValue = damageAmount - def;
         if (damageValue < 1) damageValue = 1;
         currentHP = currentHP - damageValue;
         headerInfo.photonView.RPC("UpdateHealthBar", RpcTarget.All, currentHP, maxHP);
-        if (currentHP <= 0)
+        if (currentHP <= 1)
         {
             Die();
         }
@@ -294,6 +295,24 @@ public class PlayerController : MonoBehaviourPun
     {
         AudioManager.instance.PlaySFX(3);
         currentHP = Mathf.Clamp(currentHP + amountToHeal, 0, maxHP);
+        headerInfo.photonView.RPC("UpdateHealthBar", RpcTarget.All, currentHP, maxHP);
+        GameUI.instance.UpdateHPText(currentHP, maxHP);
+
+    }
+    void Eat(int amountToHeal)
+    {
+        AudioManager.instance.PlaySFX(3);
+        currentHP = Mathf.Clamp(currentHP + amountToHeal, 0, maxHP);
+        headerInfo.photonView.RPC("UpdateHealthBar", RpcTarget.All, currentHP, maxHP);
+        GameUI.instance.UpdateHPText(currentHP, maxHP);
+
+    }
+    [PunRPC]
+    void Hurt(int amountToHeal)
+    {
+        photonView.RPC("FlashDamage", RpcTarget.All);
+        AudioManager.instance.PlaySFX(15);
+        currentHP = Mathf.Clamp(currentHP - amountToHeal, 0, maxHP);
         headerInfo.photonView.RPC("UpdateHealthBar", RpcTarget.All, currentHP, maxHP);
         GameUI.instance.UpdateHPText(currentHP, maxHP);
 

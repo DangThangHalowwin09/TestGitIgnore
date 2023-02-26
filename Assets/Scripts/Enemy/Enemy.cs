@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviourPun
     public float playerdetectRate;
     private float lastPlayerDetectTime;
     public string[] objectTospawnOnDeath;
-
+    public bool faceRight;
     public int damage;
     public float attackrate;
     private float lastattackTime;
@@ -38,7 +38,10 @@ public class Enemy : MonoBehaviourPun
     public int xpToGive;
     public int curAttackerID;
     public string[] objectTospawn = {"Coin", "Coin", "Coin", "Diamond", "Diamond", "Diamond", "Potion" };
-    
+    public GameObject FireBallLeft;
+    public GameObject FireBallRight;
+    public GameObject attackPointLeft;
+    public GameObject attackPointRight;
     
     private void Start()
     {
@@ -68,7 +71,21 @@ public class Enemy : MonoBehaviourPun
 
             if(dist < attackRange && Time.time - lastattackTime >= attackrate)
             {
-                Attack();
+                
+                if(type == EnemyType.Death)
+                {
+                    Attack();
+                }
+                if(type == EnemyType.Knight && (targetPlayer.transform.position.y < gameObject.transform.position.y + 1f && targetPlayer.transform.position.y > gameObject.transform.position.y - 1f))
+                {
+                    StartCoroutine(CastFire());
+                }
+                else {
+                    Vector3 dir = targetPlayer.transform.position - transform.position;
+                    rb.velocity = dir.normalized * moveSpeed;
+                    anim.SetBool("Walk", true);
+                }
+
             }
             else if(dist > attackRange && type != EnemyType.Boss){
                 
@@ -92,13 +109,29 @@ public class Enemy : MonoBehaviourPun
     void FlipRight()
     {
         sr.flipX = false;
+        faceRight = true;
     }
     [PunRPC]
     void FlipLeft()
     {
         sr.flipX = true;
+        faceRight = false;
     }
 
+    IEnumerator CastFire()
+    {
+        anim.SetTrigger("Attack");
+        lastattackTime = Time.time;
+        yield return new WaitForSeconds(0.5f);
+        if (faceRight)
+        {
+            GameObject bulletObj = PhotonNetwork.Instantiate("FireBallRight", attackPointRight.transform.position, Quaternion.identity);
+        }
+        else
+        {
+            GameObject bulletObj = PhotonNetwork.Instantiate("FireBallLeft", attackPointLeft.transform.position, Quaternion.identity);
+        }
+    }
     void Attack()
     {
         anim.SetTrigger("Attack");
@@ -160,6 +193,18 @@ public class Enemy : MonoBehaviourPun
             sr.color = Color.white;
         }
     }
+    public void CastBall()
+    {
+        if (faceRight)
+        {
+            GameObject bulletObj = PhotonNetwork.Instantiate("FireBallRight", attackPointRight.transform.position, Quaternion.identity);
+        }
+        else
+        {
+            GameObject bulletObj = PhotonNetwork.Instantiate("FireBallLeft", attackPointLeft.transform.position, Quaternion.identity);
+        }
+    }
+   
     void Die()
     {
         PlayerController player = GameManager.instance.GetPlayer(curAttackerID);
@@ -170,10 +215,9 @@ public class Enemy : MonoBehaviourPun
         if(objectTospawnOnDeath != null)
         PhotonNetwork.Instantiate(objectTospawnOnDeath[(rand.Next(objectTospawnOnDeath.Length))], transform.position, Quaternion.identity);
         AudioManager.instance.PlaySFX(19);
-        Debug.Log(gameObject.name);
         if (gameObject.name == "Monster(Clone)")
         {
-            
+            Debug.Log(gameObject.name);
             GameUI.instance.wasBossDie = true;
             GameUI.instance.WinNotif.SetActive(true);
         }

@@ -4759,8 +4759,7 @@ MonoBehaviour:
   enemyprefabPath:
   - Fire Knight
   - Death with Axe
-  - Fire Knight
-  - Fire Knight
+  - Monster
   maxEnemies: 3
   spawnRadius: 6
   spawnCheckTime: 3
@@ -4895,6 +4894,7 @@ MonoBehaviour:
   spawnRadius: 20
   spawnCheckTime: 5
   currentPickups: []
+  pickupSpawner: {fileID: 1988197687}
 --- !u!4 &1988197689
 Transform:
   m_ObjectHideFlags: 0

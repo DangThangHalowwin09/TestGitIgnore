@@ -14,6 +14,7 @@ public class PickupSpawner : MonoBehaviour
     public List<GameObject> currentPickups = new List<GameObject>();
     bool wasSpawnBoss = false;
     int numberPrefabPath;
+    public GameObject pickupSpawner;
     private void Start()
     {
         numberPrefabPath = pickupPrefabPath.Count();
@@ -42,18 +43,16 @@ public class PickupSpawner : MonoBehaviour
             return;
         Vector3 randomIncircle = Random.insideUnitCircle * spawnRadius;
         Vector3 randomIncircle2 = Random.insideUnitCircle * spawnRadius;
-        
         maxPickUps += 2 * Mathf.FloorToInt(GameUI.instance.currentTime / 30);
-        
         GameObject Pickups1 = PhotonNetwork.Instantiate(pickupPrefabPath[Random.RandomRange(0, numberPrefabPath)], transform.position + randomIncircle, Quaternion.identity);
+        Pickups1.transform.parent = pickupSpawner.transform;
         GameObject Pickups2 = PhotonNetwork.Instantiate(pickupPrefabPath[Random.RandomRange(0, numberPrefabPath)], transform.position + randomIncircle2, Quaternion.identity);
-        Debug.Log(Pickups1.name);
-        Debug.Log(Pickups2.name);
-
+        Pickups2.transform.parent = pickupSpawner.transform;
         if (GameUI.instance.currentTime > 10 && !wasSpawnBoss)
         {
             Vector3 randomIncircle3 = Random.insideUnitCircle * spawnRadius;
             GameObject Pickups3 = PhotonNetwork.Instantiate(pickupPrefabPath[3], transform.position + randomIncircle3, Quaternion.identity);
+            Pickups3.transform.parent = pickupSpawner.transform;
             currentPickups.Add(Pickups3);
             wasSpawnBoss = true;
         }

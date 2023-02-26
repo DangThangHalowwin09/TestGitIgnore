@@ -266,6 +266,7 @@ MonoBehaviour:
   - Coin
   - Coin
   - Diamond
+  faceRight: 0
   damage: 10
   attackrate: 1
   healthBar: {fileID: 7162903927754168277}
@@ -278,6 +279,10 @@ MonoBehaviour:
   - Coin
   - Diamond
   - Potion
+  FireBallLeft: {fileID: 0}
+  FireBallRight: {fileID: 0}
+  attackPointLeft: {fileID: 0}
+  attackPointRight: {fileID: 0}
 --- !u!61 &3036619449771756874
 BoxCollider2D:
   m_ObjectHideFlags: 0

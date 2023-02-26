@@ -15445,8 +15445,8 @@ Transform:
   m_GameObject: {fileID: 7041806645088666966}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5657116164014445030}
   - {fileID: 6589103275338149602}
@@ -15507,6 +15507,7 @@ MonoBehaviour:
   - Coin
   - Coin
   - Diamond
+  faceRight: 0
   damage: 30
   attackrate: 1
   healthBar: {fileID: 8264982043563486168}
@@ -15519,6 +15520,10 @@ MonoBehaviour:
   - Coin
   - Diamond
   - Potion
+  FireBallLeft: {fileID: 0}
+  FireBallRight: {fileID: 0}
+  attackPointLeft: {fileID: 0}
+  attackPointRight: {fileID: 0}
 --- !u!61 &9105334709842814435
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -10,13 +10,15 @@ public enum PickupTypes
     Gold,
     Health,
     Food,
-    Bomb
+    Bomb, 
+    AttackTonic,
+    DefendTonic
 }
 public class Pickups : MonoBehaviourPun
 {
     public PickupTypes type;
     public int value;
-
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!PhotonNetwork.IsMasterClient)
@@ -39,16 +41,25 @@ public class Pickups : MonoBehaviourPun
                 
             else if (type == PickupTypes.Food)
             {
-                player.photonView.RPC("Heal", player.photonPlayer, value);
+                player.photonView.RPC("Eat", player.photonPlayer, value);
                 PhotonNetwork.Destroy(gameObject);
             }
-                
             else if (type == PickupTypes.Bomb)
             {
-                gameObject.transform.DOScale(0.6f, 1);
-                player.photonView.RPC("Heal", player.photonPlayer, -value);
+                PhotonNetwork.Instantiate("Explosion1", transform.position, Quaternion.identity);
+                player.photonView.RPC("Hurt", player.photonPlayer, -value);
                 PhotonNetwork.Destroy(gameObject);
-            }      
+            }
+            else if (type == PickupTypes.AttackTonic)
+            {
+                player.photonView.RPC("BuyAttack", player.photonPlayer, value);
+                PhotonNetwork.Destroy(gameObject);
+            }
+            else if (type == PickupTypes.DefendTonic)
+            {
+                player.photonView.RPC("BuyDef", player.photonPlayer, value);
+                PhotonNetwork.Destroy(gameObject);
+            }
         }
     }
 }
