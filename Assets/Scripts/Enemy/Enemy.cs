@@ -7,6 +7,7 @@ using UnityEditor;
 using UnityEngine.XR;
 using System;
 using Photon.Realtime;
+using DG.Tweening;
 
 public class Enemy : MonoBehaviourPun
 {
@@ -144,7 +145,7 @@ public class Enemy : MonoBehaviourPun
     {
         anim.SetTrigger("Attack");
         lastattackTime = Time.time;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
         if (faceRight)
         {
             GameObject bulletObj = PhotonNetwork.Instantiate("FireBallRight", attackPointRight.transform.position, Quaternion.identity);
@@ -155,6 +156,16 @@ public class Enemy : MonoBehaviourPun
         {
             GameObject bulletObj = PhotonNetwork.Instantiate("FireBallLeft", attackPointLeft.transform.position, Quaternion.identity);
             FireBall bulletScript = bulletObj.GetComponent<FireBall>();
+            bulletScript.Initialized(id, photonView.IsMine);
+        }
+    }
+    void SpawnBomb()
+    {
+        foreach (PlayerController player in GameManager.instance.players)
+        {
+            GameObject bulletObj = PhotonNetwork.Instantiate("Bomb2", transform.position, Quaternion.identity);
+            bulletObj.transform.DOJump(player.transform.position, 5, 1, 2).SetEase(Ease.Linear);
+            Bomb bulletScript = bulletObj.GetComponent<Bomb>();
             bulletScript.Initialized(id, photonView.IsMine);
         }
     }
@@ -222,7 +233,13 @@ public class Enemy : MonoBehaviourPun
             photonView.RPC("FlashDamage", RpcTarget.All);
         }
 
+        if(type == EnemyType.Boss)
+        {
+            SpawnBomb();
+        }
     }
+
+    
     [PunRPC]
     void FlashDamage()
     {
