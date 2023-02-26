@@ -45,7 +45,6 @@ public class EnemySpawner : MonoBehaviourPun
         {
             GameObject enemy3 = PhotonNetwork.Instantiate(enemyprefabPath[2], new Vector3(0, 0, 0), Quaternion.identity);
             currentEnemies.Add(enemy3);
-            Debug.Log(enemy3.name);
             wasSpawnBoss = true;
         }
         currentEnemies.Add(enemy1);

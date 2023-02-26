@@ -6,6 +6,7 @@ using Photon.Pun;
 using UnityEditor;
 using UnityEngine.XR;
 using System;
+using Photon.Realtime;
 
 public class Enemy : MonoBehaviourPun
 {
@@ -42,7 +43,11 @@ public class Enemy : MonoBehaviourPun
     public GameObject FireBallRight;
     public GameObject attackPointLeft;
     public GameObject attackPointRight;
-    
+    public int id;
+    public int enemyID;
+    private bool isMine;
+    private float dist = 10000;
+    private float distMin;
     private void Start()
     {
         healthBar.InitializedEnemy(enemyName, maxHP);
@@ -53,14 +58,19 @@ public class Enemy : MonoBehaviourPun
     }
     private void Update()
     {
+        /*if (!photonView.IsMine)
+        {
+            return;
+        }*/
         if (!PhotonNetwork.IsMasterClient)
             return;
-        if(targetPlayer != null)
+        
+        if (targetPlayer != null)
         {
-            float dist = Vector2.Distance(transform.position, targetPlayer.transform.position);
+            //float dist = Vector2.Distance(transform.position, targetPlayer.transform.position);
             float face = targetPlayer.transform.position.x - transform.position.x;
-
-            if(face > 0)
+            initializeAttack(id, photonView.IsMine);
+            if (face > 0)
             {
                 photonView.RPC("FlipRight", RpcTarget.All);
             }
@@ -76,31 +86,33 @@ public class Enemy : MonoBehaviourPun
                 {
                     Attack();
                 }
-                if(type == EnemyType.Knight && (targetPlayer.transform.position.y < gameObject.transform.position.y + 1f && targetPlayer.transform.position.y > gameObject.transform.position.y - 1f))
+                if(type == EnemyType.Knight && (targetPlayer.transform.position.y < gameObject.transform.position.y + 0.5f && targetPlayer.transform.position.y > gameObject.transform.position.y - 0.5f))
                 {
                     StartCoroutine(CastFire());
                 }
                 else {
-                    Vector3 dir = targetPlayer.transform.position - transform.position;
-                    rb.velocity = dir.normalized * moveSpeed;
-                    anim.SetBool("Walk", true);
+                    if (!targetPlayer.dead)
+                    {
+                        Walk();
+                    }
+                    else Stand();
                 }
 
             }
             else if(dist > attackRange && type != EnemyType.Boss){
-                
-                    Vector3 dir = targetPlayer.transform.position - transform.position;
-                    rb.velocity = dir.normalized * moveSpeed;
-                    anim.SetBool("Walk", true); 
+                if (!targetPlayer.dead)
+                {
+                    Debug.Log("111");
+                    Walk();
+                }      
             }
             else
             {
-                rb.velocity = Vector2.zero;
-                anim.SetBool("Walk", false);
+                Stand();
             }
         }
         DetectPlayer();
-        if(GameUI.instance.TimeLeft == 0 && !GameUI.instance.wasBossDie)
+        if (GameUI.instance.TimeLeft == 0 && !GameUI.instance.wasBossDie)
         {
             GameUI.instance.LossNotif.SetActive(true);
         }
@@ -117,7 +129,17 @@ public class Enemy : MonoBehaviourPun
         sr.flipX = true;
         faceRight = false;
     }
-
+    void Stand()
+    {
+        rb.velocity = Vector2.zero;
+        anim.SetBool("Walk", false);
+    }
+    void Walk()
+    {
+        Vector3 dir = targetPlayer.transform.position - transform.position;
+        rb.velocity = dir.normalized * moveSpeed;
+        anim.SetBool("Walk", true);
+    }
     IEnumerator CastFire()
     {
         anim.SetTrigger("Attack");
@@ -126,11 +148,20 @@ public class Enemy : MonoBehaviourPun
         if (faceRight)
         {
             GameObject bulletObj = PhotonNetwork.Instantiate("FireBallRight", attackPointRight.transform.position, Quaternion.identity);
+            FireBall bulletScript = bulletObj.GetComponent<FireBall>();
+            bulletScript.Initialized(id, photonView.IsMine);
         }
         else
         {
             GameObject bulletObj = PhotonNetwork.Instantiate("FireBallLeft", attackPointLeft.transform.position, Quaternion.identity);
+            FireBall bulletScript = bulletObj.GetComponent<FireBall>();
+            bulletScript.Initialized(id, photonView.IsMine);
         }
+    }
+    void initializeAttack(int attackID, bool isMine)
+    {
+        this.enemyID = attackID;
+        this.isMine = isMine;
     }
     void Attack()
     {
@@ -141,31 +172,41 @@ public class Enemy : MonoBehaviourPun
 
     void DetectPlayer()
     {
-        if(Time.time - lastPlayerDetectTime > playerdetectRate)
+        
+        if (Time.time - lastPlayerDetectTime > playerdetectRate)
         {
             lastPlayerDetectTime = Time.time;
+            determineTargetPlayer();
+            }
+    }
 
-            foreach(PlayerController player in GameManager.instance.players)
+    void determineTargetPlayer()
+    {
+        foreach (PlayerController player in GameManager.instance.players)
+        {
+            dist = Vector2.Distance(transform.position, player.transform.position);
+
+            if (player == targetPlayer && !player.dead)
             {
-                float dist = Vector2.Distance(transform.position, player.transform.position);
-                if (player == targetPlayer)
+                if (dist > chaseRange)
                 {
-                    if(dist > chaseRange)
-                    {
-                        targetPlayer = null;
-                        anim.SetBool("Walk", false);
-                        rb.velocity = Vector2.zero;
-                    }
-                }else if(dist < chaseRange)
-                {
-                    if(targetPlayer == null)
-                    {
-                        targetPlayer = player;
-                    }
+                    targetPlayer = null;
+                    Stand();
+                    Debug.Log("222" + player.name);
                 }
+            }
+            else if (dist < chaseRange)
+            {
+                if (targetPlayer == null && !targetPlayer)
+                {
+                    targetPlayer = player;
+                    Debug.Log("333" + player.name);
+                }
+
             }
         }
     }
+
     [PunRPC]
     public void TakeDamage(int attackerID, int damageamount)
     {
@@ -193,17 +234,6 @@ public class Enemy : MonoBehaviourPun
             sr.color = Color.white;
         }
     }
-    public void CastBall()
-    {
-        if (faceRight)
-        {
-            GameObject bulletObj = PhotonNetwork.Instantiate("FireBallRight", attackPointRight.transform.position, Quaternion.identity);
-        }
-        else
-        {
-            GameObject bulletObj = PhotonNetwork.Instantiate("FireBallLeft", attackPointLeft.transform.position, Quaternion.identity);
-        }
-    }
    
     void Die()
     {
@@ -217,7 +247,6 @@ public class Enemy : MonoBehaviourPun
         AudioManager.instance.PlaySFX(19);
         if (gameObject.name == "Monster(Clone)")
         {
-            Debug.Log(gameObject.name);
             GameUI.instance.wasBossDie = true;
             GameUI.instance.WinNotif.SetActive(true);
         }

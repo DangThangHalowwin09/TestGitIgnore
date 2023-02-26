@@ -15524,6 +15524,8 @@ MonoBehaviour:
   FireBallRight: {fileID: 0}
   attackPointLeft: {fileID: 0}
   attackPointRight: {fileID: 0}
+  id: 0
+  enemyID: 0
 --- !u!61 &9105334709842814435
 BoxCollider2D:
   m_ObjectHideFlags: 0

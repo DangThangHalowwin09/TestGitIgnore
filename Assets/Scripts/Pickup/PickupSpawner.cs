@@ -44,9 +44,9 @@ public class PickupSpawner : MonoBehaviour
         Vector3 randomIncircle = Random.insideUnitCircle * spawnRadius;
         Vector3 randomIncircle2 = Random.insideUnitCircle * spawnRadius;
         maxPickUps += 2 * Mathf.FloorToInt(GameUI.instance.currentTime / 30);
-        GameObject Pickups1 = PhotonNetwork.Instantiate(pickupPrefabPath[Random.RandomRange(0, numberPrefabPath)], transform.position + randomIncircle, Quaternion.identity);
+        GameObject Pickups1 = PhotonNetwork.Instantiate(pickupPrefabPath[Random.Range(0, numberPrefabPath)], transform.position + randomIncircle, Quaternion.identity);
         Pickups1.transform.parent = pickupSpawner.transform;
-        GameObject Pickups2 = PhotonNetwork.Instantiate(pickupPrefabPath[Random.RandomRange(0, numberPrefabPath)], transform.position + randomIncircle2, Quaternion.identity);
+        GameObject Pickups2 = PhotonNetwork.Instantiate(pickupPrefabPath[Random.Range(0, numberPrefabPath)], transform.position + randomIncircle2, Quaternion.identity);
         Pickups2.transform.parent = pickupSpawner.transform;
         if (GameUI.instance.currentTime > 10 && !wasSpawnBoss)
         {

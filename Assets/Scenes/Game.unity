@@ -258,6 +258,64 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4548670}
   m_CullTransparentMesh: 1
+--- !u!1 &123551348
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 123551350}
+  - component: {fileID: 123551349}
+  m_Layer: 0
+  m_Name: Pickup Spawner (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &123551349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123551348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 638c00bea40d3714abc11d1fecb3d0cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupPrefabPath:
+  - Apple
+  - Bread
+  - Cheese
+  - BigCoin
+  - Apple
+  - Bomb
+  - Cheese
+  - Bread
+  maxPickUps: 5
+  spawnRadius: 5
+  spawnCheckTime: 5
+  currentPickups: []
+  pickupSpawner: {fileID: 123551348}
+--- !u!4 &123551350
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123551348}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 13.1, y: -6, z: -1.6088204}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &148917333
 GameObject:
   m_ObjectHideFlags: 0
@@ -1653,6 +1711,64 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 585403173}
   m_CullTransparentMesh: 1
+--- !u!1 &642398720
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 642398722}
+  - component: {fileID: 642398721}
+  m_Layer: 0
+  m_Name: Pickup Spawner (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &642398721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642398720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 638c00bea40d3714abc11d1fecb3d0cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupPrefabPath:
+  - Apple
+  - Bread
+  - Cheese
+  - BigCoin
+  - Apple
+  - Bomb
+  - Cheese
+  - Bread
+  maxPickUps: 5
+  spawnRadius: 5
+  spawnCheckTime: 5
+  currentPickups: []
+  pickupSpawner: {fileID: 642398720}
+--- !u!4 &642398722
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642398720}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -11, y: -1.3, z: -1.6088204}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &665484173
 GameObject:
   m_ObjectHideFlags: 0
@@ -4863,7 +4979,7 @@ GameObject:
   - component: {fileID: 1988197689}
   - component: {fileID: 1988197688}
   m_Layer: 0
-  m_Name: PickupSpawner
+  m_Name: Pickup Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4890,8 +5006,8 @@ MonoBehaviour:
   - Bomb
   - Cheese
   - Bread
-  maxPickUps: 10
-  spawnRadius: 20
+  maxPickUps: 5
+  spawnRadius: 5
   spawnCheckTime: 5
   currentPickups: []
   pickupSpawner: {fileID: 1988197687}
@@ -4903,7 +5019,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1988197687}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1.6088204}
+  m_LocalPosition: {x: 0.6, y: -7.5, z: -1.6088204}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 1
   m_Children: []

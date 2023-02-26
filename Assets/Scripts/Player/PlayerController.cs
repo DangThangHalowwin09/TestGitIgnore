@@ -31,7 +31,6 @@ public class PlayerController : MonoBehaviourPun
     public Rigidbody2D rig;
     public Player photonPlayer;
     public SpriteRenderer sr;
-    //public HeaderInfo headerInfo
     public float moveSpeed;
     public int gold;
     public int currentHP;
@@ -205,7 +204,6 @@ public class PlayerController : MonoBehaviourPun
             initializeAttack(id, photonView.IsMine);
             if (hit.collider != null && hit.collider.gameObject.CompareTag("Enemy") && isMine)
             {
-                Debug.Log("1");
                 Enemy enemy = hit.collider.GetComponent<Enemy>();
                 enemy.photonView.RPC("TakeDamage", RpcTarget.MasterClient, this.warriorID, damage);
             }   
@@ -313,6 +311,10 @@ public class PlayerController : MonoBehaviourPun
         photonView.RPC("FlashDamage", RpcTarget.All);
         AudioManager.instance.PlaySFX(15);
         currentHP = Mathf.Clamp(currentHP - amountToHeal, 0, maxHP);
+        if (currentHP <= 0)
+        {
+            Die();
+        }
         headerInfo.photonView.RPC("UpdateHealthBar", RpcTarget.All, currentHP, maxHP);
         GameUI.instance.UpdateHPText(currentHP, maxHP);
 

@@ -348,6 +348,8 @@ MonoBehaviour:
   FireBallRight: {fileID: 8973193240159305265, guid: 151fc70dd989e414980296f304ba66d9, type: 3}
   attackPointLeft: {fileID: 1106302976298754318}
   attackPointRight: {fileID: 8797067545775522480}
+  id: 0
+  enemyID: 0
 --- !u!61 &3036619449771756874
 BoxCollider2D:
   m_ObjectHideFlags: 0
