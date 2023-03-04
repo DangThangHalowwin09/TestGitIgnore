@@ -36,7 +36,7 @@ public class Bomb : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player" && isMine)
+        if (other.tag == "Player" && isMine && other is BoxCollider2D)
         {
             PhotonNetwork.Instantiate("Explosion1", transform.position, Quaternion.identity);
             PlayerController player = other.gameObject.GetComponent<PlayerController>();
