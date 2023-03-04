@@ -6,6 +6,8 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
     public AudioSource[] soundEffects;
+    public GameObject BGMusic;
+    private AudioSource bGAudioSource;
     private void Awake()
     {
         if(instance == null)
@@ -17,6 +19,8 @@ public class AudioManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        bGAudioSource = BGMusic.GetComponent<AudioSource>();
     }
 
     public void PlaySFX(int sfxNumber)
@@ -35,8 +39,29 @@ public class AudioManager : MonoBehaviour
     {
         
     }
-    public void IncreasSound() { }
-    public void DecreasSound() { }
-    public void IncreasMusic() { }
-    public void DecreasMusic() { }
+    public void IncreasSound() {
+        PlaySFX(0);
+        for (int i = 0; i < soundEffects.Length; i++)
+        {
+            
+            if (soundEffects[i].volume < 1)
+                soundEffects[i].volume += 0.1f;
+        }
+    }
+    public void DecreasSound() {
+        PlaySFX(1);
+        for (int i = 0; i < soundEffects.Length; i++)
+        {
+            if(soundEffects[i].volume > 0)
+            soundEffects[i].volume -= 0.1f;
+        }
+    }
+    public void IncreasMusic() {
+        if (bGAudioSource.volume < 1)
+            bGAudioSource.volume += 0.1f;
+    }
+    public void DecreasMusic() {
+        if (bGAudioSource.volume > 0)
+            bGAudioSource.volume -= 0.1f;
+    }
 }
