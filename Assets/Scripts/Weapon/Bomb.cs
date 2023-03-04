@@ -28,11 +28,6 @@ public class Bomb : MonoBehaviour
         spriteRender.color = Color.Lerp(Color.white, Color.red, 1f);
         PhotonNetwork.Instantiate("Explosion1", transform.position, Quaternion.identity);
     }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -42,7 +37,8 @@ public class Bomb : MonoBehaviour
             PlayerController player = other.gameObject.GetComponent<PlayerController>();
             if (isMine)
             {
-                PhotonNetwork.Destroy(gameObject);
+                //PhotonNetwork.Destroy(gameObject);
+                Destroy(gameObject);
             }
 
             player.photonView.RPC("Hurt", player.photonPlayer, damage);

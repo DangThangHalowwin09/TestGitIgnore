@@ -27,12 +27,15 @@ public class FireBall : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        /*if (!PhotonNetwork.IsMasterClient)
+            return;*/
         if (other.tag == "Player" && isMine && other is BoxCollider2D)
         {
             PlayerController player = other.gameObject.GetComponent<PlayerController>();
             if (isMine)
             {
-                PhotonNetwork.Destroy(gameObject);
+                //PhotonNetwork.Destroy(gameObject);
+                Destroy(gameObject);
             }
             
             player.photonView.RPC("Hurt", player.photonPlayer, damage);

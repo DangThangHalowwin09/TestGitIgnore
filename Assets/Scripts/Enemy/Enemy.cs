@@ -63,7 +63,6 @@ public class Enemy : MonoBehaviourPun
         
         if (targetPlayer != null)
         {
-            //float dist = Vector2.Distance(transform.position, targetPlayer.transform.position);
             float face = targetPlayer.transform.position.x - transform.position.x;
             initializeAttack(id, photonView.IsMine);
             if (face > 0)
@@ -197,24 +196,28 @@ public class Enemy : MonoBehaviourPun
     {
         foreach (PlayerController player in GameManager.instance.players)
         {
-            dist = Vector2.Distance(transform.position, player.transform.position);
-
-            if (player == targetPlayer && !player.dead)
+            if(player != null)
             {
-                if (dist > chaseRange)
+                dist = Vector2.Distance(transform.position, player.transform.position);
+
+                if (player == targetPlayer && !player.dead)
                 {
-                    targetPlayer = null;
-                    Stand();
+                    if (dist > chaseRange)
+                    {
+                        targetPlayer = null;
+                        Stand();
+                    }
+                }
+                else if (dist < chaseRange)
+                {
+                    if (targetPlayer == null && !targetPlayer)
+                    {
+                        targetPlayer = player;
+                    }
+
                 }
             }
-            else if (dist < chaseRange)
-            {
-                if (targetPlayer == null && !targetPlayer)
-                {
-                    targetPlayer = player;
-                }
-
-            }
+            
         }
     }
 
@@ -235,6 +238,7 @@ public class Enemy : MonoBehaviourPun
 
         if(type == EnemyType.Boss)
         {
+            
             StartCoroutine(SpawnBombIE());
         }
     }
