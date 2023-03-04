@@ -259,13 +259,6 @@ MonoBehaviour:
   - Potion
   - Potion
   - Potion
-  - Coin
-  - Coin
-  - Coin
-  - Coin
-  - Coin
-  - Coin
-  - Diamond
   faceRight: 0
   damage: 10
   attackrate: 1
@@ -275,10 +268,6 @@ MonoBehaviour:
   rb: {fileID: 3036619449771756886}
   xpToGive: 250
   curAttackerID: 0
-  objectTospawn:
-  - Coin
-  - Diamond
-  - Potion
   FireBallLeft: {fileID: 0}
   FireBallRight: {fileID: 0}
   attackPointLeft: {fileID: 0}
@@ -298,7 +287,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.73562294, y: 0.3160832}
+  m_Offset: {x: -0.9532813, y: 0.060014725}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -309,7 +298,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.584499, y: 3.2791786}
+  m_Size: {x: 1.866174, y: 5.6862173}
   m_EdgeRadius: 0
 --- !u!95 &3036619449771756885
 Animator:

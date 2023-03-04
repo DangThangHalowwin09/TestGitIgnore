@@ -27,7 +27,7 @@ public class FireBall : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player" && isMine)
+        if (other.tag == "Player" && isMine && other is BoxCollider2D)
         {
             PlayerController player = other.gameObject.GetComponent<PlayerController>();
             if (isMine)

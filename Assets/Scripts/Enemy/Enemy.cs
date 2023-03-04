@@ -39,7 +39,6 @@ public class Enemy : MonoBehaviourPun
     public Rigidbody2D rb;
     public int xpToGive;
     public int curAttackerID;
-    public string[] objectTospawn = {"Coin", "Coin", "Coin", "Diamond", "Diamond", "Diamond", "Potion" };
     public GameObject FireBallLeft;
     public GameObject FireBallRight;
     public GameObject attackPointLeft;
@@ -59,10 +58,6 @@ public class Enemy : MonoBehaviourPun
     }
     private void Update()
     {
-        /*if (!photonView.IsMine)
-        {
-            return;
-        }*/
         if (!PhotonNetwork.IsMasterClient)
             return;
         
@@ -103,7 +98,6 @@ public class Enemy : MonoBehaviourPun
             else if(dist > attackRange && type != EnemyType.Boss){
                 if (!targetPlayer.dead)
                 {
-                    Debug.Log("111");
                     Walk();
                 }      
             }
@@ -164,10 +158,18 @@ public class Enemy : MonoBehaviourPun
         foreach (PlayerController player in GameManager.instance.players)
         {
             GameObject bulletObj = PhotonNetwork.Instantiate("Bomb2", transform.position, Quaternion.identity);
-            bulletObj.transform.DOJump(player.transform.position, 5, 1, 2).SetEase(Ease.Linear);
+            bulletObj.transform.DOJump(player.transform.position, 5, 1, 1).SetEase(Ease.Linear);
             Bomb bulletScript = bulletObj.GetComponent<Bomb>();
             bulletScript.Initialized(id, photonView.IsMine);
         }
+    }
+    IEnumerator SpawnBombIE()
+    {
+        SpawnBomb();
+        yield return new WaitForSeconds(0.25f);
+        SpawnBomb();
+        yield return new WaitForSeconds(0.25f);
+        SpawnBomb();
     }
     void initializeAttack(int attackID, bool isMine)
     {
@@ -203,7 +205,6 @@ public class Enemy : MonoBehaviourPun
                 {
                     targetPlayer = null;
                     Stand();
-                    Debug.Log("222" + player.name);
                 }
             }
             else if (dist < chaseRange)
@@ -211,7 +212,6 @@ public class Enemy : MonoBehaviourPun
                 if (targetPlayer == null && !targetPlayer)
                 {
                     targetPlayer = player;
-                    Debug.Log("333" + player.name);
                 }
 
             }
@@ -235,7 +235,7 @@ public class Enemy : MonoBehaviourPun
 
         if(type == EnemyType.Boss)
         {
-            SpawnBomb();
+            StartCoroutine(SpawnBombIE());
         }
     }
 

@@ -18,12 +18,29 @@ public class Pickups : MonoBehaviourPun
 {
     public PickupTypes type;
     public int value;
-    
+    bool magnetOn = false;
+    float speed = 8f;
+    PlayerController playerForCoin;
+    private void Update()
+    {
+        if (magnetOn)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, playerForCoin.transform.position, speed*Time.deltaTime);
+        }
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        
         if (!PhotonNetwork.IsMasterClient)
             return;
-        if (collision.CompareTag("Player"))
+
+        if (collision.CompareTag("Player") && collision is CircleCollider2D && type != PickupTypes.Bomb)
+        {
+            magnetOn = true;
+            playerForCoin = collision.gameObject.GetComponent<PlayerController>();
+        }
+
+        if (collision.CompareTag("Player") && collision is BoxCollider2D)
         {
             PlayerController player = collision.gameObject.GetComponent<PlayerController>();
 

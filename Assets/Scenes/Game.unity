@@ -288,19 +288,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickupPrefabPath:
-  - Apple
-  - Bread
   - Cheese
-  - BigCoin
+  - Cheese
+  - Cheese
+  - Cheese
   - Apple
+  - Cheese
   - Bomb
-  - Cheese
-  - Bread
-  maxPickUps: 5
-  spawnRadius: 5
-  spawnCheckTime: 5
+  - Bomb
+  maxPickUps: 3
+  spawnRadius: 8
+  spawnCheckTime: 8
   currentPickups: []
-  pickupSpawner: {fileID: 123551348}
+  pickupSpawner: {fileID: 1988197687}
 --- !u!4 &123551350
 Transform:
   m_ObjectHideFlags: 0
@@ -1741,19 +1741,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickupPrefabPath:
-  - Apple
-  - Bread
   - Cheese
-  - BigCoin
+  - Cheese
+  - Cheese
+  - Cheese
   - Apple
+  - Cheese
   - Bomb
-  - Cheese
-  - Bread
-  maxPickUps: 5
-  spawnRadius: 5
-  spawnCheckTime: 5
+  - Bomb
+  maxPickUps: 3
+  spawnRadius: 8
+  spawnCheckTime: 8
   currentPickups: []
-  pickupSpawner: {fileID: 642398720}
+  pickupSpawner: {fileID: 1988197687}
 --- !u!4 &642398722
 Transform:
   m_ObjectHideFlags: 0
@@ -4998,17 +4998,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickupPrefabPath:
-  - Apple
-  - Bread
   - Cheese
-  - BigCoin
+  - Cheese
+  - Cheese
+  - Cheese
   - Apple
+  - Cheese
   - Bomb
-  - Cheese
-  - Bread
-  maxPickUps: 5
-  spawnRadius: 5
-  spawnCheckTime: 5
+  - Bomb
+  maxPickUps: 3
+  spawnRadius: 8
+  spawnCheckTime: 8
   currentPickups: []
   pickupSpawner: {fileID: 1988197687}
 --- !u!4 &1988197689

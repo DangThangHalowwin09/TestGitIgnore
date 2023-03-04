@@ -2556,6 +2556,7 @@ GameObject:
   - component: {fileID: 8288020763683522263}
   - component: {fileID: 4925506279628143940}
   - component: {fileID: 3465686406318066035}
+  - component: {fileID: 5562194102545103488}
   m_Layer: 7
   m_Name: Player6
   m_TagString: Player
@@ -2697,6 +2698,7 @@ MonoBehaviour:
   type: 1
   magicRight: {fileID: 8973193240159305265, guid: 432564b862e18e24ea98edb246784bbb, type: 3}
   magicLeft: {fileID: 7267443878281309960, guid: 84508dcebd5095b41890373f6df60f5e, type: 3}
+  thorn: {fileID: 7267443878281309960, guid: 91a5c557da405284face37a6b0072dd4, type: 3}
   warriorID: 0
   faceRight: 1
   attackPointRight: {fileID: 8288020764254552997}
@@ -2804,6 +2806,22 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
+--- !u!58 &5562194102545103488
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8288020763683522270}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.03541398, y: 0.14350057}
+  serializedVersion: 2
+  m_Radius: 1.6777709
 --- !u!1 &8288020764254552998
 GameObject:
   m_ObjectHideFlags: 0

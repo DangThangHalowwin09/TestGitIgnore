@@ -15491,8 +15491,8 @@ MonoBehaviour:
   death: Death
   enemyName: Moster
   moveSpeed: 0
-  currentHP: 500
-  maxHP: 500
+  currentHP: 1000
+  maxHP: 1000
   chaseRange: 10
   attackRange: 2
   playerdetectRate: 1
@@ -15516,10 +15516,6 @@ MonoBehaviour:
   rb: {fileID: 7924815990859136486}
   xpToGive: 250
   curAttackerID: 0
-  objectTospawn:
-  - Coin
-  - Diamond
-  - Potion
   FireBallLeft: {fileID: 0}
   FireBallRight: {fileID: 0}
   attackPointLeft: {fileID: 0}

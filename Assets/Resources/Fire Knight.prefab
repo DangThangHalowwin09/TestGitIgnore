@@ -321,16 +321,9 @@ MonoBehaviour:
   attackRange: 25
   playerdetectRate: 0.5
   objectTospawnOnDeath:
-  - Potion
-  - Potion
-  - Potion
-  - Coin
-  - Coin
-  - Coin
-  - Coin
-  - Coin
-  - Coin
-  - Diamond
+  - BigCoin
+  - BigCoin
+  - BigCoin
   faceRight: 0
   damage: 10
   attackrate: 1
@@ -340,10 +333,6 @@ MonoBehaviour:
   rb: {fileID: 3036619449771756886}
   xpToGive: 250
   curAttackerID: 0
-  objectTospawn:
-  - Coin
-  - Diamond
-  - Potion
   FireBallLeft: {fileID: 7267443878281309960, guid: 11cd7f9a535f1d34fb379507133b82d0, type: 3}
   FireBallRight: {fileID: 8973193240159305265, guid: 151fc70dd989e414980296f304ba66d9, type: 3}
   attackPointLeft: {fileID: 1106302976298754318}

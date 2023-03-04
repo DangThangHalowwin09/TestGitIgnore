@@ -2480,7 +2480,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.24330175}
+  m_Offset: {x: 0.0050860643, y: 0.24330175}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2491,7 +2491,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.409966, y: 1.4866035}
+  m_Size: {x: 0.33901143, y: 1.4866035}
   m_EdgeRadius: 0
 --- !u!114 &8674684133335150089
 MonoBehaviour:
@@ -2532,7 +2532,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5618202187140589063}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.36, y: 0.16, z: 0}
+  m_LocalPosition: {x: -0.38, y: 0.16, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2695,8 +2695,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  magicRight: {fileID: 0}
-  magicLeft: {fileID: 0}
+  magicRight: {fileID: 8973193240159305265, guid: 432564b862e18e24ea98edb246784bbb, type: 3}
+  magicLeft: {fileID: 7267443878281309960, guid: 84508dcebd5095b41890373f6df60f5e, type: 3}
+  thorn: {fileID: 7267443878281309960, guid: 91a5c557da405284face37a6b0072dd4, type: 3}
   warriorID: 0
   faceRight: 1
   attackPointRight: {fileID: 8288020764254552997}
@@ -2828,7 +2829,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8288020764254552998}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.31, y: 0.22, z: 0}
+  m_LocalPosition: {x: 0.29, y: 0.22, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

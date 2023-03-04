@@ -2695,8 +2695,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  magicRight: {fileID: 0}
-  magicLeft: {fileID: 0}
+  magicRight: {fileID: 8973193240159305265, guid: 432564b862e18e24ea98edb246784bbb, type: 3}
+  magicLeft: {fileID: 7267443878281309960, guid: 84508dcebd5095b41890373f6df60f5e, type: 3}
+  thorn: {fileID: 7267443878281309960, guid: 91a5c557da405284face37a6b0072dd4, type: 3}
   warriorID: 0
   faceRight: 0
   attackPointRight: {fileID: 8288020764254552997}

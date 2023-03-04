@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviourPun
     public AttackType type;
     public GameObject magicRight;
     public GameObject magicLeft;
+    public GameObject thorn;
     public int warriorID;
     private bool isMine;
     public bool faceRight;
@@ -145,7 +146,18 @@ public class PlayerController : MonoBehaviourPun
             }
         }
     }
-
+    void SpawnThorn()
+    {
+        GameObject bulletObj = Instantiate(thorn, transform.position, Quaternion.identity);
+        MagicBall bulletScript = bulletObj.GetComponent<MagicBall>();
+        bulletScript.Initialized(id, photonView.IsMine);
+    }
+    IEnumerator SpawnThornIE()
+    {
+        SpawnThorn();
+        yield return new WaitForSeconds(0.5f);
+        SpawnThorn();
+    }
     private void Move()
     {
         float x = Input.GetAxis("Horizontal");
@@ -154,7 +166,10 @@ public class PlayerController : MonoBehaviourPun
         if (x != 0 || y != 0)
         {
             playerAnim.SetBool("Move", true);
-            
+            if(type != AttackType.Magicer && GameUI.instance.oneSecond)
+            {
+                StartCoroutine(SpawnThornIE());
+            }
             if (x > 0)
             {
                 photonView.RPC("FlipRight", RpcTarget.All);
