@@ -19,7 +19,7 @@ public class Pickups : MonoBehaviourPun
     public PickupTypes type;
     public int value;
     bool magnetOn = false;
-    float speed = 8f;
+    float speed = 7f;
     PlayerController playerForCoin;
     private void Update()
     {
