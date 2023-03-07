@@ -15490,8 +15490,8 @@ MonoBehaviour:
   death: Death
   enemyName: Moster
   moveSpeed: 0
-  currentHP: 1000
-  maxHP: 1000
+  currentHP: 2000
+  maxHP: 2000
   chaseRange: 10
   attackRange: 2
   playerdetectRate: 1
@@ -15676,10 +15676,10 @@ MonoBehaviour:
   ShowParameterInspector: 1
   m_SynchronizeParameters:
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 1
     Name: Walk
   - Type: 9
-    SynchronizeType: 0
+    SynchronizeType: 1
     Name: Attack
   m_SynchronizeLayers:
   - SynchronizeType: 1

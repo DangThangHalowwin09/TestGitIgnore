@@ -4,13 +4,14 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 using System.Runtime.CompilerServices;
+using UnityEditor;
 
 public enum AttackType
 {
     Warrior,
     Magicer
 }
-public class PlayerController : MonoBehaviourPun
+public class PlayerController : MonoBehaviourPun, IPunObservable 
 {
     public AttackType type;
     public GameObject magicRight;
@@ -187,7 +188,11 @@ public class PlayerController : MonoBehaviourPun
     void CastSpell()
     {
         lastAttackTime = Time.time;
-        
+        AnimatorStateInfo stateInfo = playerAnim.GetCurrentAnimatorStateInfo(0);
+        if (stateInfo.IsName("Any State"))
+        {
+            playerAnim.SetTrigger("Attack");
+        }
         playerAnim.SetTrigger("Attack");
     }
     public void CastBall()
@@ -417,6 +422,19 @@ public class PlayerController : MonoBehaviourPun
             PlayerPrefs.SetInt("Attack", damage);
             GameUI.instance.UpdateAdText(damage);
             AddHealth(5);
+        }
+    }
+
+   
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            //stream.SendNext(faceRight);
+        }
+        else
+        { 
+            //faceRight = (bool)stream.ReceiveNext();
         }
     }
 }

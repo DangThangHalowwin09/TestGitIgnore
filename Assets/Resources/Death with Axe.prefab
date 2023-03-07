@@ -250,8 +250,8 @@ MonoBehaviour:
   death: Death
   enemyName: Death
   moveSpeed: 3
-  currentHP: 50
-  maxHP: 50
+  currentHP: 100
+  maxHP: 100
   chaseRange: 10
   attackRange: 2
   playerdetectRate: 1
@@ -397,10 +397,10 @@ MonoBehaviour:
   ShowParameterInspector: 1
   m_SynchronizeParameters:
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 1
     Name: Walk
   - Type: 9
-    SynchronizeType: 0
+    SynchronizeType: 1
     Name: Attack
   m_SynchronizeLayers:
   - SynchronizeType: 1

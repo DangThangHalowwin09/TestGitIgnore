@@ -2702,7 +2702,7 @@ MonoBehaviour:
   faceRight: 1
   attackPointRight: {fileID: 8288020764254552997}
   attackPointLeft: {fileID: 5853080964897783853}
-  damage: 8
+  damage: 200
   def: 0
   attackRange: 10
   attackDelay: 1

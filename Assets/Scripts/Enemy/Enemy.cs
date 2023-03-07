@@ -177,6 +177,11 @@ public class Enemy : MonoBehaviourPun
     }
     void Attack()
     {
+        AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
+        if (stateInfo.IsName("Any State"))
+        {
+             //anim.SetTrigger("Attack");
+        }
         anim.SetTrigger("Attack");
         lastattackTime = Time.time;
         targetPlayer.photonView.RPC("TakeDamage", targetPlayer.photonPlayer, damage);
