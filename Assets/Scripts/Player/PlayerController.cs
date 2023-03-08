@@ -150,7 +150,7 @@ public class PlayerController : MonoBehaviourPun, IPunObservable
     void SpawnThorn()
     {
         GameObject bulletObj = Instantiate(thorn, transform.position, Quaternion.identity);
-        MagicBall bulletScript = bulletObj.GetComponent<MagicBall>();
+        Thorn bulletScript = bulletObj.GetComponent<Thorn>();
         bulletScript.Initialized(id, photonView.Owner);
     }
     IEnumerator SpawnThornIE()

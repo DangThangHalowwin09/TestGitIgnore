@@ -245,8 +245,10 @@ public class Enemy : MonoBehaviourPun
         currentHP -= damageamount;
         curAttackerID = attackerID;
         healthBar.photonView.RPC("UpdateHealthBar", RpcTarget.All, currentHP, maxHP);
+        Debug.Log(currentHP);
         if (currentHP <= 0)
         {
+            
             Die();
         }
         else
@@ -290,5 +292,6 @@ public class Enemy : MonoBehaviourPun
             GameUI.instance.WinNotif.SetActive(true);
         }
         PhotonNetwork.Destroy(gameObject);
+        Debug.Log("111");
     }
 }

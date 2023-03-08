@@ -13,6 +13,7 @@ public class Thorn : MonoBehaviour
     public Vector2 moveDir;
     private Rigidbody2D rb;
     public int damage;
+    // Start is called before the first frame update
     void Start()
     {
         if (PlayerPrefs.HasKey("Attack"))
