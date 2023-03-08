@@ -252,7 +252,7 @@ MonoBehaviour:
   moveSpeed: 3
   currentHP: 100
   maxHP: 100
-  chaseRange: 10
+  chaseRange: 30
   attackRange: 2
   playerdetectRate: 1
   objectTospawnOnDeath:
@@ -274,6 +274,7 @@ MonoBehaviour:
   attackPointRight: {fileID: 0}
   id: 0
   enemyID: 0
+  bomb: {fileID: 0}
 --- !u!61 &3036619449771756874
 BoxCollider2D:
   m_ObjectHideFlags: 0

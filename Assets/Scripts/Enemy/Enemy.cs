@@ -48,6 +48,7 @@ public class Enemy : MonoBehaviourPun
     private bool isMine;
     private float dist = 10000;
     private float distMin;
+    public GameObject bomb;
     private void Start()
     {
         healthBar.InitializedEnemy(enemyName, maxHP);
@@ -136,30 +137,42 @@ public class Enemy : MonoBehaviourPun
     }
     IEnumerator CastFire()
     {
+        AnimatorStateInfo animEnemy = anim.GetCurrentAnimatorStateInfo(0);
+        if (animEnemy.IsName("Any State"))
+        {
+            //playerAnim.SetTrigger("Attack");
+        }
         anim.SetTrigger("Attack");
         lastattackTime = Time.time;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0f);
+       
+    }
+    void InstantiateFireBall()
+    {
+        
         if (faceRight)
         {
-            GameObject bulletObj = PhotonNetwork.Instantiate("FireBallRight", attackPointRight.transform.position, Quaternion.identity);
+            GameObject bulletObj = Instantiate(FireBallRight, attackPointRight.transform.position, Quaternion.identity);
             FireBall bulletScript = bulletObj.GetComponent<FireBall>();
-            bulletScript.Initialized(id, photonView.IsMine);
+            bulletScript.Initialized(id, photonView.Owner);
+            Debug.Log(photonView.Owner);
         }
         else
         {
-            GameObject bulletObj = PhotonNetwork.Instantiate("FireBallLeft", attackPointLeft.transform.position, Quaternion.identity);
+            GameObject bulletObj = Instantiate(FireBallLeft, attackPointLeft.transform.position, Quaternion.identity);
             FireBall bulletScript = bulletObj.GetComponent<FireBall>();
-            bulletScript.Initialized(id, photonView.IsMine);
+            bulletScript.Initialized(id, photonView.Owner);
+            Debug.Log(photonView.Owner);
         }
     }
     void SpawnBomb()
     {
         foreach (PlayerController player in GameManager.instance.players)
         {
-            GameObject bulletObj = PhotonNetwork.Instantiate("Bomb2", transform.position, Quaternion.identity);
+            GameObject bulletObj = Instantiate(bomb, transform.position, Quaternion.identity);
             bulletObj.transform.DOJump(player.transform.position, 5, 1, 1).SetEase(Ease.Linear);
             Bomb bulletScript = bulletObj.GetComponent<Bomb>();
-            bulletScript.Initialized(id, photonView.IsMine);
+            bulletScript.Initialized(id, photonView.Owner);
         }
     }
     IEnumerator SpawnBombIE()

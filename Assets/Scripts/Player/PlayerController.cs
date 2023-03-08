@@ -240,8 +240,7 @@ public class PlayerController : MonoBehaviourPun, IPunObservable
         }
 
         playerAnim.SetTrigger("Attack");
-        AudioManager.instance.PlaySFX(10);
-                
+        AudioManager.instance.PlaySFX(10);      
     }
 
     [PunRPC]

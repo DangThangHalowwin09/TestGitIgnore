@@ -23,15 +23,13 @@ public class MagicBall : MonoBehaviourPun
         }
 
         rb = GetComponent<Rigidbody2D>();
-        
         StartCoroutine(DestroyObject());
     }
 
     // Update is called once per frame
     void Update()
     {
-            rb.velocity = moveDir * speed;
-        
+            rb.velocity = moveDir * speed; 
     }
 
     private void OnTriggerEnter2D(Collider2D other)

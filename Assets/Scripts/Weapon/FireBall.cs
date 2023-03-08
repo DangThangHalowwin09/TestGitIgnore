@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class FireBall : MonoBehaviour
 {
+    public Player Owner { get; private set; }
     public float speed;
     private int attackerId;
     private bool isMine;
@@ -27,17 +28,10 @@ public class FireBall : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        /*if (!PhotonNetwork.IsMasterClient)
-            return;*/
-        if (other.tag == "Player" && isMine && other is BoxCollider2D)
+        if (other.tag == "Player" && other is BoxCollider2D)
         {
             PlayerController player = other.gameObject.GetComponent<PlayerController>();
-            if (isMine)
-            {
-                //PhotonNetwork.Destroy(gameObject);
-                Destroy(gameObject);
-            }
-            
+            Destroy(gameObject);
             player.photonView.RPC("Hurt", player.photonPlayer, damage);
         }
     }
@@ -46,9 +40,9 @@ public class FireBall : MonoBehaviour
     {
         Destroy(gameObject);
     }
-    public void Initialized(int attackID, bool isMine)
+    public void Initialized(int attackID, Player owner)
     {
         this.attackerId = attackID;
-        this.isMine = isMine;
+        this.Owner = owner;
     }
 }

@@ -3,9 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using Photon.Realtime;
 
 public class Bomb : MonoBehaviour
 {
+    public Player Owner;
     public float speed;
     private int attackerId;
     private bool isMine;
@@ -17,7 +19,7 @@ public class Bomb : MonoBehaviour
     {
         SpriteRenderer spriteRender = gameObject.GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
-        DoParticalBomb();
+        StartCoroutine(DoParticalBomb());
         Destroy(gameObject, 1f);
         
     }
@@ -31,16 +33,11 @@ public class Bomb : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player" && isMine && other is BoxCollider2D)
+        if (other.tag == "Player" && other is BoxCollider2D)
         {
             PhotonNetwork.Instantiate("Explosion1", transform.position, Quaternion.identity);
             PlayerController player = other.gameObject.GetComponent<PlayerController>();
-            if (isMine)
-            {
-                //PhotonNetwork.Destroy(gameObject);
-                Destroy(gameObject);
-            }
-
+            Destroy(gameObject);
             player.photonView.RPC("Hurt", player.photonPlayer, damage);
         }
     }
@@ -49,9 +46,9 @@ public class Bomb : MonoBehaviour
     {
         Destroy(gameObject);
     }
-    public void Initialized(int attackID, bool isMine)
+    public void Initialized(int attackID, Player owner)
     {
         this.attackerId = attackID;
-        this.isMine = isMine;
+        Owner = owner;
     }
 }

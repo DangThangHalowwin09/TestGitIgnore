@@ -199,7 +199,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1106302976298754318}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.6, y: 0.33, z: 0}
+  m_LocalPosition: {x: -0.31, y: 0.33, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -333,12 +333,13 @@ MonoBehaviour:
   rb: {fileID: 3036619449771756886}
   xpToGive: 250
   curAttackerID: 0
-  FireBallLeft: {fileID: 7267443878281309960, guid: 11cd7f9a535f1d34fb379507133b82d0, type: 3}
+  FireBallLeft: {fileID: 8973193240159305265, guid: d3ac80b5ea5762944a4befb8b58d4e27, type: 3}
   FireBallRight: {fileID: 8973193240159305265, guid: 151fc70dd989e414980296f304ba66d9, type: 3}
   attackPointLeft: {fileID: 1106302976298754318}
   attackPointRight: {fileID: 8797067545775522480}
   id: 0
   enemyID: 0
+  bomb: {fileID: 0}
 --- !u!61 &3036619449771756874
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -781,7 +782,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8797067545775522480}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.74, y: 0.349, z: 0}
+  m_LocalPosition: {x: 0.4, y: 0.349, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
