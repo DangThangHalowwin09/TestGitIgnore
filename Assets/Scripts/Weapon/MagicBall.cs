@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Photon.Pun.Demo.Asteroids;
+using Photon.Realtime;
 
 public class MagicBall : MonoBehaviourPun
 {
+    public Player Owner { get; private set; }
     public float speed;
     private int attackerId;
     private bool isMine;
@@ -20,6 +23,7 @@ public class MagicBall : MonoBehaviourPun
         }
 
         rb = GetComponent<Rigidbody2D>();
+        
         StartCoroutine(DestroyObject());
     }
 
@@ -32,7 +36,7 @@ public class MagicBall : MonoBehaviourPun
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Enemy" && isMine)
+        if (other.tag == "Enemy")
         {
             Enemy enemy = other.GetComponent<Enemy>();
             enemy.photonView.RPC("TakeDamage", RpcTarget.MasterClient, this.attackerId, damage);
@@ -47,9 +51,9 @@ public class MagicBall : MonoBehaviourPun
         Destroy(gameObject);
         //PhotonNetwork.Destroy(gameObject);
     }
-    public void Initialized(int attackID, bool isMine)
+    public void Initialized(int attackID, Player owner)
     {
         this.attackerId = attackID;
-        this.isMine = isMine;
+        Owner = owner;
     }
 }

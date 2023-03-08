@@ -151,7 +151,7 @@ public class PlayerController : MonoBehaviourPun, IPunObservable
     {
         GameObject bulletObj = Instantiate(thorn, transform.position, Quaternion.identity);
         MagicBall bulletScript = bulletObj.GetComponent<MagicBall>();
-        bulletScript.Initialized(id, photonView.IsMine);
+        bulletScript.Initialized(id, photonView.Owner);
     }
     IEnumerator SpawnThornIE()
     {
@@ -191,7 +191,7 @@ public class PlayerController : MonoBehaviourPun, IPunObservable
         AnimatorStateInfo stateInfo = playerAnim.GetCurrentAnimatorStateInfo(0);
         if (stateInfo.IsName("Any State"))
         {
-            playerAnim.SetTrigger("Attack");
+            //playerAnim.SetTrigger("Attack");
         }
         playerAnim.SetTrigger("Attack");
     }
@@ -201,13 +201,13 @@ public class PlayerController : MonoBehaviourPun, IPunObservable
         {
             GameObject bulletObj = Instantiate(magicRight, attackPointRight.transform.position, Quaternion.identity);
             MagicBall bulletScript = bulletObj.GetComponent<MagicBall>();
-            bulletScript.Initialized(id, photonView.IsMine);
+            bulletScript.Initialized(id, photonView.Owner);
         }
         else
         {
             GameObject bulletObj = Instantiate(magicLeft, attackPointLeft.transform.position, Quaternion.identity);
             MagicBall bulletScript = bulletObj.GetComponent<MagicBall>();
-            bulletScript.Initialized(id, photonView.IsMine);
+            bulletScript.Initialized(id, photonView.Owner);
         }
     }
     void initializeAttack(int attackID, bool isMine)
