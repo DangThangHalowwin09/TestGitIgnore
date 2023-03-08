@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 974416377057799663}
   - component: {fileID: 8976007047260630383}
   - component: {fileID: 7092578283611114217}
-  - component: {fileID: 3604061297072352012}
   - component: {fileID: 6290089085242448394}
+  - component: {fileID: 67818663544949462}
   m_Layer: 0
   m_Name: Thorn
   m_TagString: Untagged
@@ -103,21 +103,6 @@ CircleCollider2D:
   m_Offset: {x: 0.040228248, y: -0.032341003}
   serializedVersion: 2
   m_Radius: 1.2146189
---- !u!114 &3604061297072352012
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7267443878281309960}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 841b4e017b6fc1141b962915ac0a4463, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0
-  moveDir: {x: 1, y: 0}
-  damage: 10
 --- !u!50 &6290089085242448394
 Rigidbody2D:
   serializedVersion: 4
@@ -139,3 +124,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &67818663544949462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7267443878281309960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 841b4e017b6fc1141b962915ac0a4463, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  moveDir: {x: 0, y: 0}
+  damage: 0

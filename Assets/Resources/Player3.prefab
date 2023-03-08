@@ -2702,7 +2702,7 @@ MonoBehaviour:
   faceRight: 0
   attackPointRight: {fileID: 8288020764254552997}
   attackPointLeft: {fileID: 5853080964897783853}
-  damage: 100
+  damage: 200
   def: 0
   attackRange: 5
   attackDelay: 1
@@ -2760,6 +2760,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
+  - {fileID: 8288020763683522269}
   - {fileID: 3465686406318066035}
   - {fileID: 4925506279628143940}
   sceneViewId: 0

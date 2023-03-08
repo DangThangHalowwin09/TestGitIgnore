@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         if(PlayerController.me != null && !PlayerController.me.dead)
         {

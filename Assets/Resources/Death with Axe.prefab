@@ -250,8 +250,8 @@ MonoBehaviour:
   death: Death
   enemyName: Death
   moveSpeed: 3
-  currentHP: 100
-  maxHP: 100
+  currentHP: 250
+  maxHP: 250
   chaseRange: 30
   attackRange: 2
   playerdetectRate: 1
