@@ -4111,7 +4111,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7c93b10518692d64e9425c35515a86cd, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.27
+  m_Volume: 0.369
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -5193,7 +5193,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7c93b10518692d64e9425c35515a86cd, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.27
+  m_Volume: 0.673
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -8737,7 +8737,7 @@ GameObject:
   - component: {fileID: 1416087102}
   - component: {fileID: 1416087103}
   m_Layer: 0
-  m_Name: 21_TimeUP (1)
+  m_Name: 22_Boom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8768,7 +8768,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 7c93b10518692d64e9425c35515a86cd, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 96d337d0b6d1b764bafa91a591e9b6df, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.27
   m_Pitch: 1
@@ -10022,9 +10022,9 @@ MonoBehaviour:
   - {fileID: 586111643}
   - {fileID: 1846373946}
   - {fileID: 676458142}
-  - {fileID: 676458142}
-  - {fileID: 676458142}
-  - {fileID: 676458142}
+  - {fileID: 1054218716}
+  - {fileID: 898056932}
+  - {fileID: 1416087103}
   BGMusic: {fileID: 1104261093}
 --- !u!4 &1599314018
 Transform:

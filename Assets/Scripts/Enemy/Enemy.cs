@@ -52,6 +52,8 @@ public class Enemy : MonoBehaviourPun
     private float distMin;
     public GameObject bomb;
     public PlayerController[] AllPlayers;
+    private Sequence sequence;
+    private int indexBomb = 0;
     private void Start()
     {
         healthBar.InitializedEnemy(enemyName, maxHP);
@@ -216,15 +218,17 @@ public class Enemy : MonoBehaviourPun
             bulletScript.Initialized(id, photonView.Owner);
         }
     }
-    void SpawnBomb()
+    void SpawnBomb(int index)
     {
+        indexBomb++;
         foreach (PlayerController player in GameManager.instance.players)
         {
             if (player != null)
             {
                 GameObject bulletObj = Instantiate(bomb, transform.position, Quaternion.identity);
-                bulletObj.transform.DOJump(player.transform.position, 5, 1, 1).SetEase(Ease.Linear);
+                bulletObj.transform.DOJump(player.transform.position, 5, 1, 1).SetEase(Ease.Linear).SetId(index);
                 Bomb bulletScript = bulletObj.GetComponent<Bomb>();
+                bulletScript.index = index;
                 bulletScript.Initialized(id, photonView.Owner);
             }     
         }
@@ -235,11 +239,12 @@ public class Enemy : MonoBehaviourPun
     }
     IEnumerator SpawnBombIE()
     {
-        SpawnBomb();
+
+        SpawnBomb(indexBomb++);
         yield return new WaitForSeconds(0.25f);
-        SpawnBomb();
+        SpawnBomb(indexBomb++);
         yield return new WaitForSeconds(0.25f);
-        SpawnBomb();
+        SpawnBomb(indexBomb++);
     }
     void initializeAttack(int attackID, bool isMine)
     {

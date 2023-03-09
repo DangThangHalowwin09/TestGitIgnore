@@ -53,7 +53,7 @@ public class Pickups : MonoBehaviourPun
                 AudioManager.instance.PlaySFX(22);
                 enemy.photonView.RPC("DieByBomb", RpcTarget.MasterClient);
                 if (gameObject != null)
-                    gameObject.transform.DOScale(transform.localScale * 1.5f, 0.09f).SetEase(Ease.Linear);
+                    gameObject.transform.DOScale(transform.localScale * 1.5f, 0.09f).SetEase(Ease.Linear).SetId(photonView.ViewID);
                 StartCoroutine(DoBoom());
             }  
         }
@@ -100,6 +100,7 @@ public class Pickups : MonoBehaviourPun
     {
         yield return new WaitForSeconds(0.1f);
         PhotonNetwork.Instantiate("Explosion1", transform.position, Quaternion.identity);
+        DOTween.Kill(photonView.ViewID);
         if(gameObject!=null)
         PhotonNetwork.Destroy(gameObject);
     }
