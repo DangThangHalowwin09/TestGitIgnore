@@ -24,7 +24,7 @@ public class Bomb : MonoBehaviour
     {
         yield return new WaitForSeconds(1.1f);
         PhotonNetwork.Instantiate("Explosion1", transform.position, Quaternion.identity);
-        Destroy(gameObject);
+        DestroyObject();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -33,14 +33,16 @@ public class Bomb : MonoBehaviour
         {
             PhotonNetwork.Instantiate("Explosion1", transform.position, Quaternion.identity);
             PlayerController player = other.gameObject.GetComponent<PlayerController>();
+            DestroyObject();
             DOTween.Kill(transform);
-            Destroy(gameObject);
             player.photonView.RPC("Hurt", player.photonPlayer, damage);
         }
     }
-    [PunRPC]
     void DestroyObject()
     {
+        AudioManager.instance.PlaySFX(22);
+        Debug.Log("333");
+        if(gameObject != null)
         Destroy(gameObject);
     }
     public void Initialized(int attackID, Player owner)

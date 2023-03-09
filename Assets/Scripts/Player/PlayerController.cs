@@ -163,7 +163,6 @@ public class PlayerController : MonoBehaviourPun, IPunObservable
             playerAnim.SetBool("Move", true);
             if(type != AttackType.Magicer && GameUI.instance.oneSecond)
             {
-                StartCoroutine(SpawnThornIE());
             }
             if (x > 0)
             {

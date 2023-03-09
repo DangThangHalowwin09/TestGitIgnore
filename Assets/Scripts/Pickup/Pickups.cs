@@ -50,6 +50,7 @@ public class Pickups : MonoBehaviourPun
             }
             else
             {
+                AudioManager.instance.PlaySFX(22);
                 enemy.photonView.RPC("DieByBomb", RpcTarget.MasterClient);
                 if (gameObject != null)
                     gameObject.transform.DOScale(transform.localScale * 1.5f, 0.09f).SetEase(Ease.Linear);
@@ -79,6 +80,7 @@ public class Pickups : MonoBehaviourPun
             }
             else if (type == PickupTypes.Bomb)
             {
+                AudioManager.instance.PlaySFX(22);
                 player.photonView.RPC("Hurt", player.photonPlayer, -value);
                 StartCoroutine(DoBoom());
             }
