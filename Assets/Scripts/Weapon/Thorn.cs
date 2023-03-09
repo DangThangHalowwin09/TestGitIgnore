@@ -31,7 +31,11 @@ public class Thorn : MonoBehaviour
         if (other.tag == "Enemy")
         {
             Enemy enemy = other.GetComponent<Enemy>();
-            enemy.photonView.RPC("TakeDamage", RpcTarget.MasterClient, this.attackerId, damage);
+            if((enemy.type == Enemy.EnemyType.Boss && other is CircleCollider2D) || enemy.type != Enemy.EnemyType.Boss)
+            {
+                enemy.photonView.RPC("TakeDamage", RpcTarget.MasterClient, this.attackerId, damage);
+            }
+            
             Destroy(gameObject);
         }
     }
