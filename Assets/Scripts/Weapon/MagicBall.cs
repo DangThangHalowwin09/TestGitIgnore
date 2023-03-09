@@ -19,7 +19,7 @@ public class MagicBall : MonoBehaviourPun
     {
         if (PlayerPrefs.HasKey("Attack"))
         {
-            damage = PlayerPrefs.GetInt("Attack");
+            damage += PlayerPrefs.GetInt("Attack");
         }
 
         rb = GetComponent<Rigidbody2D>();
@@ -39,7 +39,6 @@ public class MagicBall : MonoBehaviourPun
             Enemy enemy = other.GetComponent<Enemy>();
             enemy.photonView.RPC("TakeDamage", RpcTarget.MasterClient, this.attackerId, damage);
             Destroy(gameObject);
-            //PhotonNetwork.Destroy(gameObject);
         }
     }
     [PunRPC]

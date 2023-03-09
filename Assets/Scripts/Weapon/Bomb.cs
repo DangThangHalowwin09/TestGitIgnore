@@ -19,16 +19,14 @@ public class Bomb : MonoBehaviour
     {
         SpriteRenderer spriteRender = gameObject.GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
-        StartCoroutine(DoParticalBomb());
-        Destroy(gameObject, 1f);
-        
+        StartCoroutine(DoParticalBomb()); 
     }
 
     IEnumerator DoParticalBomb()
     {
-        yield return new WaitForSeconds(1f);
-        spriteRender.color = Color.Lerp(Color.white, Color.red, 1f);
+        yield return new WaitForSeconds(1.1f);
         PhotonNetwork.Instantiate("Explosion1", transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

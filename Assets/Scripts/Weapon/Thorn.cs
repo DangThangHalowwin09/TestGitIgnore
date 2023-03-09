@@ -16,11 +16,6 @@ public class Thorn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (PlayerPrefs.HasKey("Attack"))
-        {
-            damage = PlayerPrefs.GetInt("Attack");
-        }
-
         rb = GetComponent<Rigidbody2D>();
         StartCoroutine(DestroyObject());
     }

@@ -220,10 +220,13 @@ public class Enemy : MonoBehaviourPun
     {
         foreach (PlayerController player in GameManager.instance.players)
         {
-            GameObject bulletObj = Instantiate(bomb, transform.position, Quaternion.identity);
-            bulletObj.transform.DOJump(player.transform.position, 5, 1, 1).SetEase(Ease.Linear);
-            Bomb bulletScript = bulletObj.GetComponent<Bomb>();
-            bulletScript.Initialized(id, photonView.Owner);
+            if (player != null)
+            {
+                GameObject bulletObj = Instantiate(bomb, transform.position, Quaternion.identity);
+                bulletObj.transform.DOJump(player.transform.position, 5, 1, 1).SetEase(Ease.Linear);
+                Bomb bulletScript = bulletObj.GetComponent<Bomb>();
+                bulletScript.Initialized(id, photonView.Owner);
+            }     
         }
     }
     IEnumerator SpawnBombIE()
@@ -312,8 +315,27 @@ public class Enemy : MonoBehaviourPun
             StartCoroutine(SpawnBombIE());
         }
     }
+    [PunRPC]
+    public void EnemyHurt(int damageamount)
+    {
+        currentHP -= damageamount;
+        healthBar.photonView.RPC("UpdateHealthBar", RpcTarget.All, currentHP, maxHP);
+        if (currentHP <= 0)
+        {
+            DieByBomb();
+        }
+        else
+        {
+            photonView.RPC("FlashDamage", RpcTarget.All);
+        }
 
-    
+        if (type == EnemyType.Boss)
+        {
+
+            StartCoroutine(SpawnBombIE());
+        }
+    }
+
     [PunRPC]
     void FlashDamage()
     {
@@ -325,7 +347,6 @@ public class Enemy : MonoBehaviourPun
             sr.color = Color.white;
         }
     }
-   
     void Die()
     {
         PlayerController player = GameManager.instance.GetPlayer(curAttackerID);
@@ -342,6 +363,16 @@ public class Enemy : MonoBehaviourPun
             photonView.RPC("WinInfo", RpcTarget.All);
 
         }
+        PhotonNetwork.Destroy(gameObject);
+    }
+    [PunRPC]
+    void DieByBomb()
+    {
+        PhotonNetwork.Instantiate(death, transform.position, Quaternion.identity);
+        System.Random rand = new System.Random();
+        if (objectTospawnOnDeath != null)
+            PhotonNetwork.Instantiate(objectTospawnOnDeath[(rand.Next(objectTospawnOnDeath.Length))], transform.position, Quaternion.identity);
+        AudioManager.instance.PlaySFX(19);
         PhotonNetwork.Destroy(gameObject);
     }
 }
