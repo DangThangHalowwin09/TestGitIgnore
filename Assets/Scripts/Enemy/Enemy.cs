@@ -236,15 +236,13 @@ public class Enemy : MonoBehaviourPun
     void BombTrigger()
     {
         StartCoroutine(SpawnBombIE());
+       
     }
     IEnumerator SpawnBombIE()
     {
 
         SpawnBomb(indexBomb++);
-        yield return new WaitForSeconds(0.25f);
-        SpawnBomb(indexBomb++);
-        yield return new WaitForSeconds(0.25f);
-        SpawnBomb(indexBomb++);
+        yield return new WaitForSeconds(0f);
     }
     void initializeAttack(int attackID, bool isMine)
     {
