@@ -7,17 +7,15 @@ using Photon.Realtime;
 
 public class Bomb : MonoBehaviour
 {
-    public Player Owner;
+    public Player Owner { get; private set; }
     public float speed;
     private int attackerId;
     private bool isMine;
     private Rigidbody2D rb;
-    private SpriteRenderer spriteRender;
     public int damage;
     // Start is called before the first frame update
     void Start()
     {
-        SpriteRenderer spriteRender = gameObject.GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         StartCoroutine(DoParticalBomb()); 
     }
@@ -35,6 +33,7 @@ public class Bomb : MonoBehaviour
         {
             PhotonNetwork.Instantiate("Explosion1", transform.position, Quaternion.identity);
             PlayerController player = other.gameObject.GetComponent<PlayerController>();
+            DOTween.Kill(transform);
             Destroy(gameObject);
             player.photonView.RPC("Hurt", player.photonPlayer, damage);
         }

@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviourPun, IPunObservable
 
         if (PlayerPrefs.HasKey("Attack"))
         {
-            damage = PlayerPrefs.GetInt("Attack");
+            damage += PlayerPrefs.GetInt("Attack");
         }
         GameUI.instance.UpdateAdText(damage);
 
@@ -152,12 +152,6 @@ public class PlayerController : MonoBehaviourPun, IPunObservable
         GameObject bulletObj = Instantiate(thorn, transform.position, Quaternion.identity);
         Thorn bulletScript = bulletObj.GetComponent<Thorn>();
         bulletScript.Initialized(id, photonView.Owner);
-    }
-    IEnumerator SpawnThornIE()
-    {
-        SpawnThorn();
-        yield return new WaitForSeconds(0.5f);
-        SpawnThorn();
     }
     private void Move()
     {

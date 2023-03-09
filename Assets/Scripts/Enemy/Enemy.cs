@@ -229,6 +229,10 @@ public class Enemy : MonoBehaviourPun
             }     
         }
     }
+    void BombTrigger()
+    {
+        StartCoroutine(SpawnBombIE());
+    }
     IEnumerator SpawnBombIE()
     {
         SpawnBomb();
@@ -311,8 +315,7 @@ public class Enemy : MonoBehaviourPun
 
         if(type == EnemyType.Boss)
         {
-            
-            StartCoroutine(SpawnBombIE());
+            anim.SetTrigger("Attack");
         }
     }
     [PunRPC]
@@ -327,12 +330,6 @@ public class Enemy : MonoBehaviourPun
         else
         {
             photonView.RPC("FlashDamage", RpcTarget.All);
-        }
-
-        if (type == EnemyType.Boss)
-        {
-
-            StartCoroutine(SpawnBombIE());
         }
     }
 
