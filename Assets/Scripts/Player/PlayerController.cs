@@ -301,16 +301,16 @@ public class PlayerController : MonoBehaviourPun, IPunObservable
     {
         yield return new WaitForSeconds(timeToSpawn);
         dead = false;
-        transform.position = SpawnPos;
         currentHP = maxHP;
         rig.isKinematic = false;
         headerInfo.photonView.RPC("UpdateHealthBar", RpcTarget.All, currentHP, maxHP);
         GameUI.instance.UpdateHPText(currentHP, maxHP);
+        transform.position = SpawnPos;
     }
     [PunRPC]
     void Heal(int amountToHeal)
     {
-        AudioManager.instance.PlaySFX(3);
+        AudioManager.instance.PlaySFX(4);
         currentHP = Mathf.Clamp(currentHP + amountToHeal, 0, maxHP);
         headerInfo.photonView.RPC("UpdateHealthBar", RpcTarget.All, currentHP, maxHP);
         GameUI.instance.UpdateHPText(currentHP, maxHP);
@@ -328,7 +328,7 @@ public class PlayerController : MonoBehaviourPun, IPunObservable
     void Hurt(int amountToHeal)
     {
         photonView.RPC("FlashDamage", RpcTarget.All);
-        AudioManager.instance.PlaySFX(15);
+        AudioManager.instance.PlaySFX(6);
         currentHP = Mathf.Clamp(currentHP - amountToHeal, 0, maxHP);
         if (currentHP <= 0)
         {

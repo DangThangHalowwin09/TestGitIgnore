@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using Photon.Pun.Demo.Cockpit;
 using Photon.Pun;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 
 public class GameUI : MonoBehaviour
 {
@@ -14,16 +15,31 @@ public class GameUI : MonoBehaviour
     public TextMeshProUGUI adText;
     public TextMeshProUGUI dfText;
     public TextMeshProUGUI levelText;
-   
+
+    public TextMeshProUGUI bestName;
+    public TextMeshProUGUI bestScore;
+    public TextMeshProUGUI firstRunnerScore;
+    public TextMeshProUGUI firstRunnerName;
+    public TextMeshProUGUI secondRunnerScore;
+    public TextMeshProUGUI secondRunnerName;
+
     public TextMeshProUGUI time;
+    public TextMeshProUGUI countDown;
     public static GameUI instance;
+
     public float TimeLeft;
     public float currentTime;
     public bool TimerOn;
     public bool oneSecond;
     public float timeASecond = 0;
-    public GameObject WinNotif;
-    public GameObject LossNotif;
+    public GameObject Notif;
+    public GameObject win;
+    public GameObject defeat;
+    public GameObject winnerInfo;
+    public GameObject firstRunnerInfo;
+    public GameObject SecondRunnerInfo;
+    //public Dictionary<PlayerController[], int[]> = new ToMoney<PlayerController[], int[]>
+    public int[] MoneyPlayer;
     public bool wasBossDie;
     private void Awake()
     {
@@ -64,6 +80,7 @@ public class GameUI : MonoBehaviour
         string s = (curXp * 100 / maxXp).ToString("F1");
         levelText.text = "" + s + "%";
     }
+
     public void PlayAgain()
     {
         StartCoroutine(LeftRoom());

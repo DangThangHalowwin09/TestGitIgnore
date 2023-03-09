@@ -8,6 +8,8 @@ using UnityEngine.XR;
 using System;
 using Photon.Realtime;
 using DG.Tweening;
+using System.Linq;
+using Newtonsoft.Json.Linq;
 
 public class Enemy : MonoBehaviourPun
 {
@@ -49,6 +51,7 @@ public class Enemy : MonoBehaviourPun
     private float dist = 10000;
     private float distMin;
     public GameObject bomb;
+    public PlayerController[] AllPlayers;
     private void Start()
     {
         healthBar.InitializedEnemy(enemyName, maxHP);
@@ -107,10 +110,60 @@ public class Enemy : MonoBehaviourPun
             }
         }
         DetectPlayer();
+        if (GameUI.instance.TimeLeft == 8 && !GameUI.instance.wasBossDie)
+        {
+            AudioManager.instance.PlaySFX(21);
+
+        }
         if (GameUI.instance.TimeLeft == 0 && !GameUI.instance.wasBossDie)
         {
-            GameUI.instance.LossNotif.SetActive(true);
+            photonView.RPC("DefeatInfo", RpcTarget.All);
+
         }
+        
+    }
+    [PunRPC]
+    void WinInfo()
+    {
+        GameUI.instance.Notif.SetActive(true);
+        GameUI.instance.win.SetActive(true);
+        GameUI.instance.defeat.SetActive(false);
+        //GetRank();
+    }
+    [PunRPC]
+    void DefeatInfo()
+    {
+        GameUI.instance.Notif.SetActive(true);
+        GameUI.instance.win.SetActive(false);
+        GameUI.instance.defeat.SetActive(true);
+        //GetRank();
+    }
+
+    void GetRank()
+    {
+        for (int i = 0; i < GameManager.instance.players.Length; i++)
+        {
+            GameUI.instance.MoneyPlayer[i] = GameManager.instance.players[i].gold; 
+        }
+            for (int i = 0; i< GameManager.instance.players.Length; i++)
+        {
+            if(GameManager.instance.players.Length >= 1)
+            {
+                GameUI.instance.winnerInfo.SetActive(true);
+                GameUI.instance.SecondRunnerInfo.SetActive(false);
+                GameUI.instance.firstRunnerInfo.SetActive(false);
+                GameUI.instance.win.SetActive(true);
+                int max = GameUI.instance.MoneyPlayer.Max();
+                GameUI.instance.bestScore.text = "" + max.ToString();
+                int maxIndex = Array.IndexOf(GameUI.instance.MoneyPlayer, max);
+                GameUI.instance.bestName.text = "" + GameManager.instance.players[maxIndex].name;
+
+            }   
+        }
+    }
+    void ReturnRoom()
+    {
+        
     }
     [PunRPC]
     void FlipRight()
@@ -155,14 +208,12 @@ public class Enemy : MonoBehaviourPun
             GameObject bulletObj = Instantiate(FireBallRight, attackPointRight.transform.position, Quaternion.identity);
             FireBall bulletScript = bulletObj.GetComponent<FireBall>();
             bulletScript.Initialized(id, photonView.Owner);
-            Debug.Log(photonView.Owner);
         }
         else
         {
             GameObject bulletObj = Instantiate(FireBallLeft, attackPointLeft.transform.position, Quaternion.identity);
             FireBall bulletScript = bulletObj.GetComponent<FireBall>();
             bulletScript.Initialized(id, photonView.Owner);
-            Debug.Log(photonView.Owner);
         }
     }
     void SpawnBomb()
@@ -245,7 +296,6 @@ public class Enemy : MonoBehaviourPun
         currentHP -= damageamount;
         curAttackerID = attackerID;
         healthBar.photonView.RPC("UpdateHealthBar", RpcTarget.All, currentHP, maxHP);
-        Debug.Log(currentHP);
         if (currentHP <= 0)
         {
             
@@ -289,9 +339,9 @@ public class Enemy : MonoBehaviourPun
         if (gameObject.name == "Monster(Clone)")
         {
             GameUI.instance.wasBossDie = true;
-            GameUI.instance.WinNotif.SetActive(true);
+            photonView.RPC("WinInfo", RpcTarget.All);
+
         }
         PhotonNetwork.Destroy(gameObject);
-        Debug.Log("111");
     }
 }

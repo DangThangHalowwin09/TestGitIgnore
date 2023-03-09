@@ -340,6 +340,7 @@ MonoBehaviour:
   id: 0
   enemyID: 0
   bomb: {fileID: 0}
+  AllPlayers: []
 --- !u!61 &3036619449771756874
 BoxCollider2D:
   m_ObjectHideFlags: 0

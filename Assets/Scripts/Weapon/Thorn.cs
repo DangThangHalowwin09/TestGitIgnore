@@ -38,7 +38,6 @@ public class Thorn : MonoBehaviour
             Enemy enemy = other.GetComponent<Enemy>();
             enemy.photonView.RPC("TakeDamage", RpcTarget.MasterClient, this.attackerId, damage);
             Destroy(gameObject);
-            //PhotonNetwork.Destroy(gameObject);
         }
     }
     [PunRPC]
@@ -46,11 +45,10 @@ public class Thorn : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         Destroy(gameObject);
-        //PhotonNetwork.Destroy(gameObject);
     }
     public void Initialized(int attackID, Player owner)
     {
         this.attackerId = attackID;
-        Owner = owner;
+        this.Owner = owner;
     }
 }

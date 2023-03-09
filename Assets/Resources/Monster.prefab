@@ -15522,6 +15522,7 @@ MonoBehaviour:
   id: 0
   enemyID: 0
   bomb: {fileID: 8973193240159305265, guid: 5e7250df8e2a1cc44b8dea0d816ec86e, type: 3}
+  AllPlayers: []
 --- !u!61 &9105334709842814435
 BoxCollider2D:
   m_ObjectHideFlags: 0

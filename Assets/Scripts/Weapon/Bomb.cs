@@ -49,6 +49,6 @@ public class Bomb : MonoBehaviour
     public void Initialized(int attackID, Player owner)
     {
         this.attackerId = attackID;
-        Owner = owner;
+        this.Owner = owner;
     }
 }
