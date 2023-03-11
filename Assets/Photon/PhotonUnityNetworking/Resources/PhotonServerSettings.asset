@@ -67,6 +67,10 @@ MonoBehaviour:
   - EnemyBombHurt
   - DieByBomb
   - EnemyHurt
+  - <Update>g__DefeatInfo|38_1
+  - <Update>g__FlipLeft|38_5
+  - <Update>g__FlipRight|38_4
+  - <Update>g__WinInfo|38_0
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

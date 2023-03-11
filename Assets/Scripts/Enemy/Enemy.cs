@@ -54,6 +54,7 @@ public class Enemy : MonoBehaviourPun
     public PlayerController[] AllPlayers;
     private Sequence sequence;
     private int indexBomb = 0;
+    PlayerController minDistancePlayer;
     private void Start()
     {
         healthBar.InitializedEnemy(enemyName, maxHP);
@@ -66,7 +67,7 @@ public class Enemy : MonoBehaviourPun
     {
         if (!PhotonNetwork.IsMasterClient)
             return;
-        
+
         if (targetPlayer != null)
         {
             float face = targetPlayer.transform.position.x - transform.position.x;
@@ -80,19 +81,20 @@ public class Enemy : MonoBehaviourPun
                 photonView.RPC("FlipLeft", RpcTarget.All);
             }
 
-            if(dist < attackRange && Time.time - lastattackTime >= attackrate)
+            if (dist < attackRange && Time.time - lastattackTime >= attackrate)
             {
-                
-                if(type == EnemyType.Death)
+
+                if (type == EnemyType.Death)
                 {
                     Attack();
                 }
-                if(type == EnemyType.Knight && (targetPlayer.transform.position.y < gameObject.transform.position.y + 0.5f && targetPlayer.transform.position.y > gameObject.transform.position.y - 0.5f))
+                if (type == EnemyType.Knight && (targetPlayer.transform.position.y < gameObject.transform.position.y + 0.5f && targetPlayer.transform.position.y > gameObject.transform.position.y - 0.5f))
                 {
                     StartCoroutine(CastFire());
                 }
-                else {
-                    if (!targetPlayer.dead)
+                else
+                {
+                    if (!targetPlayer.dead && type == EnemyType.Knight)
                     {
                         Walk();
                     }
@@ -100,28 +102,29 @@ public class Enemy : MonoBehaviourPun
                 }
 
             }
-            else if(dist > attackRange && type != EnemyType.Boss){
+            else if (dist >= attackRange && type != EnemyType.Boss)
+            {
                 if (!targetPlayer.dead)
                 {
                     Walk();
-                }      
+                }
             }
             else
             {
                 Stand();
             }
         }
-        DetectPlayer();
-        if (GameUI.instance.TimeLeft == 8 && !GameUI.instance.wasBossDie)
-        {
-            AudioManager.instance.PlaySFX(21);
+            DetectPlayer();
+            if (GameUI.instance.TimeLeft == 8 && !GameUI.instance.wasBossDie)
+            {
+                AudioManager.instance.PlaySFX(21);
 
-        }
-        if (GameUI.instance.TimeLeft == 0 && !GameUI.instance.wasBossDie)
-        {
-            photonView.RPC("DefeatInfo", RpcTarget.All);
+            }
+            if (GameUI.instance.TimeLeft == 0 && !GameUI.instance.wasBossDie)
+            {
+                photonView.RPC("DefeatInfo", RpcTarget.All);
 
-        }
+            }
         
     }
     [PunRPC]
@@ -272,32 +275,42 @@ public class Enemy : MonoBehaviourPun
     }
 
     void determineTargetPlayer()
-    {
-        foreach (PlayerController player in GameManager.instance.players)
         {
-            if(player != null)
+
+            dist = 10000000;
+            foreach (PlayerController player in GameManager.instance.players)
             {
-                dist = Vector2.Distance(transform.position, player.transform.position);
-
-                if (player == targetPlayer && !player.dead)
-                {
-                    if (dist > chaseRange)
+            if (player != null)
+            {
+                float distance = Vector2.Distance(transform.position, player.transform.position);
+                
+                    if (dist > distance)
                     {
-                        targetPlayer = null;
-                        Stand();
+                        dist = distance;
+                        minDistancePlayer = player;
                     }
-                }
-                else if (dist < chaseRange)
-                {
-                    if (targetPlayer == null && !targetPlayer)
-                    {
-                        targetPlayer = player;
-                    }
-
                 }
             }
             
-        }
+            if (minDistancePlayer == targetPlayer && !minDistancePlayer.dead)
+            {
+                if (dist > chaseRange)
+                {
+                    targetPlayer = null;
+                    Stand();
+                }
+            
+            }
+            else if (dist <= chaseRange)
+            {
+            if (targetPlayer == null && !minDistancePlayer.dead)
+            {
+                targetPlayer = minDistancePlayer;
+            }
+            }
+
+
+
     }
 
     [PunRPC]

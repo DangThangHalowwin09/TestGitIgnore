@@ -2708,8 +2708,8 @@ MonoBehaviour:
   damage: 200
   def: 0
   attackRange: 2
-  attackDelay: 0.5
-  lastAttackTime: 0.5
+  attackDelay: 0.75
+  lastAttackTime: 0.75
   id: 0
   playerAnim: {fileID: 8288020763683522264}
   rig: {fileID: 8288020763683522267}
