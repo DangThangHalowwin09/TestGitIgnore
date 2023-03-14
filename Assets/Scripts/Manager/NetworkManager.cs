@@ -53,7 +53,6 @@ public class NetworkManager : MonoBehaviourPunCallbacks
   
     public override void OnDisconnected(DisconnectCause cause)
     {
-        Debug.Log("Thang111");
         StartCoroutine(Leave());
     }
 
@@ -63,13 +62,11 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     }
     IEnumerator Leave()
     {
-        Debug.Log("222");
         while (PhotonNetwork.InRoom) yield return null;
         PhotonNetwork.LoadLevel("MenuGame");
         Destroy(gameObject);
     }
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
-        Debug.Log("111");
     }
 }

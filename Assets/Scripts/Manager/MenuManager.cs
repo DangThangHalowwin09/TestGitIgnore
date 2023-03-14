@@ -59,7 +59,7 @@ public class MenuManager : MonoBehaviourPunCallbacks, ILobbyCallbacks
             PhotonNetwork.CurrentRoom.IsVisible = true;
             PhotonNetwork.CurrentRoom.IsOpen = true;
         }
-        //PlayerPrefs.DeleteKey("Name");
+        PlayerPrefs.DeleteKey("Name");
         if (PlayerPrefs.HasKey("Name"))
         {
             playerName = PlayerPrefs.GetString("Name");
