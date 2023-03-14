@@ -26,7 +26,11 @@ public class PlayerSelector : MonoBehaviour
         }
         else
         {
-            gold = 0;
+            gold = 10000;
+            PlayerPrefs.SetInt("Gold", 10000);
+            PlayerPrefs.SetInt("Attack", 50);
+            PlayerPrefs.SetInt("Def", 50);
+            PlayerPrefs.SetInt("MaxHP", 200);
         }
         if (PlayerPrefs.HasKey("SelectedCharacter")){
             selectedCharacter = PlayerPrefs.GetInt("SelectedCharacter");

@@ -12,7 +12,7 @@ public enum AttackType
     Warrior,
     Magicer
 }
-public class PlayerController : MonoBehaviourPun, IPunObservable 
+public class PlayerController : MonoBehaviourPun
 {
     public AttackType type;
     public GameObject magicRight;
@@ -77,7 +77,10 @@ public class PlayerController : MonoBehaviourPun, IPunObservable
 
         if (PlayerPrefs.HasKey("Attack"))
         {
+            PlayerPrefs.DeleteKey("Attack");
+            PlayerPrefs.SetInt("Attack", 50);
             damage += PlayerPrefs.GetInt("Attack");
+            Debug.Log(damage);
         }
         GameUI.instance.UpdateAdText(damage);
 
@@ -389,6 +392,7 @@ public class PlayerController : MonoBehaviourPun, IPunObservable
         {
             AudioManager.instance.PlaySFX(9);
             damage++;
+            Debug.Log(damage);
             PlayerPrefs.SetInt("Attack", damage);
             gold -= itemPrice;
             PlayerPrefs.SetInt("Gold", gold);
@@ -401,6 +405,7 @@ public class PlayerController : MonoBehaviourPun, IPunObservable
     {
         if (gold >= itemPrice)
         {
+            AudioManager.instance.PlaySFX(9);
             def++;
             PlayerPrefs.SetInt("Def", def);
             gold -= itemPrice;
@@ -446,18 +451,4 @@ public class PlayerController : MonoBehaviourPun, IPunObservable
             AddHealth(5);
         }
     }
-
-   
-    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
-    {
-        if (stream.IsWriting)
-        {
-            //stream.SendNext(faceRight);
-        }
-        else
-        { 
-            //faceRight = (bool)stream.ReceiveNext();
-        }
-    }
-    
 }

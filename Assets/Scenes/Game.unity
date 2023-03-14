@@ -1288,7 +1288,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1957501821, guid: 8ff7bbca7e984cb4fa32337f6a2504a0, type: 3}
       propertyPath: sceneViewId
-      value: 1
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 15573680728213326, guid: 8ff7bbca7e984cb4fa32337f6a2504a0, type: 3}
       propertyPath: m_RootOrder
@@ -1376,7 +1376,7 @@ PrefabInstance:
       objectReference: {fileID: 2100862995}
     - target: {fileID: 4088531675484419953, guid: 8ff7bbca7e984cb4fa32337f6a2504a0, type: 3}
       propertyPath: TimeLeft
-      value: 30
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 4088531675484419953, guid: 8ff7bbca7e984cb4fa32337f6a2504a0, type: 3}
       propertyPath: WinNotif
@@ -2437,7 +2437,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9008387188471926232, guid: 1b0107c2dda06ae4a9d6b50d81afb164, type: 3}
       propertyPath: sceneViewId
-      value: 4
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9008387188471926233, guid: 1b0107c2dda06ae4a9d6b50d81afb164, type: 3}
       propertyPath: m_RootOrder

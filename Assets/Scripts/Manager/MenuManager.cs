@@ -46,6 +46,7 @@ public class MenuManager : MonoBehaviourPunCallbacks, ILobbyCallbacks
     public Button DecreaseMusic;
     public Button IncreaseSound;
     public Button DecreaseSound;
+    public int deleteOnce;
     // Start is called before the first frame update
     void Start()
     {
@@ -60,10 +61,12 @@ public class MenuManager : MonoBehaviourPunCallbacks, ILobbyCallbacks
             PhotonNetwork.CurrentRoom.IsOpen = true;
         }
         PlayerPrefs.DeleteKey("Name");
+        
         if (PlayerPrefs.HasKey("Name"))
         {
             playerName = PlayerPrefs.GetString("Name");
             PhotonNetwork.NickName = playerName;
+            UnityEngine.Debug.Log(PhotonNetwork.NickName);
             nameInput.SetActive(false);
         }
         else
@@ -149,7 +152,11 @@ public class MenuManager : MonoBehaviourPunCallbacks, ILobbyCallbacks
     {
         playerName = playerNameInput.text;
         if (playerName.Length >= 2)
+        {
             PlayerPrefs.SetString("Name", playerName);
+            PhotonNetwork.NickName = playerName;
+        }
+            
         AudioManager.instance.PlaySFX(1);
     }
 
@@ -174,7 +181,11 @@ public class MenuManager : MonoBehaviourPunCallbacks, ILobbyCallbacks
         startGameButton.interactable = PhotonNetwork.IsMasterClient;
         playerListText.text = "";
         foreach (Player player in PhotonNetwork.PlayerList)
+        {
             playerListText.text += player.NickName + "\n";
+            UnityEngine.Debug.Log(player.NickName);
+        }
+            
 
         roomInfoText.text = "<b> RoomName </b> \n" + PhotonNetwork.CurrentRoom.Name;
     }

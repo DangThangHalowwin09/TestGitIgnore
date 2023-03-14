@@ -138,4 +138,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: -5
   moveDir: {x: 1, y: 0}
-  damage: 10
+  damage: 60
