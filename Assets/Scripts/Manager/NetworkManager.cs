@@ -16,9 +16,10 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     {
         if (instance == null)
             instance = this;
-        else if(instance != this)
+        else
         {
             Destroy(gameObject);
+            instance = this;
         }
         DontDestroyOnLoad(gameObject);
     }

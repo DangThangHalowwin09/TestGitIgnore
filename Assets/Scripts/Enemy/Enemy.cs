@@ -228,8 +228,17 @@ public class Enemy : MonoBehaviourPun
     void Walk()
     {
         Vector3 dir = targetPlayer.transform.position - transform.position;
-        rb.velocity = dir.normalized * moveSpeed;
+        if (targetPlayer.transform.position.y <= 12)
+        {
+            rb.velocity = dir.normalized * moveSpeed;
+        }
+        else
+        {
+            rb.velocity = new Vector3(0, 0, 0);
+        }
+
         anim.SetBool("Walk", true);
+        
     }
     IEnumerator CastFire()
     {
