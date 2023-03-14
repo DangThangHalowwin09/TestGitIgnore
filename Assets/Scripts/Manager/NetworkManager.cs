@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using Photon.Pun.Demo.Asteroids;
+using Photon.Pun.UtilityScripts;
+
 public class NetworkManager : MonoBehaviourPunCallbacks
 {
     public int maxPlayers;
@@ -46,5 +49,34 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     {
         PhotonNetwork.LoadLevel(sceneName);
     }
-    
+
+    public override void OnDisconnected(DisconnectCause cause)
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("MenuGame");
+        Debug.Log("Thang111");
+    }
+
+    public override void OnLeftRoom()
+    {
+        PhotonNetwork.Disconnect();
+    }
+
+    public override void OnPlayerLeftRoom(Player otherPlayer)
+    {
+        Debug.Log("111");
+        
+    }
+    void EndOfGame()
+    {
+        if(GameUI.instance.countDownToNewGame == 0)
+            StartCoroutine(Leave());
+    }
+
+    IEnumerator Leave()
+    {
+        PhotonNetwork.LeaveRoom();
+        Debug.Log("222");
+        while (PhotonNetwork.InRoom) yield return null;
+    }
+
 }

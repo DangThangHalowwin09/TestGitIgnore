@@ -4,6 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Pun.Demo.Asteroids;
 using Photon.Realtime;
+using Photon.Pun.UtilityScripts;
 
 public class MagicBall : MonoBehaviourPun
 {
@@ -51,6 +52,6 @@ public class MagicBall : MonoBehaviourPun
     public void Initialized(int attackID, Player owner)
     {
         this.attackerId = attackID;
-        Owner = owner;
+        this.Owner = owner;
     }
 }

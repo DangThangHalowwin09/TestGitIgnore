@@ -2718,8 +2718,10 @@ MonoBehaviour:
   gold: 0
   currentHP: 10
   maxHP: 10
+  score: 0
   dead: 0
   headerInfo: {fileID: 1021172991682601483}
+  NickNamePlayer: 
   playerLevel: 1
   currentExp: 0
   maxExp: 500

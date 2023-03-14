@@ -7,6 +7,8 @@ using Photon.Pun.Demo.Cockpit;
 using Photon.Pun;
 using UnityEngine.SceneManagement;
 using Unity.VisualScripting;
+using Photon.Realtime;
+using Photon.Pun.UtilityScripts;
 
 public class GameUI : MonoBehaviour
 {
@@ -15,6 +17,7 @@ public class GameUI : MonoBehaviour
     public TextMeshProUGUI adText;
     public TextMeshProUGUI dfText;
     public TextMeshProUGUI levelText;
+    public TextMeshProUGUI score;
 
     public TextMeshProUGUI bestName;
     public TextMeshProUGUI bestScore;
@@ -22,24 +25,29 @@ public class GameUI : MonoBehaviour
     public TextMeshProUGUI firstRunnerName;
     public TextMeshProUGUI secondRunnerScore;
     public TextMeshProUGUI secondRunnerName;
-
+    
     public TextMeshProUGUI time;
     public TextMeshProUGUI countDown;
     public static GameUI instance;
-
+    public int countDownToNewGame = 5;
+    public int scoreCurrent = 0;
     public float TimeLeft;
     public float currentTime;
     public bool TimerOn;
     public bool oneSecond;
     public float timeASecond = 0;
+    
     public GameObject Notif;
     public GameObject win;
     public GameObject defeat;
     public GameObject winnerInfo;
     public GameObject firstRunnerInfo;
-    public GameObject SecondRunnerInfo;
+    public GameObject secondRunnerInfo;
+    public bool CheckOnce;
+    
     //public Dictionary<PlayerController[], int[]> = new ToMoney<PlayerController[], int[]>
-    public int[] MoneyPlayer;
+    const int MAX = 100; 
+    public int[] MoneyPlayer = new int[MAX];
     public bool wasBossDie;
     private void Awake()
     {
@@ -48,7 +56,17 @@ public class GameUI : MonoBehaviour
 
     private void Update()
     {
-      
+
+      if(TimeLeft == 0 && !CheckOnce)
+        {
+            PrepareStartGame();
+            CheckOnce = true;
+        }
+    }
+
+    void PrepareStartGame()
+    {
+        //countDownToNewGame = ;
     }
     public void UpdateTime(float Timeleft)
     {
@@ -80,7 +98,16 @@ public class GameUI : MonoBehaviour
         string s = (curXp * 100 / maxXp).ToString("F1");
         levelText.text = "" + s + "%";
     }
+    public void UpdateScoreText(int amount)
+    {
+        scoreCurrent += amount;
+        score.text = "" + scoreCurrent;
+    }
 
+    public void UpdateCountDownToNewGame(int newSecond)
+    {
+        countDown.text = "Start New Game After:" + newSecond + " Seconds";
+    }
     public void PlayAgain()
     {
         StartCoroutine(LeftRoom());
@@ -89,21 +116,5 @@ public class GameUI : MonoBehaviour
     {
         PhotonNetwork.LeaveRoom();
         while (PhotonNetwork.InRoom) yield return null;
-        SceneManager.LoadScene(0);
-        //PhotonNetwork.AutomaticallySyncScene = true;
-        //NetworkManager.instance.photonView.RPC("ChangeScene", RpcTarget.All, "MenuGame");
-       // yield return null;
-
-        /*PhotonNetwork.LeaveRoom();
-        while(PhotonNetwork.InRoom) yield return null;
-        PhotonNetwork.CurrentRoom.IsOpen = false;
-        PhotonNetwork.CurrentRoom.IsVisible = false;
-        if(PhotonNetwork.IsMasterClient)
-        {
-            PhotonNetwork.AutomaticallySyncScene = true;
-            NetworkManager.instance.photonView.RPC("ChangeScene", RpcTarget.All, "MenuGame");
-        }*/
-        
-        //Destroy(GameObject.Find("DDOL"));
     }
 }

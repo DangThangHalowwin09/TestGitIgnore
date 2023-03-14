@@ -5,6 +5,7 @@ using Photon.Pun;
 using Photon.Realtime;
 using System.Runtime.CompilerServices;
 using UnityEditor;
+using Photon.Pun.UtilityScripts;
 
 public enum AttackType
 {
@@ -37,9 +38,11 @@ public class PlayerController : MonoBehaviourPun, IPunObservable
     public int gold;
     public int currentHP;
     public int maxHP;
+    public int score;
     public bool dead;
     public static PlayerController me;
     public HeaderInformation headerInfo;
+    public string NickNamePlayer;
 
     public int playerLevel = 1;
     public int currentExp;
@@ -48,8 +51,12 @@ public class PlayerController : MonoBehaviourPun, IPunObservable
     [PunRPC]
     public void Initialized(Player player)
     {
+        NickNamePlayer = player.NickName;
         id = player.ActorNumber;
         photonPlayer = player;
+        player.SetScore(0);
+        score = player.GetScore();
+        GameUI.instance.UpdateScoreText(0);
         GameManager.instance.players[id - 1] = this;
         headerInfo.InitializedPlayer(playerLevel, player.NickName, maxHP);
 
@@ -94,6 +101,7 @@ public class PlayerController : MonoBehaviourPun, IPunObservable
         GameUI.instance.UpdateHPText(currentHP, maxHP);
         GameUI.instance.UpdateLevelText(currentExp, maxExp);
 
+        
         if (player.IsLocal)
             me = this;
         else
@@ -144,6 +152,19 @@ public class PlayerController : MonoBehaviourPun, IPunObservable
                 Debug.Log("Time is up");
                 GameUI.instance.TimeLeft = 0;
                 GameUI.instance.TimerOn = false;
+                DieAtEnd();
+            }
+        }
+        else
+        {
+            if (GameUI.instance.countDownToNewGame > 0 && GameUI.instance.oneSecond)
+            {
+                GameUI.instance.countDownToNewGame -= 1;
+                GameUI.instance.UpdateCountDownToNewGame(GameUI.instance.countDownToNewGame);
+                if (GameUI.instance.countDownToNewGame == 0)
+                {
+                    PhotonNetwork.LeaveRoom();
+                }
             }
         }
     }
@@ -219,22 +240,25 @@ public class PlayerController : MonoBehaviourPun, IPunObservable
             {
                 Enemy enemy = hit.collider.GetComponent<Enemy>();
                 enemy.photonView.RPC("TakeDamage", RpcTarget.MasterClient, this.warriorID, damage);
-            }   
+                
+            }
         }
         else
         {
             RaycastHit2D hit = Physics2D.Raycast(attackPointLeft.position, transform.forward, attackRange);
             initializeAttack(id, photonView.IsMine);
-            if (hit.collider != null  && hit.collider.gameObject.CompareTag("Enemy") && isMine)
+            if (hit.collider != null && hit.collider.gameObject.CompareTag("Enemy") && isMine)
             {
                 Enemy enemy = hit.collider.GetComponent<Enemy>();
                 enemy.photonView.RPC("TakeDamage", RpcTarget.MasterClient, this.warriorID, damage);
+               
             }
         }
-
         playerAnim.SetTrigger("Attack");
         AudioManager.instance.PlaySFX(10);      
     }
+
+    
 
     [PunRPC]
     void FlipRight()
@@ -288,6 +312,12 @@ public class PlayerController : MonoBehaviourPun, IPunObservable
         
         Vector3 spawnPos = GameManager.instance.spawnPoint[Random.Range(0, GameManager.instance.spawnPoint.Length)].position;
         StartCoroutine(Spawn(spawnPos, GameManager.instance.respawnTime));
+    }
+    void DieAtEnd()
+    {
+        dead = true;
+        rig.isKinematic = true;
+        transform.position = new Vector3(0, 900, -900);
     }
 
     IEnumerator Spawn(Vector3 SpawnPos, float timeToSpawn)
@@ -429,4 +459,5 @@ public class PlayerController : MonoBehaviourPun, IPunObservable
             //faceRight = (bool)stream.ReceiveNext();
         }
     }
+    
 }

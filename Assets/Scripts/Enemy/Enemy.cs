@@ -10,9 +10,14 @@ using Photon.Realtime;
 using DG.Tweening;
 using System.Linq;
 using Newtonsoft.Json.Linq;
+using Photon.Pun.UtilityScripts;
+using JetBrains.Annotations;
+using UnityEngine.SocialPlatforms.Impl;
+
 
 public class Enemy : MonoBehaviourPun
 {
+    public Player Owner { get; private set; }
     public enum EnemyType
     {
         Knight,
@@ -55,6 +60,14 @@ public class Enemy : MonoBehaviourPun
     private Sequence sequence;
     private int indexBomb = 0;
     PlayerController minDistancePlayer;
+    bool PlayOnce = false;
+    bool ShowOnce = false;
+
+    private float bestSco = -1000;
+    private float secondSco = -1000;
+    private float thirdSco = -1000;
+    private int bestInd, secondInd, thirdIndex;
+    private Player winner, firstRunner, secondRunner;
     private void Start()
     {
         healthBar.InitializedEnemy(enemyName, maxHP);
@@ -115,17 +128,17 @@ public class Enemy : MonoBehaviourPun
             }
         }
             DetectPlayer();
-            if (GameUI.instance.TimeLeft == 8 && !GameUI.instance.wasBossDie)
+             
+        if (GameUI.instance.TimeLeft == 8 && !GameUI.instance.wasBossDie && PlayOnce == false)
             {
                 AudioManager.instance.PlaySFX(21);
-
+                PlayOnce = true;
             }
-            if (GameUI.instance.TimeLeft == 0 && !GameUI.instance.wasBossDie)
+        if (GameUI.instance.TimeLeft == 0 && !GameUI.instance.wasBossDie && ShowOnce == false)
             {
                 photonView.RPC("DefeatInfo", RpcTarget.All);
-
+            ShowOnce = true;
             }
-        
     }
     [PunRPC]
     void WinInfo()
@@ -133,7 +146,7 @@ public class Enemy : MonoBehaviourPun
         GameUI.instance.Notif.SetActive(true);
         GameUI.instance.win.SetActive(true);
         GameUI.instance.defeat.SetActive(false);
-        //GetRank();
+        GetRank2();
     }
     [PunRPC]
     void DefeatInfo()
@@ -141,35 +154,60 @@ public class Enemy : MonoBehaviourPun
         GameUI.instance.Notif.SetActive(true);
         GameUI.instance.win.SetActive(false);
         GameUI.instance.defeat.SetActive(true);
-        //GetRank();
+        GetRank2();
     }
-
-    void GetRank()
-    {
-        for (int i = 0; i < GameManager.instance.players.Length; i++)
-        {
-            GameUI.instance.MoneyPlayer[i] = GameManager.instance.players[i].gold; 
-        }
-            for (int i = 0; i< GameManager.instance.players.Length; i++)
-        {
-            if(GameManager.instance.players.Length >= 1)
-            {
-                GameUI.instance.winnerInfo.SetActive(true);
-                GameUI.instance.SecondRunnerInfo.SetActive(false);
-                GameUI.instance.firstRunnerInfo.SetActive(false);
-                GameUI.instance.win.SetActive(true);
-                int max = GameUI.instance.MoneyPlayer.Max();
-                GameUI.instance.bestScore.text = "" + max.ToString();
-                int maxIndex = Array.IndexOf(GameUI.instance.MoneyPlayer, max);
-                GameUI.instance.bestName.text = "" + GameManager.instance.players[maxIndex].name;
-
-            }   
-        }
-    }
-    void ReturnRoom()
+    void GetRank2()
     {
         
+        foreach (Player p in PhotonNetwork.PlayerList)
+        {     
+            if (bestSco <= p.GetScore())
+            {
+                bestSco = p.GetScore();
+                GameUI.instance.bestScore.text = "" + bestSco;
+                GameUI.instance.bestName.text = "" + p.NickName;
+                winner = p;
+            }
+            GameUI.instance.winnerInfo.SetActive(true);
+        }
+        
+        if (GameManager.instance.players.Length >= 2)
+        {
+            foreach (Player p in PhotonNetwork.PlayerList)
+            {
+                if (secondSco <= p.GetScore() && p != winner)
+                {
+                    secondSco = p.GetScore();
+                    GameUI.instance.firstRunnerScore.text = "" + secondSco;
+                    GameUI.instance.firstRunnerName.text = "" + p.NickName;
+                    firstRunner = p;
+                }
+                GameUI.instance.firstRunnerInfo.SetActive(true);
+            }
+               
+        }
+
+        if (GameManager.instance.players.Length >= 3)
+        {
+            foreach (Player p in PhotonNetwork.PlayerList)
+            {
+                if (thirdSco <= p.GetScore() && p != winner && p!= firstRunner)
+                {
+                    thirdSco = p.GetScore();
+                    GameUI.instance.secondRunnerScore.text = "" + thirdSco;
+                    GameUI.instance.secondRunnerName.text = "" + p.NickName;
+                }
+                GameUI.instance.secondRunnerInfo.SetActive(true);
+            }
+        }
+        
+
     }
+    void DestroyPlayer()
+    {
+
+    }
+    
     [PunRPC]
     void FlipRight()
     {
@@ -291,8 +329,8 @@ public class Enemy : MonoBehaviourPun
                     }
                 }
             }
-            
-            if (minDistancePlayer == targetPlayer && !minDistancePlayer.dead)
+
+        if (minDistancePlayer != null && targetPlayer != null && minDistancePlayer == targetPlayer && !minDistancePlayer.dead)
             {
                 if (dist > chaseRange)
                 {
@@ -363,8 +401,9 @@ public class Enemy : MonoBehaviourPun
     void Die()
     {
         PlayerController player = GameManager.instance.GetPlayer(curAttackerID);
+        Owner = player.photonPlayer;
         GameManager.instance.GetPlayer(curAttackerID).photonView.RPC("EarnExp", player.photonPlayer, xpToGive);
-        
+        AddScore(Owner);
         PhotonNetwork.Instantiate(death, transform.position, Quaternion.identity);
         System.Random rand = new System.Random();
         if(objectTospawnOnDeath != null)
@@ -374,7 +413,6 @@ public class Enemy : MonoBehaviourPun
         {
             GameUI.instance.wasBossDie = true;
             photonView.RPC("WinInfo", RpcTarget.All);
-
         }
         PhotonNetwork.Destroy(gameObject);
     }
@@ -388,4 +426,35 @@ public class Enemy : MonoBehaviourPun
         AudioManager.instance.PlaySFX(19);
         PhotonNetwork.Destroy(gameObject);
     }
+
+    void AddScore(Player p)
+    {
+        if (type == EnemyType.Death)
+        {
+           
+            p.AddScore(20);
+            p.GetScore();
+            int score = p.GetScore();
+            GameUI.instance.UpdateScoreText(20);
+        }
+
+        else if (type == EnemyType.Knight)
+        {
+            
+            p.AddScore(50);
+            GameUI.instance.UpdateScoreText(50);
+        }
+
+        else
+        {
+            p.AddScore(100);
+            int score = p.GetScore();
+            GameUI.instance.UpdateScoreText(100);
+        }
+    }
+    public void Initialized( Player owner)
+    {
+        this.Owner = owner;
+    }
+    
 }
