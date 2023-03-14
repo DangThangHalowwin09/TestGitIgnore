@@ -129,7 +129,7 @@ public class Enemy : MonoBehaviourPun
         }
             DetectPlayer();
              
-        if (GameUI.instance.TimeLeft == 8 && !GameUI.instance.wasBossDie && PlayOnce == false)
+        if (GameUI.instance.TimeLeft == 10 && !GameUI.instance.wasBossDie && PlayOnce == false)
             {
                 AudioManager.instance.PlaySFX(21);
                 PlayOnce = true;

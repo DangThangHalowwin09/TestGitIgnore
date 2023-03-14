@@ -14,13 +14,14 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
     public void Awake()
     {
-        if (instance != null && instance != this)
-            gameObject.SetActive(false);
-        else
+        if (NetworkManager.instance == null)
+            NetworkManager.instance = this;
+        else if (NetworkManager.instance != this)
         {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
+            Destroy(NetworkManager.instance);
+            NetworkManager.instance = this;
         }
+        DontDestroyOnLoad(gameObject);
     }
     // Start is called before the first frame update
     void Start()
@@ -49,34 +50,26 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     {
         PhotonNetwork.LoadLevel(sceneName);
     }
-
+  
     public override void OnDisconnected(DisconnectCause cause)
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("MenuGame");
         Debug.Log("Thang111");
+        StartCoroutine(Leave());
     }
 
     public override void OnLeftRoom()
     {
         PhotonNetwork.Disconnect();
     }
-
+    IEnumerator Leave()
+    {
+        Debug.Log("222");
+        while (PhotonNetwork.InRoom) yield return null;
+        PhotonNetwork.LoadLevel("MenuGame");
+        Destroy(NetworkManager.instance.gameObject);
+    }
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
         Debug.Log("111");
-        
     }
-    void EndOfGame()
-    {
-        if(GameUI.instance.countDownToNewGame == 0)
-            StartCoroutine(Leave());
-    }
-
-    IEnumerator Leave()
-    {
-        PhotonNetwork.LeaveRoom();
-        Debug.Log("222");
-        while (PhotonNetwork.InRoom) yield return null;
-    }
-
 }

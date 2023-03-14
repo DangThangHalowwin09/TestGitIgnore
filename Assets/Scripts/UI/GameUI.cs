@@ -54,20 +54,6 @@ public class GameUI : MonoBehaviour
         instance = this;
     }
 
-    private void Update()
-    {
-
-      if(TimeLeft == 0 && !CheckOnce)
-        {
-            PrepareStartGame();
-            CheckOnce = true;
-        }
-    }
-
-    void PrepareStartGame()
-    {
-        //countDownToNewGame = ;
-    }
     public void UpdateTime(float Timeleft)
     {
         currentTime += 1;
@@ -107,14 +93,5 @@ public class GameUI : MonoBehaviour
     public void UpdateCountDownToNewGame(int newSecond)
     {
         countDown.text = "Start New Game After:" + newSecond + " Seconds";
-    }
-    public void PlayAgain()
-    {
-        StartCoroutine(LeftRoom());
-    }
-    IEnumerator LeftRoom()
-    {
-        PhotonNetwork.LeaveRoom();
-        while (PhotonNetwork.InRoom) yield return null;
     }
 }
