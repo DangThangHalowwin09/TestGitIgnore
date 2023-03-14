@@ -136,7 +136,7 @@ public class MenuManager : MonoBehaviourPunCallbacks, ILobbyCallbacks
 
     public void OnCreateRoom(TMP_InputField roomNameInput)
     {
-        if (PhotonNetwork.NickName.Length < 2)
+        if (roomNameInput.text.Length < 2)
         {
             return;
         }

@@ -164,7 +164,6 @@ public class PlayerController : MonoBehaviourPun, IPunObservable
                 if (GameUI.instance.countDownToNewGame == 0)
                 {
                     PhotonNetwork.LeaveRoom();
-                    //Destroy(NetworkManager.instance.gameObject);
                 }
             }
         }

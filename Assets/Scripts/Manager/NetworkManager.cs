@@ -14,12 +14,11 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
     public void Awake()
     {
-        if (NetworkManager.instance == null)
-            NetworkManager.instance = this;
-        else if (NetworkManager.instance != this)
+        if (instance == null)
+            instance = this;
+        else if(instance != this)
         {
-            Destroy(NetworkManager.instance);
-            NetworkManager.instance = this;
+            Destroy(gameObject);
         }
         DontDestroyOnLoad(gameObject);
     }
@@ -66,7 +65,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         Debug.Log("222");
         while (PhotonNetwork.InRoom) yield return null;
         PhotonNetwork.LoadLevel("MenuGame");
-        Destroy(NetworkManager.instance.gameObject);
+        Destroy(gameObject);
     }
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
