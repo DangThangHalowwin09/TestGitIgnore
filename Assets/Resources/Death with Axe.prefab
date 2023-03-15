@@ -260,7 +260,7 @@ MonoBehaviour:
   - Potion
   - Potion
   faceRight: 0
-  damage: 70
+  damage: 60
   attackrate: 1
   healthBar: {fileID: 7162903927754168277}
   sr: {fileID: 3036619449771756872}

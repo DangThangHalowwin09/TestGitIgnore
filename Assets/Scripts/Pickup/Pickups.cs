@@ -23,7 +23,7 @@ public class Pickups : MonoBehaviourPun
     PlayerController playerForCoin;
     private void Update()
     {
-        if (magnetOn)
+        if (magnetOn && playerForCoin != null)
         {
             transform.position = Vector2.MoveTowards(transform.position, playerForCoin.transform.position, speed*Time.deltaTime);
         }

@@ -14,6 +14,7 @@ public class Bomb : MonoBehaviour
     private Rigidbody2D rb;
     public int damage;
     public int index;
+    public bool destroyed;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,8 +25,12 @@ public class Bomb : MonoBehaviour
     IEnumerator DoParticalBomb()
     {
         yield return new WaitForSeconds(1.1f);
-        PhotonNetwork.Instantiate("Explosion1", transform.position, Quaternion.identity);
-        DestroyObject();
+        if(!destroyed)
+        {
+            PhotonNetwork.Instantiate("Explosion1", transform.position, Quaternion.identity);
+            DestroyObject();
+        }
+        
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -35,6 +40,7 @@ public class Bomb : MonoBehaviour
             PhotonNetwork.Instantiate("Explosion1", transform.position, Quaternion.identity);
             PlayerController player = other.gameObject.GetComponent<PlayerController>();
             DestroyObject();
+            destroyed = true;
             player.photonView.RPC("Hurt", player.photonPlayer, damage);
         }
         if (other.CompareTag("Enemy"))
@@ -47,6 +53,7 @@ public class Bomb : MonoBehaviour
                 enemy.photonView.RPC("DieByBomb", RpcTarget.MasterClient);
                 StartCoroutine(DoBoom());
             }
+            destroyed = true;
         }
     }
     void DestroyObject()

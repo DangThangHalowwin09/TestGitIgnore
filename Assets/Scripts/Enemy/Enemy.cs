@@ -270,12 +270,14 @@ public class Enemy : MonoBehaviourPun
     }
     void SpawnBomb(int index)
     {
-        indexBomb++;
+        
         foreach (PlayerController player in GameManager.instance.players)
         {
-            if (player != null)
+            
+            if (player != null && !player.dead)
             {
                 GameObject bulletObj = Instantiate(bomb, transform.position, Quaternion.identity);
+                index++;
                 bulletObj.transform.DOJump(player.transform.position, 5, 1, 1).SetEase(Ease.Linear).SetId(index);
                 Bomb bulletScript = bulletObj.GetComponent<Bomb>();
                 bulletScript.index = index;
@@ -289,9 +291,9 @@ public class Enemy : MonoBehaviourPun
        
     }
     IEnumerator SpawnBombIE()
-    {
-
-        SpawnBomb(indexBomb++);
+    { 
+        SpawnBomb(indexBomb);
+        indexBomb = indexBomb + 10;
         yield return new WaitForSeconds(0f);
     }
     void initializeAttack(int attackID, bool isMine)

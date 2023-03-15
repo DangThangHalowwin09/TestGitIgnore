@@ -88,7 +88,7 @@ public class PlayerSelector : MonoBehaviour
         selectButton.SetActive(false);
         mainScreen.SetActive(true);
         changeButton.SetActive(true);
-        AudioManager.instance.PlaySFX(3);
+        AudioManager.instance.PlaySFX(1);
     }
     public void ChangeHero(int amount)
     {

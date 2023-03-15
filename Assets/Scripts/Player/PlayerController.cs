@@ -6,13 +6,14 @@ using Photon.Realtime;
 using System.Runtime.CompilerServices;
 using UnityEditor;
 using Photon.Pun.UtilityScripts;
+using Photon.Voice.Unity;
 
 public enum AttackType
 {
     Warrior,
     Magicer
 }
-public class PlayerController : MonoBehaviourPun
+public class PlayerController : MonoBehaviourPun, IPunObservable
 {
     public AttackType type;
     public GameObject magicRight;
@@ -48,6 +49,7 @@ public class PlayerController : MonoBehaviourPun
     public int currentExp;
     public int maxExp = 500;
     public string levelUpEffect = "levelEffect";
+   
     [PunRPC]
     public void Initialized(Player player)
     {
@@ -166,6 +168,7 @@ public class PlayerController : MonoBehaviourPun
                 GameUI.instance.UpdateCountDownToNewGame(GameUI.instance.countDownToNewGame);
                 if (GameUI.instance.countDownToNewGame == 0)
                 {
+                    
                     PhotonNetwork.LeaveRoom();
                 }
             }
@@ -449,6 +452,17 @@ public class PlayerController : MonoBehaviourPun
             PlayerPrefs.SetInt("Attack", damage);
             GameUI.instance.UpdateAdText(damage);
             AddHealth(5);
+        }
+    }
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            //stream.SendNext(faceRight);
+        }
+        else
+        {
+            //faceRight = (bool)stream.ReceiveNext();
         }
     }
 }

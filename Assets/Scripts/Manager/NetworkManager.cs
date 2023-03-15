@@ -5,13 +5,15 @@ using Photon.Pun;
 using Photon.Realtime;
 using Photon.Pun.Demo.Asteroids;
 using Photon.Pun.UtilityScripts;
+using Photon.Voice.Unity;
 
 public class NetworkManager : MonoBehaviourPunCallbacks
 {
     public int maxPlayers;
 
     public static NetworkManager instance;
-
+    public GameObject VoiceManager;
+    public GameObject VoiceLogger;
     public void Awake()
     {
         if (instance == null)
@@ -22,6 +24,8 @@ public class NetworkManager : MonoBehaviourPunCallbacks
             instance = this;
         }
         DontDestroyOnLoad(gameObject);
+        VoiceManager = GameObject.FindGameObjectWithTag("VoiceManager");
+        VoiceLogger = GameObject.FindGameObjectWithTag("VoiceLogger");
     }
     // Start is called before the first frame update
     void Start()
@@ -63,9 +67,13 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     IEnumerator Leave()
     {
         while (PhotonNetwork.InRoom) yield return null;
+        Destroy(VoiceManager);
+        Destroy(VoiceLogger);
         PhotonNetwork.LoadLevel("MenuGame");
         Destroy(gameObject);
     }
+    
+    
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
     }

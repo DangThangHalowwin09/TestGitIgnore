@@ -8,6 +8,8 @@ TagManager:
   - Block
   - Enemy
   - Shop
+  - VoiceLogger
+  - VoiceManager
   layers:
   - Default
   - TransparentFX

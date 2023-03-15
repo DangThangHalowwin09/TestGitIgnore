@@ -160,5 +160,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
-  damage: 70
+  damage: 10
   index: 0
+  destroyed: 0
